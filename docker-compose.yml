@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db/notilog
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - server_data:/app/data
+
+  client:
+    build: ./client
+    environment:
+      - SERVER_URL=http://server:8000
+    depends_on:
+      - server
+    volumes:
+      - client_data:/app/data
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: notilog
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6-alpine
+
+volumes:
+  server_data:
+  client_data:
+  db_data:
