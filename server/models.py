@@ -1,10 +1,6 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, Integer, String, Text, DateTime
 from datetime import datetime
-from .config import settings
-
-Base = declarative_base()
+from .database import Base  # Используем только Base, который не зависит от SessionLocal
 
 class Event(Base):
     __tablename__ = 'events'
@@ -14,10 +10,3 @@ class Event(Base):
     description = Column(Text)
     level = Column(String, index=True)
     timestamp = Column(DateTime, default=datetime.utcnow)
-
-# Настройка базы данных
-engine = create_engine(settings.DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-def init_db():
-    Base.metadata.create_all(bind=engine)

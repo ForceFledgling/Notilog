@@ -4,12 +4,12 @@ from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
-from .models import init_db, Event
-from .database import get_db  # Импортируем функцию get_db
+from .models import Event
+from .database import init_db, get_db, Base
 
 app = FastAPI()
 
-# Инициализируем базу данных
+# Инициализация базы данных
 init_db()
 
 # Настройка статики
