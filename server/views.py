@@ -22,7 +22,7 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 async def read_events(db: Session = Depends(get_db)):
     events = db.query(Event).all()
-    return f"""
+    html_content = """
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -44,18 +44,21 @@ async def read_events(db: Session = Depends(get_db)):
             </thead>
             <tbody>
     """
-    + "".join(f"""
+    for event in events:
+        html_content += f"""
                 <tr>
                     <td>{event.title}</td>
                     <td>{event.timestamp.strftime('%Y-%m-%d %H:%M:%S')}</td>
                     <td>{event.level}</td>
                     <td>{event.description}</td>
                 </tr>
-    """ for event in events) +
-    """
+        """
+    
+    html_content += """
             </tbody>
         </table>
         <script src="/static/js/script.js"></script>
     </body>
     </html>
     """
+    return HTMLResponse(content=html_content)
