@@ -2,7 +2,10 @@ from fastapi import FastAPI, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
-from .models import SessionLocal, init_db, Event
+from sqlalchemy import desc
+
+from .models import init_db, Event
+from .database import get_db  # Импортируем функцию get_db
 
 app = FastAPI()
 
@@ -12,34 +15,27 @@ init_db()
 # Настройка статики
 app.mount("/static", StaticFiles(directory="server/static"), name="static")
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 @app.get("/", response_class=HTMLResponse)
 async def read_events(db: Session = Depends(get_db)):
-    events = db.query(Event).all()
+    events = db.query(Event).order_by(desc(Event.timestamp)).all()
     html_content = """
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Events</title>
+        <title>NotiLog</title>
         <link rel="stylesheet" href="/static/css/styles.css">
     </head>
     <body>
-        <h1>Events</h1>
+        <h1>События</h1>
         <table>
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Timestamp</th>
-                    <th>Level</th>
-                    <th>Description</th>
+                    <th>Приложение</th>
+                    <th>Время события</th>
+                    <th>Уровень события</th>
+                    <th>Сообщение</th>
                 </tr>
             </thead>
             <tbody>
