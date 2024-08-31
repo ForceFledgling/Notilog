@@ -1,31 +1,17 @@
-from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
+from fastapi import FastAPI, Depends
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
-from .models import Event, SessionLocal, init_db
-from .config import settings
-from .notifications import send_notification
-from pydantic import BaseModel
-import celery
-
-from server.views import app
-from server.views import app as views_app
+from .models import SessionLocal, init_db, Event
 
 app = FastAPI()
 
-# Подключаем маршруты из views.py
-app.include_router(views_app.router)
+# Инициализируем базу данных
+init_db()
 
-# Монтируем статические файлы
+# Настройка статики
 app.mount("/static", StaticFiles(directory="server/static"), name="static")
 
-
-# Инициализация базы данных при запуске сервера
-@app.on_event("startup")
-def startup():
-    init_db()
-
-
-# Dependency для работы с сессиями БД
 def get_db():
     db = SessionLocal()
     try:
@@ -33,22 +19,46 @@ def get_db():
     finally:
         db.close()
 
-
-# Схема события
-class EventCreate(BaseModel):
-    title: str
-    description: str
-    level: str
-
-
-@app.post("/events/")
-def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
-    db_event = Event(title=event.title, description=event.description, level=event.level)
-    db.add(db_event)
-    db.commit()
-    db.refresh(db_event)
+@app.get("/", response_class=HTMLResponse)
+async def read_events(db: Session = Depends(get_db)):
+    events = db.query(Event).all()
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Events</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+    <body>
+        <h1>Events</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Timestamp</th>
+                    <th>Level</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+    """
+    for event in events:
+        html_content += f"""
+                <tr>
+                    <td>{event.title}</td>
+                    <td>{event.timestamp.strftime('%Y-%m-%d %H:%M:%S')}</td>
+                    <td>{event.level}</td>
+                    <td>{event.description}</td>
+                </tr>
+        """
     
-    # Запуск задачи по отправке уведомления
-    background_tasks.add_task(send_notification, db_event)
-    
-    return db_event
+    html_content += """
+            </tbody>
+        </table>
+        <script src="/static/js/script.js"></script>
+    </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content)

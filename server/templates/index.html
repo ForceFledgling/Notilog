@@ -4,11 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastAPI Template</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/styles.css') }}">
+    <title>Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
 </head>
 <body>
-    <h1>{{ message }}</h1>
+    <h1>Events</h1>
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>{{ event.title }}</strong><br>
+                <small>{{ event.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small><br>
+                Level: {{ event.level }}<br>
+                Description: {{ event.description }}<br>
+            </li>
+        {% endfor %}
+    </ul>
     <script src="{{ url_for('static', path='/js/script.js') }}"></script>
 </body>
 </html>
