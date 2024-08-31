@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from .models import Event, SessionLocal, init_db
 from .config import settings
@@ -6,12 +7,23 @@ from .notifications import send_notification
 from pydantic import BaseModel
 import celery
 
+from server.views import app
+from server.views import app as views_app
+
 app = FastAPI()
+
+# Подключаем маршруты из views.py
+app.include_router(views_app.router)
+
+# Монтируем статические файлы
+app.mount("/static", StaticFiles(directory="server/static"), name="static")
+
 
 # Инициализация базы данных при запуске сервера
 @app.on_event("startup")
 def startup():
     init_db()
+
 
 # Dependency для работы с сессиями БД
 def get_db():
@@ -21,11 +33,13 @@ def get_db():
     finally:
         db.close()
 
+
 # Схема события
 class EventCreate(BaseModel):
     title: str
     description: str
     level: str
+
 
 @app.post("/events/")
 def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
