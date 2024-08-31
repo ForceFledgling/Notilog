@@ -8,8 +8,22 @@ services:
     environment:
       - DATABASE_URL=postgresql://user:password@db/notilog
       - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
     depends_on:
       - db
+      - redis
+    volumes:
+      - server_data:/app/data
+
+  celery_worker:
+    build: ./server
+    command: celery -A server.celery_worker worker --loglevel=info
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/1
+      - DATABASE_URL=postgresql://user:password@db/notilog
+    depends_on:
+      - server
       - redis
     volumes:
       - server_data:/app/data
