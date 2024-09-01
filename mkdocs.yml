@@ -1,9 +1,24 @@
 site_name: NotiLog
-nav:
-  - Home: index.md
 
 theme:
   name: material
+  logo: assets/logo.svg
+  custom_dir: docs/overrides
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: amber
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
 
 plugins:
 - mkdocstrings:
@@ -12,6 +27,31 @@ plugins:
     handlers:
       python:
         options:
+          heading_level: 4
+          docstring_style: google
           show_source: true
           show_root_heading: true
           show_bases: false
+          show_inheritance_diagram: true
+          find_stubs_package: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
+
+nav:
+    - Home: index.md
+    - Installation:
+        - Overview: installation-guide/index.md
+    - Guides:
+        - Overview: sections-overview/guides.md
+        - Quickstart: quickstart-guide/index.md
+    - References:
+        - Overview: sections-overview/references.md
+        - Concepts:
+            - Overview: concepts/index.md
+    - How-to:
+        - Overview: sections-overview/howto.md
+        - Deploy: howto/deploy/index.md
+        - Backup: howto/backup/index.md

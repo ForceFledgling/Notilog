@@ -22,15 +22,22 @@ app.include_router(views_app.router)
 app.mount("/static", StaticFiles(directory="server/static"), name="static")
 
 
-# Схема события
 class EventCreate(BaseModel):
+    """
+    Модель для создания нового события.
+
+    Attributes:
+        title: Заголовок события. Описывает краткое название или тему события.
+        description: Описание события. Содержит подробное описание того, что произошло.
+        level: Уровень события. Определяет степень важности или приоритета события (например, 'info', 'warning', 'error').
+    """
     title: str
     description: str
     level: str
 
 
 @app.post("/events/")
-def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
+def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)) -> Event:
     db_event = Event(title=event.title, description=event.description, level=event.level)
     db.add(db_event)
     db.commit()
