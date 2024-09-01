@@ -1,5 +1,7 @@
 from pydantic_settings import BaseSettings
 from urllib.parse import quote_plus
+
+
 class Settings(BaseSettings):
     DATABASE_HOST: str
     DATABASE_NAME: str
@@ -29,5 +31,6 @@ class Settings(BaseSettings):
 
     class Config:
         env_file = ".env"
+
 
 settings = Settings()

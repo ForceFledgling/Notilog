@@ -3,7 +3,7 @@
 
 # Documentation for `EventCreate`
 
-::: server.api.EventCreate
+::: server.api.create_event
 
 # Test
 
