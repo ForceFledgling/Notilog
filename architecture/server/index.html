@@ -76,6 +76,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -331,6 +336,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Серверная часть
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -341,6 +359,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Введение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Технологический стек
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1001,6 +1065,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Введение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Технологический стек
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1015,9 +1116,46 @@
                   
 
 
-  <h1>Серверная часть</h1>
-
-
+<h1 id="_1">Архитектура серверной части</h1>
+<h2 id="_2">Введение</h2>
+<p>В этой части документации описывается архитектура серверной части приложения NotiLog. Серверная часть отвечает за обработку событий, управление базой данных и отправку уведомлений. Архитектура разработана для обеспечения масштабируемости, надежности и простоты в обслуживании.</p>
+<h2 id="_3">Основные компоненты</h2>
+<p><strong>Серверное приложение</strong></p>
+<p>Серверное приложение написано на Python с использованием фреймворка FastAPI. Оно обеспечивает основные API для взаимодействия с клиентами и обработки запросов. Основные функции включают:</p>
+<ul>
+<li>Создание и управление событиями.</li>
+<li>Обработка и хранение данных в базе данных.</li>
+<li>Запуск фоновых задач для обработки уведомлений.</li>
+</ul>
+<p><strong>База данных</strong></p>
+<p>Для хранения информации об событиях используется реляционная база данных. В проекте используется SQLAlchemy для ORM (Object-Relational Mapping). Основные операции включают:</p>
+<ul>
+<li>Создание и хранение записей о событиях.</li>
+<li>Выполнение запросов для извлечения и сортировки данных.</li>
+</ul>
+<p><strong>Фоновые задачи</strong></p>
+<p>Фоновые задачи используются для выполнения длительных операций асинхронно. Для этого используется Celery, что позволяет выполнять задачи в фоновом режиме без блокировки основного потока приложения. Примеры задач включают:</p>
+<ul>
+<li>Отправка уведомлений о новых событиях.</li>
+<li>Обработка данных и интеграция с внешними системами.</li>
+</ul>
+<p><strong>Маршрутизация и уведомления</strong></p>
+<p>Серверная часть поддерживает отправку уведомлений через различные каналы, такие как Kafka, Telegram и электронная почта. Это позволяет гибко настроить оповещения и интеграцию с различными системами. Основные функции маршрутизации уведомлений описаны в <code>server/notifications.py</code>.</p>
+<p><strong>Health Check</strong></p>
+<p>Серверное приложение включает функциональность проверки состояния процессов. Это обеспечивает раннее обнаружение проблем и их своевременное решение.</p>
+<blockquote>
+<p># TODO</p>
+</blockquote>
+<h2 id="_4">Технологический стек</h2>
+<ul>
+<li><strong>Python</strong> – язык программирования, используемый для написания серверной части.</li>
+<li><strong>FastAPI</strong> – фреймворк для создания API.</li>
+<li><strong>SQLAlchemy</strong> – ORM для работы с базой данных.</li>
+<li><strong>Celery</strong> – библиотека для управления фоновыми задачами.</li>
+<li><strong>Kafka</strong> – платформа для потоковой передачи данных.</li>
+<li><strong>Telegram API</strong> – для отправки сообщений через Telegram.</li>
+<li><strong>SMTP</strong> – для отправки электронных писем.</li>
+</ul>
 
 
 
