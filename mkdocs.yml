@@ -41,17 +41,32 @@ extra_javascript:
   - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 nav:
-    - Home: index.md
-    - Installation:
-        - Overview: installation-guide/index.md
-    - Guides:
-        - Overview: sections-overview/guides.md
-        - Quickstart: quickstart-guide/index.md
-    - References:
-        - Overview: sections-overview/references.md
-        - Concepts:
-            - Overview: concepts/index.md
-    - How-to:
-        - Overview: sections-overview/howto.md
-        - Deploy: howto/deploy/index.md
-        - Backup: howto/backup/index.md
+    - Главная: index.md
+    - О приложении:
+        - Обзор: about/index.md
+        - Архитектура:
+            - Обзор: architecture/index.md
+            - Серверная часть: architecture/server.md
+            - Клиентская часть: architecture/client.md
+    - Установка:
+        - Обзор: installation-guide/index.md
+        - Требования: installation-guide/requirements.md
+        - Руководство по установке: installation-guide/installation.md
+    - Руководства:
+        - Обзор: sections-overview/guides.md
+        - Быстрый старт: quickstart-guide/index.md
+        - Часто задаваемые вопросы (FAQ): guides/faq.md
+    - Справочные материалы:
+        - Обзор: sections-overview/references.md
+        - Концепции:
+            - Обзор: concepts/index.md
+            - Основные концепции: concepts/core.md
+            - Примеры использования: concepts/examples.md
+    - Как сделать:
+        - Обзор: sections-overview/howto.md
+        - Развертывание: howto/deploy/index.md
+        - Резервное копирование: howto/backup/index.md
+        - Обновление: howto/update/index.md
+    - Контакты:
+        - Поддержка: contact/support.md
+        - Внести предложение: contact/feedback.md
