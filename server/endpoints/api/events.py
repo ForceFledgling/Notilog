@@ -1,25 +1,13 @@
-from fastapi import FastAPI, Depends, HTTPException, BackgroundTasks
-from fastapi.staticfiles import StaticFiles
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-import celery
 
-from .models import Event
-from .database import get_db
-from .config import settings
-from .notifications import send_notification
-
-from server.views import app
-from server.views import app as views_app
+from server.models import Event
+from server.database import get_db
+from server.notifications import send_notification
 
 
-app = FastAPI()
-
-# Подключаем маршруты из views.py
-app.include_router(views_app.router)
-
-# Монтируем статические файлы
-app.mount("/static", StaticFiles(directory="server/static"), name="static")
+router = APIRouter()
 
 
 class EventCreate(BaseModel):
@@ -36,7 +24,7 @@ class EventCreate(BaseModel):
     level: str
 
 
-@app.post("/events/")
+@router.post("/events/")
 def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     """
     Создает новое событие и запускает фоновую задачу для отправки уведомления.
@@ -68,4 +56,3 @@ def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Sess
     background_tasks.add_task(send_notification, db_event)
     
     return db_event
-
