@@ -1,24 +1,27 @@
-<!-- server/templates/index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
-</head>
-<body>
-    <h1>Events</h1>
-    <ul>
+{% extends "base.html" %}
+
+{% block title %}События{% endblock %}
+
+{% block content %}
+<h1>События</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Приложение</th>
+            <th>Время события</th>
+            <th>Уровень события</th>
+            <th>Сообщение</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for event in events %}
-            <li>
-                <strong>{{ event.title }}</strong><br>
-                <small>{{ event.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small><br>
-                Level: {{ event.level }}<br>
-                Description: {{ event.description }}<br>
-            </li>
+        <tr>
+            <td>{{ event.title }}</td>
+            <td>{{ event.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ event.level }}</td>
+            <td>{{ event.description }}</td>
+        </tr>
         {% endfor %}
-    </ul>
-    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
-</body>
-</html>
+    </tbody>
+</table>
+{% endblock %}

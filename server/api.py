@@ -37,7 +37,7 @@ class EventCreate(BaseModel):
 
 
 @app.post("/events/")
-def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)) -> Event:
+def create_event(event: EventCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     """
     Создает новое событие и запускает фоновую задачу для отправки уведомления.
 
