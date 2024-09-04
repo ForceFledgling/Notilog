@@ -8,6 +8,8 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       primary: amber
+      # primary: blue-grey
+      accent: amber
       scheme: default
       toggle:
         icon: material/weather-sunny
@@ -16,9 +18,17 @@ theme:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: amber
+      # primary: blue-grey
+      accent: amber
       toggle:
         icon: material/weather-night
         name: Switch to light mode
+
+# extra_css:
+#   - overrides/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 plugins:
 - mkdocstrings:
@@ -36,9 +46,6 @@ plugins:
           find_stubs_package: true
           show_symbol_type_heading: true
           show_symbol_type_toc: true
-
-extra_javascript:
-  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 nav:
     - Главная: index.md
