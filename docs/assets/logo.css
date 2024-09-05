@@ -1,5 +1,5 @@
 .hero-container {
-    padding: 2rem 0;
+    padding: 2rem 0rem;
     background: url(horizon.svg),
         linear-gradient(180deg,
             var(--md-primary-fg-color),
@@ -9,6 +9,11 @@
     background-size: 101% auto;  /* 101 процент убирает щели svg по бокам */
     background-repeat: no-repeat;
     background-position: bottom;
+}
+
+.md-main {
+    margin: 0rem 0rem;
+    /* background-color: #332e3d; */
 }
 
 .mdx-hero {
