@@ -1,4 +1,19 @@
 site_name: NotiLog
+site_description: A service for receiving events, sending instant notifications, and incident escalation
+site_author: Vladimir Penzin
+site_url: https://www.notilog.ru/
+repo_url: https://github.com/ForceFledgling/notilog
+repo_name: github
+copyright: 2024, Vladimir Penzin
+
+extra:
+  version: "0.1"
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
 
 theme:
   name: material
@@ -24,28 +39,25 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
 
-# extra_css:
-#   - overrides/extra.css
-
-extra_javascript:
-  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
-
 plugins:
-- mkdocstrings:
-    enabled: true
-    default_handler: python
-    handlers:
-      python:
-        options:
-          heading_level: 4
-          docstring_style: google
-          show_source: true
-          show_root_heading: true
-          show_bases: false
-          show_inheritance_diagram: true
-          find_stubs_package: true
-          show_symbol_type_heading: true
-          show_symbol_type_toc: true
+  - macros:
+      module_name: macros
+      on_error_fail: true
+  - mkdocstrings:
+      enabled: true
+      default_handler: python
+      handlers:
+        python:
+          options:
+            heading_level: 4
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_bases: false
+            show_inheritance_diagram: true
+            find_stubs_package: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
 
 nav:
     - Главная: index.md
