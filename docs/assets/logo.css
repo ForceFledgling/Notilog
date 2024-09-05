@@ -28,16 +28,31 @@
     order: 1;
 }
 
+/* .hero-image img {
+    height: auto;
+    max-width: 90%;
+    animation: Sway 10s ease-in-out infinite;
+    filter: invert(10%);
+} */
+
 .hero-image img {
     height: auto;
     max-width: 90%;
     animation: Sway 10s ease-in-out infinite;
     filter: invert(10%);
+    display: block; /* По умолчанию изображение отображается */
 }
+
+.hero-image img.hidden {
+    display: none; /* Класс для скрытия изображения */
+}
+
+
 
 .hero-content {
     margin-top: 5rem;
     padding-bottom: 20vh;
+    padding-left: 2vh;
     text-align: left;
 }
 
