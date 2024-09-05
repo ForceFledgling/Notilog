@@ -30,8 +30,9 @@
 
 .hero-image img {
     height: auto;
-    max-width: 100%;
+    max-width: 90%;
     animation: Sway 10s ease-in-out infinite;
+    filter: invert(10%);
 }
 
 .hero-content {
