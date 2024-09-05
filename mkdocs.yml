@@ -23,8 +23,7 @@ theme:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       primary: amber
-      # primary: blue-grey
-      accent: amber
+      # accent: red
       scheme: default
       toggle:
         icon: material/weather-sunny
@@ -32,9 +31,27 @@ theme:
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: amber
-      # primary: blue-grey
-      accent: amber
+      
+      # primary: indigo
+      # accent: cyan
+
+      primary: yellow
+      accent: cyan
+
+      # primary: amber
+      # accent: cyan
+      
+      # primary: amber
+      # accent: deep-orange
+
+      # primary: amber
+      # accent: teal
+
+      # primary: yellow
+      # accent: teal
+
+      
+      
       toggle:
         icon: material/weather-night
         name: Switch to light mode
