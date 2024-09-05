@@ -5,7 +5,8 @@
             var(--md-primary-fg-color),
             var(--md-accent-fg-color) 99%,
             var(--md-default-bg-color) 0);
-    background-size: contain;
+    /* background-size: contain; */
+    background-size: 101% auto;  /* 101 процент убирает щели svg по бокам */
     background-repeat: no-repeat;
     background-position: bottom;
 }
