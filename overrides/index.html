@@ -1,11 +1,16 @@
-{% extends "main.html" %} {% block styles %} {{ super() }}
-<link rel="stylesheet" href="{{ '/assets/logo.css' | url }}" />
-{% endblock %} {% block hero %}
+{% extends "main.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ '/assets/logo.css' | url }}" />
+{% endblock %}
+
+{% block hero %}
 <section class="hero-container">
     <div class="md-grid md-typeset">
         <div class="mdx-hero">
             <div class="hero-image">
-                <img src="/assets/logo.svg" alt="Hero Image" draggable="false" />
+                <img id="heroImage" src="/assets/logo.svg" alt="Hero Image" draggable="false" />
             </div>
             <div class="hero-content">
                 <h1>{{ page.meta.hero.title }}</h1>
@@ -14,9 +19,8 @@
                     <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | e }}" class="md-button">
                         {{ page.meta.hero.install_button }}
                     </a>
-                    <a href="{{ config.repo_url }}" title="Source code" class="md-button" target="_blank">{{
-                        page.meta.hero.source_button
-                        }}
+                    <a href="{{ config.repo_url }}" title="Source code" class="md-button" target="_blank">
+                        {{ page.meta.hero.source_button }}
                     </a>
                 </div>
                 <div class="hero-version">
@@ -27,4 +31,26 @@
         </div>
     </div>
 </section>
-{{ super() }} {% endblock %}%
+
+<script>
+    window.addEventListener('resize', function() {
+        const img = document.getElementById('heroImage');
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        const imgHeight = img.clientHeight;
+        const imgWidth = img.clientWidth;
+
+        // Проверяем, занимает ли изображение 50% или больше высоты или ширины окна
+        if (imgHeight >= windowHeight * 0.7 || imgWidth >= windowWidth * 0.7) {
+            img.style.display = 'none';  // Скрываем изображение
+        } else {
+            img.style.display = 'block';  // Показываем изображение
+        }
+    });
+
+    // Запускаем проверку при первой загрузке страницы
+    window.dispatchEvent(new Event('resize'));
+</script>
+
+{{ super() }}
+{% endblock %}

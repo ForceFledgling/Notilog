@@ -27,7 +27,8 @@
         <title>NotiLog - NotiLog</title>
       
     
-     
+    
+    
       <link rel="stylesheet" href="assets/stylesheets/main.0e669242.min.css">
       
         
@@ -37,7 +38,7 @@
 
 
     
-<link rel="stylesheet" href="/assets/logo.css" />
+    <link rel="stylesheet" href="/assets/logo.css" />
 
     
       
@@ -182,7 +183,7 @@
     <div class="md-grid md-typeset">
         <div class="mdx-hero">
             <div class="hero-image">
-                <img src="/assets/logo.svg" alt="Hero Image" draggable="false" />
+                <img id="heroImage" src="/assets/logo.svg" alt="Hero Image" draggable="false" />
             </div>
             <div class="hero-content">
                 <h1>NotiLog</h1>
@@ -191,7 +192,8 @@
                     <a href="about/" title="Обзор" class="md-button">
                         Документация
                     </a>
-                    <a href="https://github.com/ForceFledgling/notilog" title="Source code" class="md-button" target="_blank">Исходный код
+                    <a href="https://github.com/ForceFledgling/notilog" title="Source code" class="md-button" target="_blank">
+                        Исходный код
                     </a>
                 </div>
                 <div class="hero-version">
@@ -201,7 +203,29 @@
         </div>
     </div>
 </section>
- 
+
+<script>
+    window.addEventListener('resize', function() {
+        const img = document.getElementById('heroImage');
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        const imgHeight = img.clientHeight;
+        const imgWidth = img.clientWidth;
+
+        // Проверяем, занимает ли изображение 50% или больше высоты или ширины окна
+        if (imgHeight >= windowHeight * 0.7 || imgWidth >= windowWidth * 0.7) {
+            img.style.display = 'none';  // Скрываем изображение
+        } else {
+            img.style.display = 'block';  // Показываем изображение
+        }
+    });
+
+    // Запускаем проверку при первой загрузке страницы
+    window.dispatchEvent(new Event('resize'));
+</script>
+
+
+
       
         
           
