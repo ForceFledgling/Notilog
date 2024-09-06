@@ -60,6 +60,7 @@ plugins:
 
 nav:
   - Главная: index.md
+  - Документация: docs/index.md
   - О приложении:
       - Обзор: docs/about/index.md
       - Архитектура:
