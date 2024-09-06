@@ -1,6 +1,6 @@
 ---
 template: index.html
-title: NotiLog
+title: Главная
 
 hide:
   - navigation  # меню слева
