@@ -79,7 +79,9 @@ highlights:
 
 NotiLog — это масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
 
-<hr>{{ show_highlights(page.meta.highlights) }}
+<hr>
+{{ show_highlights(page.meta.highlights) }}
+<hr>
 
 ## Структура документации
 
