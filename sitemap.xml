@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.notilog.ru/docs/</loc>
+         <lastmod>2024-09-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.notilog.ru/docs/about/</loc>
          <lastmod>2024-09-06</lastmod>
          <changefreq>daily</changefreq>
