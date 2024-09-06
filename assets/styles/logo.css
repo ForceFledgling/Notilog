@@ -1,5 +1,5 @@
 .hero-container {
-    padding: 2rem 0rem;
+    padding: 2rem 2rem;
     background: url(/assets/images/bubbles-dark.svg),
         linear-gradient(180deg,
             var(--md-primary-fg-color),
