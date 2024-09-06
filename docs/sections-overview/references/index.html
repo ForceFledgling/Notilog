@@ -12,40 +12,33 @@
         <meta name="author" content="Vladimir Penzin">
       
       
-        <link rel="canonical" href="https://www.notilog.ru/">
+        <link rel="canonical" href="https://www.notilog.ru/docs/sections-overview/references/">
       
       
+        <link rel="prev" href="../../guides/faq/">
       
-        <link rel="next" href="docs/about/">
+      
+        <link rel="next" href="../../concepts/">
       
       
-      <link rel="icon" href="assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.2.5">
     
     
       
-        <title>Главная - NotiLog</title>
+        <title>Обзор - NotiLog</title>
       
     
     
-    
-      <link rel="stylesheet" href="assets/stylesheets/main.0e669242.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0e669242.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
 
     
-    <link rel="stylesheet" href="/assets/styles/logo.css" />
-    <style>
-        /* Изначально скрываем изображение */
-        .hero-image img {
-            visibility: hidden;
-        }
-    </style>
-
     
       
     
@@ -59,11 +52,11 @@
       
     
     
-      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="assets/styles/extra.css">
+      <link rel="stylesheet" href="../../../assets/styles/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -91,11 +84,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -112,9 +100,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="NotiLog" class="md-header__button md-logo" aria-label="NotiLog" data-md-component="logo">
+    <a href="../../.." title="NotiLog" class="md-header__button md-logo" aria-label="NotiLog" data-md-component="logo">
       
-  <img src="assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -131,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Главная
+              Обзор
             
           </span>
         </div>
@@ -185,60 +173,6 @@
     
     <div class="md-container" data-md-component="container">
       
-<section class="hero-container">
-    <div class="md-grid md-typeset">
-        <div class="mdx-hero">
-            <div class="hero-image">
-                <img id="heroImage" src="/assets/images/logo.svg" alt="Hero Image" draggable="false" />
-            </div>
-            <div class="hero-content">
-                <h1>NotiLog</h1>
-                <p>Удобное решение для мониторинга служб и журналов событий, отправки мгновенных уведомлений и эскалации инцидентов. Поможет вам эффективно отслеживать и управлять важными событиями в ваших приложениях.</p>
-                <div class="hero-buttons">
-                    <a href="docs/about/" title="Обзор" class="md-button">
-                        Документация
-                    </a>
-                    <a href="https://github.com/ForceFledgling/notilog" title="Source code" class="md-button" target="_blank">
-                        Исходный код
-                    </a>
-                </div>
-                <div class="hero-version">
-                    <a href="releases/0_1/">Текущая версия: 0.1</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const img = document.getElementById('heroImage');
-
-        function checkImageSize() {
-            // Временно делаем изображение видимым для корректного измерения
-            img.style.visibility = 'visible';
-            img.style.display = 'block';
-
-            const windowHeight = window.innerHeight;
-            const windowWidth = window.innerWidth;
-            const imgHeight = img.clientHeight;
-            const imgWidth = img.clientWidth;
-
-            // Проверяем, занимает ли изображение 50% или больше высоты или ширины окна
-            if (imgHeight >= windowHeight * 0.7 || imgWidth >= windowWidth * 0.7) {
-                img.style.visibility = 'hidden';  // Скрываем изображение, если оно слишком большое
-                img.style.display = 'none';  // Скрываем изображение, если оно слишком большое
-            }
-        }
-
-        // Запускаем проверку при первой загрузке страницы и при изменении размеров окна
-        window.addEventListener('resize', checkImageSize);
-        checkImageSize(); // Проверка при первой загрузке
-    });
-</script>
-
-
-
       
         
           
@@ -249,9 +183,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -260,9 +192,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="NotiLog" class="md-nav__button md-logo" aria-label="NotiLog" data-md-component="logo">
+    <a href="../../.." title="NotiLog" class="md-nav__button md-logo" aria-label="NotiLog" data-md-component="logo">
       
-  <img src="assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     NotiLog
@@ -286,27 +218,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Главная
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -315,45 +229,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Структура документации
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Сообщество
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Лицензия
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -398,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -452,7 +327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -472,7 +347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/architecture/server/" class="md-nav__link">
+      <a href="../../architecture/server/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -492,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/architecture/client/" class="md-nav__link">
+      <a href="../../architecture/client/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/installation-guide/" class="md-nav__link">
+      <a href="../../installation-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/installation-guide/requirements/" class="md-nav__link">
+      <a href="../../installation-guide/requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/installation-guide/installation/" class="md-nav__link">
+      <a href="../../installation-guide/installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/sections-overview/guides/" class="md-nav__link">
+      <a href="../guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/quickstart-guide/" class="md-nav__link">
+      <a href="../../quickstart-guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/guides/faq/" class="md-nav__link">
+      <a href="../../guides/faq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -727,17 +602,19 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
@@ -750,7 +627,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Справочные материалы
@@ -761,9 +638,16 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="docs/sections-overview/references/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -772,6 +656,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -817,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -837,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/concepts/core/" class="md-nav__link">
+      <a href="../../concepts/core/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -857,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/concepts/examples/" class="md-nav__link">
+      <a href="../../concepts/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -926,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/sections-overview/howto/" class="md-nav__link">
+      <a href="../howto/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -946,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/howto/deploy/" class="md-nav__link">
+      <a href="../../howto/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -966,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/howto/backup/" class="md-nav__link">
+      <a href="../../howto/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -986,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/howto/update/" class="md-nav__link">
+      <a href="../../howto/update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/contact/support/" class="md-nav__link">
+      <a href="../../contact/support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1067,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/contact/feedback/" class="md-nav__link">
+      <a href="../../contact/feedback/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1096,9 +981,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1107,35 +990,6 @@
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Структура документации
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Сообщество
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Лицензия
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1153,102 +1007,11 @@
   
 
 
-  <h1>Главная</h1>
-
-<p>Добро пожаловать в NotiLog!</p>
-<p>NotiLog — это масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.</p>
-<hr>
-<section class='notilog-highlights-section'>
-<div class='notilog-highlights'>
-<div class='item'>
-<div class='title'>Открытый исходный код</div>
-<div class='text'>Распространяется по лицензии MIT, что делает систему полностью доступной для свободного использования, модификации и интеграции в любые проекты. Это гарантирует прозрачность всех процессов разработки и постоянное развитие системы с участием экспертов со всего мира, что повышает надёжность и актуальность решения в долгосрочной перспективе.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>ПРОСТОТА РАЗВЕРТЫВАНИЯ</div>
-<div class='text'>Быстро и легко разворачивается на различных платформах, включая облачные сервисы, виртуальные машины, контейнеры и локальная установка, что обеспечивают минимальные временные затраты на интеграцию системы в существующую IT-инфраструктуру. Встроенные скрипты автоматизации помогут вам быстро запустить сервис с минимальными усилиями, что особенно удобно для компаний с ограниченными ресурсами на техническую поддержку.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Легкая интеграция</div>
-<div class='text'>Легкая интеграция с другими системами и платформами позволяет улучшить взаимодействие и расширить функциональные возможности. NotiLog поддерживает работу с логами как из файлов, так и напрямую из баз данных, что значительно упрощает внедрение системы в уже существующую инфраструктуру. Возможность настройки кастомных HTTP-хендлеров делает продукт гибким и легко адаптируемым под ваши специфические требования.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Резервный сервер</div>
-<div class='text'>Использование нашего сервера, как резервного, позволяет вам оставаться в курсе событий, даже если основные логи временно недоступны. Это обеспечивает дополнительный уровень надёжности и готовности к любым инцидентам. Вы всегда будете в курсе того, что происходит с вашими приложениями и системами.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Serverless режим</div>
-<div class='text'>Поддерживает работу в serverless-режиме, позволяя незарегистрированным пользователям пользоваться базовыми функциями как гостям. Логи временно хранятся в облаке и автоматически удаляются после отправки уведомлений. Это гарантирует полную конфиденциальность данных и помогает эффективно управлять ресурсами. Serverless-режим идеален для тех, кто хочет быстро начать мониторинг без необходимости настройки инфраструктуры.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Управление событиями</div>
-<div class='text'>Удобный интерфейс управления событиями позволяет легко создавать, редактировать и удалять события. Все события записываются в базу данных и обрабатываются системой в режиме реального времени. Вы сможете отслеживать все ключевые события вашего бизнеса и получать мгновенные уведомления о любых изменениях или проблемах.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Мгновенные уведомления</div>
-<div class='text'>Предоставляет мощную систему мгновенных уведомлений, которая поддерживает внутреннюю маршрутизацию сообщений в различные платформы, включая Kafka, Telegram и электронную почту. Это позволяет гибко настраивать каналы уведомлений в зависимости от ваших нужд, обеспечивая быструю и надежную доставку критичной информации.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Эскалация инцидентов</div>
-<div class='text'>Управление инцидентами с помощью NotiLog упрощает процесс обработки критичных ситуаций. Автоматическая эскалация инцидентов на основе заданных критериев и правил позволяет вашей команде мгновенно реагировать на важные события, минимизируя время простоя и потери.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>Отслеживание процессов</div>
-<div class='text'>Предоставляет возможность мониторинга состояния и активности ваших приложений и систем. Система собирает данные о процессах и их статусе, что помогает выявлять потенциальные проблемы, такие как вирусы, майнеры или другие формы вредоносной активности. Вы сможете предвидеть и устранять угрозы до того, как они окажут влияние.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>ПОДДЕРЖКА ГОРЯЧИХ ОБНОВЛЕНИЙ</div>
-<div class='text'>Поддерживает горячие обновления, что позволяет обновлять систему и вносить изменения без необходимости останавливаться или перезагружать приложения. Это минимизирует простои и повышает стабильность работы.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>ГИБКОЕ УПРАВЛЕНИЕ ДОСТУПОМ</div>
-<div class='text'>Встроенные механизмы управления доступом позволяют контролировать права пользователей на просмотр и управление логами, что гарантирует безопасное использование системы в рамках различных команд и департаментов.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-<div class='item'>
-<div class='title'>ПОДДЕРЖКА МЕТРИК И ДАШБОРДОВ</div>
-<div class='text'>С помощью встроенной аналитики вы можете отслеживать ключевые метрики ваших приложений и систем в реальном времени. Интуитивно понятные дашборды помогают оперативно получать информацию о статусе и производительности ваших сервисов.
-</div>
-<div class='link'><a href='highlights/REPLACE_ME/'>Подробнее</a></div>
-</div>
-</div>
-</section>
-
-<h2 id="_1">Структура документации</h2>
-<p>Документация организована на несколько основных частей:</p>
-<ul>
-<li><a href="sections-overview/guides.md">Руководство</a>: Краткое введение для новых пользователей.</li>
-<li><a href="sections-overview/references.md">Справочник</a>: Техническая справка.</li>
-</ul>
-<h2 id="_2">Сообщество</h2>
-<p>Участие в сообществе NotiLog предоставляет вам прямой путь к установлению связей с другими единомышленниками. Узнайте больше о том, как вы можете участвовать в нашем сообществе, ознакомившись с нашим <a href="community-guide/index.md">руководством по сообществу</a>.</p>
-<h2 id="_3">Лицензия</h2>
-<p>NotiLog является программным обеспечением с открытым исходным кодом и лицензируется по условиям лицензии <a href="license.md">MIT License</a>.</p>
+  <h1>Обзор</h1>
 
 
 
-  
+
 
 
 
@@ -1288,10 +1051,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "0.1"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": "0.1"}</script>
     
     
-      <script src="assets/javascripts/bundle.78eede0e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.78eede0e.min.js"></script>
       
     
   </body>

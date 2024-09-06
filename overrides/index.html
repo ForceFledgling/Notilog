@@ -2,7 +2,7 @@
 
 {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ '/assets/logo.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/styles/logo.css' | url }}" />
     <style>
         /* Изначально скрываем изображение */
         .hero-image img {
@@ -16,7 +16,7 @@
     <div class="md-grid md-typeset">
         <div class="mdx-hero">
             <div class="hero-image">
-                <img id="heroImage" src="/assets/logo.svg" alt="Hero Image" draggable="false" />
+                <img id="heroImage" src="/assets/images/logo.svg" alt="Hero Image" draggable="false" />
             </div>
             <div class="hero-content">
                 <h1>{{ page.meta.hero.title }}</h1>
