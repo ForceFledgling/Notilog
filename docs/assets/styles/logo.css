@@ -13,7 +13,7 @@
 
 /* hero для light темы */
 body[data-md-color-scheme="default"] .hero-container {
-    padding: 2rem 0rem;
+    padding: 2rem 2rem;
     background: url(/assets/images/bubbles-light.svg),
         linear-gradient(180deg,
             var(--md-primary-fg-color),
