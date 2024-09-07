@@ -2,9 +2,26 @@
 # Documentation requirements
 # ---------------------------------------------------------------------
 
-mkdocs==1.5.3
-mkdocs-material==9.2.5
+mkdocs
+mkdocs-material
 mkdocstrings[python]==0.22.0
 mkdocs-macros-plugin==1.0.5
 mkdocs-gen-files==0.5.0
 mkdocs-literate-nav==0.6.1
+
+mkdocs-material[imaging]
+pillow
+cairosvg
+
+
+
+# MacOS
+# brew install cairo freetype libffi libjpeg libpng zlib
+# brew install pngquant
+
+# Linux (Debian)
+# apt-get install libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+# apt-get install pngquant
+
+# Обновление mkdocs (если появляется ошибка)
+# pip install --upgrade mkdocs mkdocs-material
