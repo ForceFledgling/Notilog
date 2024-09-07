@@ -39,6 +39,7 @@ theme:
   #   next: fontawesome/solid/angle-right
 
 plugins:
+  - search
   - macros:
       module_name: macros
       on_error_fail: true
