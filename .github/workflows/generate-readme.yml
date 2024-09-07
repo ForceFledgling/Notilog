@@ -21,15 +21,9 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
+    - name: Run Python script to convert docs/index.md to README.md
       run: |
-        pip install mkdocs
-
-    - name: Convert docs/index.md to README.md
-      run: |
-        cp docs/index.md README.md
-        # Удаляем YAML-фронтматтер
-        sed -i '/^---/,/^---/d' README.md
+        python3 docs/scripts/gen_readme_md.py
 
     - name: Commit and push changes
       run: |

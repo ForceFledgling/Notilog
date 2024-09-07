@@ -28,22 +28,13 @@ def parse_hero(content):
             
             # Ищем заголовок
             if line.count(" title:"):
-                title = line.split(":")[1].strip()
-                hero.append(f"# {title.capitalize()}")
+                title = f'Добро пожаловать в {line.split(":")[1].strip()}!'
+                hero.append(f"# {title}")
 
             # Ищем подзаголовок
             if line.count("subtitle:"):
                 subtitle = line.split(":")[1].strip()
                 hero.append(f"{subtitle.capitalize()}")
-            
-            # # Ищем описание
-            # elif line.count("  description:"):
-            #     is_description = True
-            #     continue
-            
-            # if is_description:
-            #     highlights.append(f"{line.strip()}\n")
-            #     is_description = False
 
     return "\n".join(hero)
 
@@ -100,13 +91,19 @@ def main():
     
     # # Извлекаем блок highlights
     highlights = (
+        "## Основные возможности NotiLog\n\n"
         '<div style="display: flex;">\n\n'
             f"{parse_highlights(index_content)}"
         "</div>\n\n"
     )
     print(highlights)
 
-    readme = hero + "\n\n" + highlights
+    readme = hero + "\n\n" + highlights + (
+        "## Сообщество\n\n"
+        "Участие в сообществе NotiLog предоставляет вам прямой путь к установлению связей с другими единомышленниками. Узнайте больше о том, как вы можете участвовать в нашем сообществе, ознакомившись с нашим [руководством по сообществу](community-guide/index.md).\n\n"
+        "## Лицензия\n\n"
+        "NotiLog является программным обеспечением с открытым исходным кодом и лицензируется по условиям лицензии [MIT License](license.md)."
+    )
 
     # Записываем обновленный README.md
     with open(readme_md, 'w', encoding='utf-8') as file:
