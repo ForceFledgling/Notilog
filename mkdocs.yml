@@ -4,6 +4,7 @@ site_author: Vladimir Penzin
 site_url: https://www.notilog.ru/
 repo_url: https://github.com/ForceFledgling/notilog
 repo_name: github
+edit_uri: blob/main/docs/
 copyright: 2024, Vladimir Penzin
 
 extra:
@@ -17,6 +18,15 @@ theme:
   favicon: assets/images/favicon.ico
   logo: assets/images/logo.svg
   custom_dir: docs/overrides
+  features:
+    - content.action.edit  # кнопка редактирования
+    - navigation.tabs  # меню
+    - navigation.tabs.sticky  # меню - прибиваем к верху
+    - navigation.path  # отображение якорей для мобильных устройств
+    - navigation.prune  # обрезка навигационных элементов
+    - navigation.footer  # навигация в футере
+    - navigation.instant  # переходы по внутр. ссылкам без полной перезагрузки страницы
+    - navigation.instant.prefetch  # эксп. функция для предзагрузки страниц
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
