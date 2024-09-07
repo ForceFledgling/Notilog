@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/index.md'
   pull_request:
     branches:
       - main
+    paths:
+      - 'docs/index.md'
 
 jobs:
   build:
@@ -21,16 +25,16 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Run Python script to convert docs/index.md to README.md
+    - name: Convert docs/index.md to README.md
       run: |
-        python3 docs/scripts/gen_readme_md.py
+        python docs/scripts/gen_readme_md.py
 
     - name: Commit and push changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add README.md
-        git commit -m "Update README.md from docs/index.md"
+        git commit -m "Update README.md from docs/index.md" || echo "No changes to commit"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
