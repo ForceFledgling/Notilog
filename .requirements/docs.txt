@@ -4,11 +4,10 @@
 
 mkdocs
 mkdocs-material
-mkdocstrings[python]==0.22.0
-mkdocs-macros-plugin==1.0.5
-mkdocs-gen-files==0.5.0
-mkdocs-literate-nav==0.6.1
-
+mkdocstrings[python]
+mkdocs-macros-plugin
+mkdocs-gen-files
+mkdocs-literate-nav
 mkdocs-material[imaging]
 pillow
 cairosvg

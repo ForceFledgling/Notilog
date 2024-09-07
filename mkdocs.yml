@@ -1,5 +1,5 @@
 site_name: NotiLog
-site_description: A service for receiving events, sending instant notifications, and incident escalation
+site_description: Масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
 site_author: Vladimir Penzin
 site_url: https://www.notilog.ru/
 repo_url: https://github.com/ForceFledgling/notilog
@@ -58,8 +58,17 @@ theme:
     next: fontawesome/solid/angle-right
 
 plugins:
-  - search
-  - social
+  - search:
+  - social:
+  # - social:
+  #     debug: false
+  #     debug_color: yellow
+  #     cards_layout: custom
+  #     cards_layout_options:
+  #       background_color: "#0FF1CE8F"
+  #       background_image: layouts/stairs.jpg
+  #       color: "#DE9151"
+  #       font_family: Caveat
   - macros:
       module_name: macros
       on_error_fail: true
