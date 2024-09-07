@@ -9,24 +9,33 @@ copyright: 2024, Vladimir Penzin
 
 extra:
   version: "0.1"
+  alternate:
+    - name: Русский
+      link: /
+      lang: ru
+    - name: English
+      link: /en/ 
+      lang: en
 
 extra_css:
   - assets/styles/extra.css
 
 theme:
   name: material
-  favicon: assets/images/favicon.ico
+  favicon: assets/images/logo.svg
   logo: assets/images/logo.svg
   custom_dir: docs/overrides
+  language: ru
   features:
     - content.action.edit  # кнопка редактирования
     - navigation.tabs  # меню
     - navigation.tabs.sticky  # меню - прибиваем к верху
-    - navigation.path  # отображение якорей для мобильных устройств
-    - navigation.prune  # обрезка навигационных элементов
+    # - navigation.sections  # отображение всех страницы по разделам
     - navigation.footer  # навигация в футере
-    - navigation.instant  # переходы по внутр. ссылкам без полной перезагрузки страницы
-    - navigation.instant.prefetch  # эксп. функция для предзагрузки страниц
+    - navigation.instant.progress  # отображает вверху прогресс загрузки страницы (для медленных соединений)
+    - navigation.top  # добавляет кнопку прокрутки вверх
+    - search.highlight  # выделяет вхождения поиска после перехода
+    - search.share  # позволяет скопировать в буфер поисковый URL
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -44,12 +53,13 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to light mode
-  # icon:  # Иконки следующей и предыдущей страниц
-  #   previous: fontawesome/solid/angle-left
-  #   next: fontawesome/solid/angle-right
+  icon:  # Иконки следующей и предыдущей страниц
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
 
 plugins:
   - search
+  # - social
   - macros:
       module_name: macros
       on_error_fail: true
