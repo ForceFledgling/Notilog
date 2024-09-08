@@ -37,4 +37,18 @@ the blocks defined in base.html and its included child templates.
     {% endif %}
     <link rel="icon" href="{{ config.theme.favicon | url }}">
     <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-9.2.5">
+
+    <!-- Social meta -->
+    <meta property="og:title" content="NotiLog">
+    <meta property="og:type" content="website">
+
+    {% if page.meta and page.meta.description %}
+    <meta property="og:description" content="{{ page.meta.description }}">
+    {% elif config.site_description %}
+    <meta property="og:description" content="{{ config.site_description }}">
+    {% endif %}
+
+    <meta property="og:image" content="{{ page.canonical_url }}assets/images/preview.jpg">
+    <meta property="og:url" content="{{ page.canonical_url }}">
+    <meta property="og:type" content="website">
 {% endblock %}

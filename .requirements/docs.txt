@@ -8,19 +8,6 @@ mkdocstrings[python]
 mkdocs-macros-plugin
 mkdocs-gen-files
 mkdocs-literate-nav
-mkdocs-material[imaging]
-pillow
-cairosvg
 
-
-
-# MacOS
-# brew install cairo freetype libffi libjpeg libpng zlib
-# brew install pngquant
-
-# Linux (Debian)
-# apt-get install libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
-# apt-get install pngquant
-
-# Обновление mkdocs (если появляется ошибка)
+# Обновление mkdocs
 # pip install --upgrade mkdocs mkdocs-material
