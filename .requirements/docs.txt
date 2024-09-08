@@ -9,5 +9,9 @@ mkdocs-macros-plugin
 mkdocs-gen-files
 mkdocs-literate-nav
 
+# Подумать, мб удалить
+mkdocs-git-authors-plugin
+mkdocs-git-committers-plugin-2
+
 # Обновление mkdocs
 # pip install --upgrade mkdocs mkdocs-material

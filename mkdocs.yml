@@ -1,13 +1,17 @@
+# Site
 site_name: NotiLog
 site_description: Масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
 site_author: Vladimir Penzin
 site_url: https://www.notilog.ru/
+copyright: 2024, Vladimir Penzin
+
+# Repo
 repo_url: https://github.com/ForceFledgling/notilog
 repo_name: github
 edit_uri: blob/main/docs/
-copyright: 2024, Vladimir Penzin
 
 extra:
+  generator: false  # не отображать MkDocs copyright
   version: "0.1"
   alternate:
     - name: Русский
@@ -16,6 +20,13 @@ extra:
     - name: English
       link: /en/ 
       lang: en
+  social:
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/vpotd
+      name: Vladimir Penzin on Telegram
+    - icon: fontawesome/brands/github
+      link: https://github.com/ForceFledgling
+      name: Vladimir Penzin on GitHub
 
 extra_css:
   - assets/styles/extra.css
@@ -27,15 +38,15 @@ theme:
   custom_dir: docs/overrides
   language: ru
   features:
-    - content.action.edit  # кнопка редактирования
-    - navigation.tabs  # меню
-    - navigation.tabs.sticky  # меню - прибиваем к верху
-    # - navigation.sections  # отображение всех страницы по разделам
-    - navigation.footer  # навигация в футере
-    - navigation.instant.progress  # отображает вверху прогресс загрузки страницы (для медленных соединений)
-    - navigation.top  # добавляет кнопку прокрутки вверх
-    - search.highlight  # выделяет вхождения поиска после перехода
-    - search.share  # позволяет скопировать в буфер поисковый URL
+    - content.action.edit           # кнопка редактирования
+    - navigation.tabs               # меню
+    - navigation.tabs.sticky        # меню - прибиваем к верху
+    # - navigation.sections         # отображение всех страницы по разделам
+    - navigation.footer             # навигация в футере
+    - navigation.instant.progress   # отображает вверху прогресс загрузки страницы (для медленных соединений)
+    - navigation.top                # добавляет кнопку прокрутки вверх
+    - search.highlight              # выделяет вхождения поиска после перехода
+    - search.share                  # позволяет скопировать в буфер поисковый URL
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -56,6 +67,8 @@ theme:
   icon:  # Иконки следующей и предыдущей страниц
     previous: fontawesome/solid/angle-left
     next: fontawesome/solid/angle-right
+    repo: fontawesome/brands/github
+    edit: material/pencil
 
 plugins:
   - search:
@@ -77,6 +90,10 @@ plugins:
             find_stubs_package: true
             show_symbol_type_heading: true
             show_symbol_type_toc: true
+  # - git-authors  # На будущее, отображает аватары тех кто внес вклад (более легковесная)
+  # - git-committers:  # На будущее, отображает аватары тех кто внес вклад
+  #     repository: ForceFledgling/notilog
+  #     branch: main
 
 nav:
   - Главная: index.md
