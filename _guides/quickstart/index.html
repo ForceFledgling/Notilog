@@ -699,25 +699,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Запуск как модуль
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Запуск через Docker Compose
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Основные моменты
+      Быстрый запуск сервера
     </span>
   </a>
   
@@ -980,25 +962,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Запуск как модуль
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    <span class="md-ellipsis">
-      Запуск через Docker Compose
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Основные моменты
+      Быстрый запуск сервера
     </span>
   </a>
   
@@ -1029,21 +993,23 @@
 
   <h1>Быстрый старт</h1>
 
-<h2 id="_1">Запуск как модуль</h2>
-<p>После установки пакета через <code>pip install .</code> можно будет запускать сервер и агент как модули:</p>
-<ul>
-<li><strong>Сервер</strong>: <code>python -m notilog.server.api</code> или через <code>notilog-server</code></li>
-<li><strong>Агент</strong>: <code>python -m notilog.client.agent</code> или через <code>notilog-agent</code></li>
-</ul>
-<h2 id="docker-compose">Запуск через Docker Compose</h2>
-<p>Чтобы запустить приложение через Docker Compose, выполните команду:</p>
-<pre><code>docker-compose up --build
+<h2 id="_1">Быстрый запуск сервера</h2>
+<p>После клонирования репозитория, создаем виртуальное окружение, входим в него, устанавливаем зависимости и запускает приложение как модуль:</p>
+<pre><code>git clone https://github.com/ForceFledgling/notilog.git
+cd notilog
+python -m venv venv
+source venv/bin/activate
+python -m pip install server/requirements.txt
+python -m server
 </code></pre>
-<p>Это развернет контейнеры для сервера, клиента, базы данных и Redis.</p>
-<h2 id="_2">Основные моменты</h2>
-<p><strong>Конфигурация</strong>: Настройки для клиента и сервера можно вынести в отдельные конфигурационные файлы (<code>config.py</code>) или использовать переменные окружения, которые можно передавать через <code>docker-compose.yml</code>.</p>
-<p><strong>Масштабируемость</strong>: Использование Docker Compose позволяет легко масштабировать приложение, добавляя дополнительные сервисы, например, для обработки очередей или горизонтального масштабирования серверной части.</p>
-<p><strong>Удобство разработки</strong>: Проект структурирован таким образом, чтобы его было удобно разрабатывать и поддерживать как в виде модулей, так и в контейнеризированной среде.</p>
+<p>После мы увидим успешный запуск:</p>
+<pre><code>INFO:     Will watch for changes in these directories: ['/Users/vladimir/Desktop/Репозитории/notilog']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [6480] using WatchFiles
+INFO:     Started server process [6482]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+</code></pre>
 
 
 

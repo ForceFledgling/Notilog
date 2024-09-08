@@ -96,6 +96,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#docker-compose" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -699,6 +704,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Развертывание
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -708,6 +724,41 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск через Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные моменты
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -911,6 +962,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск через Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные моменты
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -934,7 +1011,15 @@
 
   <h1>Развертывание</h1>
 
-
+<h2 id="docker-compose">Запуск через Docker Compose</h2>
+<p>Чтобы запустить приложение через Docker Compose, выполните команду:</p>
+<pre><code>docker-compose up --build
+</code></pre>
+<p>Это развернет контейнеры для сервера, клиента, базы данных и Redis.</p>
+<h2 id="_1">Основные моменты</h2>
+<p><strong>Конфигурация</strong>: Настройки для клиента и сервера можно вынести в отдельные конфигурационные файлы (<code>config.py</code>) или использовать переменные окружения, которые можно передавать через <code>docker-compose.yml</code>.</p>
+<p><strong>Масштабируемость</strong>: Использование Docker Compose позволяет легко масштабировать приложение, добавляя дополнительные сервисы, например, для обработки очередей или горизонтального масштабирования серверной части.</p>
+<p><strong>Удобство разработки</strong>: Проект структурирован таким образом, чтобы его было удобно разрабатывать и поддерживать как в виде модулей, так и в контейнеризированной среде.</p>
 
 
 
