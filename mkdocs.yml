@@ -8,7 +8,7 @@ copyright: 2024, Vladimir Penzin
 # Repo
 repo_url: https://github.com/ForceFledgling/notilog
 repo_name: github
-edit_uri: blob/main/docs/
+edit_uri: blob/main/_docs/
 
 extra:
   generator: false  # не отображать MkDocs copyright
@@ -41,7 +41,6 @@ theme:
     - content.action.edit           # кнопка редактирования
     - navigation.tabs               # меню
     - navigation.tabs.sticky        # меню - прибиваем к верху
-    # - navigation.sections         # отображение всех страницы по разделам
     - navigation.footer             # навигация в футере
     - navigation.instant.progress   # отображает вверху прогресс загрузки страницы (для медленных соединений)
     - navigation.top                # добавляет кнопку прокрутки вверх
@@ -56,7 +55,7 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-    # Dark mode
+    # Dark mode (default)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: yellow
@@ -90,39 +89,25 @@ plugins:
             find_stubs_package: true
             show_symbol_type_heading: true
             show_symbol_type_toc: true
-  # - git-authors  # На будущее, отображает аватары тех кто внес вклад (более легковесная)
-  # - git-committers:  # На будущее, отображает аватары тех кто внес вклад
-  #     repository: ForceFledgling/notilog
-  #     branch: main
 
 nav:
   - Главная: index.md
-  - Документация: docs/index.md
-  - О приложении:
-      - Обзор: docs/about/index.md
+  - Документация:
+      - Обзор: _docs/index.md
+      - Требования: _docs/requirements.md
       - Архитектура:
-          - Обзор: docs/architecture/index.md
-          - Серверная часть: docs/architecture/server.md
-          - Клиентская часть: docs/architecture/client.md
-  - Установка:
-      - Обзор: docs/installation-guide/index.md
-      - Требования: docs/installation-guide/requirements.md
-      - Руководство по установке: docs/installation-guide/installation.md
+          - Обзор: _docs/architecture/index.md
+          - Серверная часть: _docs/architecture/server.md
+          - Клиентская часть: _docs/architecture/client.md
   - Руководства:
-      - Обзор: docs/sections-overview/guides.md
-      - Быстрый старт: docs/quickstart-guide/index.md
-      - Часто задаваемые вопросы (FAQ): docs/guides/faq.md
-  - Справочные материалы:
-      - Обзор: docs/sections-overview/references.md
+      - Обзор: _guides/index.md
+      - Быстрый старт: _guides/quickstart.md
+      - Установка: _guides/install.md
+      - Развертывание: _guides/deploy.md
+      - Резервное копирование: _guides/backup.md
+      - Обновление: _guides/update.md
       - Концепции:
-          - Обзор: docs/concepts/index.md
-          - Основные концепции: docs/concepts/core.md
-          - Примеры использования: docs/concepts/examples.md
-  - Как сделать:
-      - Обзор: docs/sections-overview/howto.md
-      - Развертывание: docs/howto/deploy/index.md
-      - Резервное копирование: docs/howto/backup/index.md
-      - Обновление: docs/howto/update/index.md
-  - Контакты:
-      - Поддержка: docs/contact/support.md
-      - Внести предложение: docs/contact/feedback.md
+          - Обзор: _guides/concepts/index.md
+          - Основные концепции: _guides/concepts/base.md
+          - Примеры использования: _guides/concepts/examples.md
+      - Руководство по сообществу: _guides/community.md
