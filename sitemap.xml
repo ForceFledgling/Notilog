@@ -5,87 +5,63 @@
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/</loc>
+         <loc>https://www.notilog.ru/_docs/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/about/</loc>
+         <loc>https://www.notilog.ru/_docs/requirements/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/architecture/</loc>
+         <loc>https://www.notilog.ru/_docs/architecture/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/architecture/client/</loc>
+         <loc>https://www.notilog.ru/_docs/architecture/client/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/architecture/server/</loc>
+         <loc>https://www.notilog.ru/_docs/architecture/server/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/concepts/</loc>
+         <loc>https://www.notilog.ru/_guides/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/concepts/core/</loc>
+         <loc>https://www.notilog.ru/_guides/backup/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/concepts/examples/</loc>
+         <loc>https://www.notilog.ru/_guides/community/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/contact/feedback/</loc>
+         <loc>https://www.notilog.ru/_guides/deploy/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/contact/support/</loc>
+         <loc>https://www.notilog.ru/_guides/install/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/guides/faq/</loc>
+         <loc>https://www.notilog.ru/_guides/quickstart/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/howto/backup/</loc>
+         <loc>https://www.notilog.ru/_guides/update/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/howto/deploy/</loc>
+         <loc>https://www.notilog.ru/_guides/concepts/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/howto/update/</loc>
+         <loc>https://www.notilog.ru/_guides/concepts/base/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/docs/installation-guide/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/installation-guide/installation/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/installation-guide/requirements/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/quickstart-guide/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/sections-overview/guides/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/sections-overview/howto/</loc>
-         <lastmod>2024-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/docs/sections-overview/references/</loc>
+         <loc>https://www.notilog.ru/_guides/concepts/examples/</loc>
          <lastmod>2024-09-08</lastmod>
     </url>
 </urlset>

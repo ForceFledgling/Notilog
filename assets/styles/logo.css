@@ -24,21 +24,6 @@ body[data-md-color-scheme="default"] .hero-container {
     background-repeat: no-repeat;
     background-position: bottom;
 }
-body[data-md-color-scheme="default"] .mdx-hero {
-    filter: invert(100%);
-}
-/* body[data-md-color-scheme="default"] .md-logo {
-    filter: invert(100%);
-} */
-body[data-md-color-scheme="default"] .md-footer {
-    filter: invert(85%);
-}
-
-
-.md-main {
-    margin: 0rem 0rem;
-    /* background-color: #332e3d; */
-}
 
 .mdx-hero {
     color: var(--md-primary-bg-color);
