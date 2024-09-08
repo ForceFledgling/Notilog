@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
 from server.models import Event
-from server.database import init_db, get_db
+from server.database import get_db
 
 
 router = APIRouter()

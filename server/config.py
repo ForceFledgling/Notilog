@@ -1,3 +1,4 @@
+import os
 from pydantic_settings import BaseSettings
 from urllib.parse import quote_plus
 
@@ -24,10 +25,17 @@ class Settings(BaseSettings):
     EMAIL_FROM: str
     EMAIL_TO: str
 
+    # @property
+    # def DATABASE_URL(self) -> str:
+    #     encoded_password = quote_plus(self.DATABASE_PASSWORD)  # URL-кодирование для пароля (исправляет проблемы, если пароль содержит спецсимволы)
+    #     return f"postgresql+psycopg2://{self.DATABASE_USERNAME}:{encoded_password}@{self.DATABASE_HOST}:5432/{self.DATABASE_NAME}"
+    
     @property
     def DATABASE_URL(self) -> str:
-        encoded_password = quote_plus(self.DATABASE_PASSWORD)  # URL-кодирование для пароля (исправляет проблемы, если пароль содержит спецсимволы)
-        return f"postgresql+psycopg2://{self.DATABASE_USERNAME}:{encoded_password}@{self.DATABASE_HOST}:5432/{self.DATABASE_NAME}"
+        # Указываем путь к базе данных SQLite
+        db_path = os.path.join(os.getcwd(), "mydatabase.db")  # База данных будет создана в текущей директории
+        return f"sqlite:///{db_path}"
+
 
     class Config:
         env_file = ".env"

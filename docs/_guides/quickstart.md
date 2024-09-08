@@ -1,24 +1,23 @@
-## Запуск как модуль
+## Быстрый запуск сервера
 
-После установки пакета через `pip install .` можно будет запускать сервер и агент как модули:
-
-*   **Сервер**: `python -m notilog.server.api` или через `notilog-server`
-*   **Агент**: `python -m notilog.client.agent` или через `notilog-agent`
-
-## Запуск через Docker Compose
-
-Чтобы запустить приложение через Docker Compose, выполните команду:
+После клонирования репозитория, создаем виртуальное окружение, входим в него, устанавливаем зависимости и запускает приложение как модуль:
 
 ```
-docker-compose up --build
+git clone https://github.com/ForceFledgling/notilog.git
+cd notilog
+python -m venv venv
+source venv/bin/activate
+python -m pip install server/requirements.txt
+python -m server
 ```
 
-Это развернет контейнеры для сервера, клиента, базы данных и Redis.
+После мы увидим успешный запуск:
 
-## Основные моменты
-
-**Конфигурация**: Настройки для клиента и сервера можно вынести в отдельные конфигурационные файлы (`config.py`) или использовать переменные окружения, которые можно передавать через `docker-compose.yml`.
-
-**Масштабируемость**: Использование Docker Compose позволяет легко масштабировать приложение, добавляя дополнительные сервисы, например, для обработки очередей или горизонтального масштабирования серверной части.
-
-**Удобство разработки**: Проект структурирован таким образом, чтобы его было удобно разрабатывать и поддерживать как в виде модулей, так и в контейнеризированной среде.
+```
+INFO:     Will watch for changes in these directories: ['/Users/vladimir/Desktop/Репозитории/notilog']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [6480] using WatchFiles
+INFO:     Started server process [6482]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
