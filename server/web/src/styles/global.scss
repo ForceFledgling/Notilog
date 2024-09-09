@@ -1,0 +1,74 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-size: 4px; /* * 1rem = 4px  Удобно для расчета в unocss: в unocss 1 единица шрифта = 0.25rem, что соответствует 1 единице = 1px */
+}
+
+body {
+  font-size: 16px;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+/* Переход fade-slide */
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.3s;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* Пользовательский стиль полосы прокрутки */
+.cus-scroll {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+.cus-scroll-x {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 8px;
+  }
+}
+.cus-scroll-y {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 0;
+  }
+}
+.cus-scroll,
+.cus-scroll-x,
+.cus-scroll-y {
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: #bfbfbf;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-color);
+    }
+  }
+}
