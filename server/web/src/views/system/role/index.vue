@@ -16,6 +16,8 @@ import {
   NGi,
 } from 'naive-ui'
 
+import CustomForm from '@/components/naive-ui-custom/CustomForm.vue'
+
 import CommonPage from '@/components/page/CommonPage.vue'
 import QueryBarItem from '@/components/query-bar/QueryBarItem.vue'
 import CrudModal from '@/components/table/CrudModal.vue'
@@ -275,15 +277,14 @@ async function updateRoleAuthorized() {
       :loading="modalLoading"
       @save="handleSave"
     >
-      <NForm
+      <CustomForm
         ref="modalFormRef"
         label-placement="left"
         label-align="left"
-        :label-width="80"
         :model="modalForm"
         :disabled="modalAction === 'view'"
       >
-        <NFormItem
+        <CustomFormItem
           label="Название роли"
           path="name"
           :rule="{
@@ -293,11 +294,11 @@ async function updateRoleAuthorized() {
           }"
         >
           <NInput v-model:value="modalForm.name" placeholder="Введите название роли" />
-        </NFormItem>
-        <NFormItem label="Описание роли" path="desc">
+        </CustomFormItem>
+        <CustomFormItem label="Описание роли" path="desc">
           <NInput v-model:value="modalForm.desc" placeholder="Введите описание роли" />
-        </NFormItem>
-      </NForm>
+        </CustomFormItem>
+      </CustomForm>
     </CrudModal>
 
     <NDrawer v-model:show="active" placement="right" :width="500"
