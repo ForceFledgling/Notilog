@@ -2,9 +2,9 @@
   <div flex items-center>
     <label
       v-if="!isNullOrWhitespace(label)"
-      w-80
+      flex-grow
       flex-shrink-0
-      :style="{ width: labelWidth + 'px' }"
+      :style="{ width: autoWidth ? 'auto' : labelWidth + 'px', 'margin-right': labelMarginRight + 'px' }"
     >
       {{ label }}
     </label>
@@ -22,9 +22,18 @@ defineProps({
     type: String,
     default: '',
   },
+  autoWidth: {
+    type: Boolean,
+    default: true,
+  },
   labelWidth: {
     type: Number,
     default: 80,
+  },
+  // Отступ справа от label
+  labelMarginRight: {
+    type: Number,
+    default: 10, // Значение по умолчанию для отступа
   },
   contentWidth: {
     type: Number,
