@@ -8,9 +8,11 @@
     :bordered="false"
     :mask-closable="false"
   >
-    <slot />
+    <div style="padding: 20px; max-height: 80vh; overflow-y: auto;">
+      <slot />
+    </div>
     <template v-if="showFooter" #footer>
-      <footer flex justify-end>
+      <footer flex justify-end style="padding: 15px 20px;">
         <slot name="footer">
           <n-button @click="show = false">Отмена</n-button>
           <n-button :loading="loading" ml-20 type="primary" @click="emit('save')">Сохранить</n-button>
@@ -24,7 +26,7 @@
 const props = defineProps({
   width: {
     type: String,
-    default: '600px',
+    default: '800px', // Увеличена ширина до 800px
   },
   title: {
     type: String,
