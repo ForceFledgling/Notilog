@@ -10,7 +10,7 @@
       </div>
 
       <div w-320 flex-col px-20 py-35>
-        <h5 f-c-c text-24 font-normal color="#66a6a">
+        <h5 f-c-c text-24 font-normal :style="{ filter: 'invert(1)' }">
           <icon-custom-logo mr-10 text-50 color-primary />{{ $t('app_name') }}
         </h5>
         <div mt-30>
@@ -28,7 +28,7 @@
             class="h-50 items-center pl-10 text-16"
             type="password"
             show-password-on="mousedown"
-            placeholder="123456"
+            placeholder="P@ssw0rd123"
             :maxlength="20"
             @keypress.enter="handleLogin"
           />
