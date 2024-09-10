@@ -18,7 +18,7 @@
     "workbench": {
       "label_workbench": "Рабочая панель",
       "text_hello": "Привет, {username}",
-      "text_welcome": "Сегодня отличный день для работы!",
+      "text_welcome": "Сегодня отличный день для разбора логов!",
       "label_number_of_items": "Количество агентов",
       "label_upcoming": "Предстоящие",
       "label_information": "Информация",
