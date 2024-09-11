@@ -2,14 +2,14 @@
 import { h, onMounted, ref, resolveDirective, withDirectives } from 'vue'
 import {
   NButton,
-  NForm,
-  NFormItem,
   NInput,
   NInputNumber,
   NPopconfirm,
   NSwitch,
   NTreeSelect,
 } from 'naive-ui'
+import CustomForm from '@/components/naive-ui-custom/CustomForm.vue'
+import CustomFormItem from '@/components/naive-ui-custom/CustomFormItem.vue'
 
 import CommonPage from '@/components/page/CommonPage.vue'
 import CrudModal from '@/components/table/CrudModal.vue'
@@ -256,14 +256,14 @@ async function getTreeSelect() {
       @save="handleSave(getTreeSelect)"
     >
       <!-- Форма -->
-      <NForm
+      <CustomForm
         ref="modalFormRef"
         label-placement="left"
         label-align="left"
         :label-width="80"
         :model="modalForm"
       >
-        <NFormItem label="Родительское меню" path="parent_id">
+        <CustomFormItem label="Родительское меню" path="parent_id">
           <NTreeSelect
             v-model:value="modalForm.parent_id"
             key-field="id"
@@ -272,8 +272,8 @@ async function getTreeSelect() {
             default-expand-all="true"
             :disabled="menuDisabled"
           />
-        </NFormItem>
-        <NFormItem
+        </CustomFormItem>
+        <CustomFormItem
           label="Название меню"
           path="name"
           :rule="{
@@ -283,8 +283,8 @@ async function getTreeSelect() {
           }"
         >
           <NInput v-model:value="modalForm.name" placeholder="Введите уникальное название меню" />
-        </NFormItem>
-        <NFormItem
+        </CustomFormItem>
+        <CustomFormItem
           label="Путь доступа"
           path="path"
           :rule="{
@@ -294,14 +294,14 @@ async function getTreeSelect() {
           }"
         >
           <NInput v-model:value="modalForm.path" placeholder="Введите путь доступа" />
-        </NFormItem>
-        <NFormItem v-if="modalForm.menu_type === 'menu'" label="Путь компонента" path="component">
+        </CustomFormItem>
+        <CustomFormItem v-if="modalForm.menu_type === 'menu'" label="Путь компонента" path="component">
           <NInput
             v-model:value="modalForm.component"
             placeholder="Введите путь компонента, например: /system/user"
           />
-        </NFormItem>
-        <NFormItem label="Путь перенаправления" path="redirect">
+        </CustomFormItem>
+        <CustomFormItem label="Путь перенаправления" path="redirect">
           <NInput
             v-model:value="modalForm.redirect"
             :disabled="modalForm.parent_id !== 0"
@@ -309,20 +309,20 @@ async function getTreeSelect() {
               modalForm.parent_id !== 0 ? 'Только для корневого меню можно установить путь перенаправления' : 'Введите путь перенаправления'
             "
           />
-        </NFormItem>
-        <NFormItem label="Иконка меню" path="icon">
+        </CustomFormItem>
+        <CustomFormItem label="Иконка меню" path="icon">
           <IconPicker v-model:value="modalForm.icon" />
-        </NFormItem>
-        <NFormItem label="Порядок отображения" path="order">
+        </CustomFormItem>
+        <CustomFormItem label="Порядок отображения" path="order">
           <NInputNumber v-model:value="modalForm.order" :min="1" />
-        </NFormItem>
-        <NFormItem label="Скрыто" path="is_hidden">
+        </CustomFormItem>
+        <CustomFormItem label="Скрыто" path="is_hidden">
           <NSwitch v-model:value="modalForm.is_hidden" />
-        </NFormItem>
-        <NFormItem label="KeepAlive" path="keepalive">
+        </CustomFormItem>
+        <CustomFormItem label="KeepAlive" path="keepalive">
           <NSwitch v-model:value="modalForm.keepalive" />
-        </NFormItem>
-      </NForm>
+        </CustomFormItem>
+      </CustomForm>
     </CrudModal>
   </CommonPage>
 </template>

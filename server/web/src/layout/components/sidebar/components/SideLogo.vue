@@ -13,7 +13,6 @@
       flex-shrink-0
       text-16
       font-bold
-      color-primary
     >
       {{ title }}
     </h2>
@@ -35,5 +34,6 @@ const isDark = useDark()
 /* Стили инверсии для логотипа */
 .invert-logo {
   filter: invert(100%);
+  color: white;
 }
 </style>

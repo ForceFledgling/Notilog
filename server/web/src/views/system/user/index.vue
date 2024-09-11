@@ -4,8 +4,6 @@ import {
   NButton,
   NCheckbox,
   NCheckboxGroup,
-  NForm,
-  NFormItem,
   NImage,
   NInput,
   NSpace,
@@ -17,6 +15,8 @@ import {
   NLayoutContent,
   NTreeSelect,
 } from 'naive-ui'
+import CustomForm from '@/components/naive-ui-custom/CustomForm.vue'
+import CustomFormItem from '@/components/naive-ui-custom/CustomFormItem.vue'
 
 import CommonPage from '@/components/page/CommonPage.vue'
 import QueryBarItem from '@/components/query-bar/QueryBarItem.vue'
@@ -379,7 +379,7 @@ const validateAddUser = {
           :loading="modalLoading"
           @save="handleSave"
         >
-          <NForm
+          <CustomForm
             ref="modalFormRef"
             label-placement="left"
             label-align="left"
@@ -387,13 +387,13 @@ const validateAddUser = {
             :model="modalForm"
             :rules="validateAddUser"
           >
-            <NFormItem label="Имя пользователя" path="username">
+            <CustomFormItem label="Имя пользователя" path="username">
               <NInput v-model:value="modalForm.username" clearable placeholder="Введите имя пользователя" />
-            </NFormItem>
-            <NFormItem label="Электронная почта" path="email">
+            </CustomFormItem>
+            <CustomFormItem label="Электронная почта" path="email">
               <NInput v-model:value="modalForm.email" clearable placeholder="Введите адрес электронной почты" />
-            </NFormItem>
-            <NFormItem v-if="modalAction === 'add'" label="Пароль" path="password">
+            </CustomFormItem>
+            <CustomFormItem v-if="modalAction === 'add'" label="Пароль" path="password">
               <NInput
                 v-model:value="modalForm.password"
                 show-password-on="mousedown"
@@ -401,8 +401,8 @@ const validateAddUser = {
                 clearable
                 placeholder="Введите пароль"
               />
-            </NFormItem>
-            <NFormItem v-if="modalAction === 'add'" label="Подтверждение пароля" path="confirmPassword">
+            </CustomFormItem>
+            <CustomFormItem v-if="modalAction === 'add'" label="Подтверждение пароля" path="confirmPassword">
               <NInput
                 v-model:value="modalForm.confirmPassword"
                 show-password-on="mousedown"
@@ -410,8 +410,8 @@ const validateAddUser = {
                 clearable
                 placeholder="Подтвердите пароль"
               />
-            </NFormItem>
-            <NFormItem label="Роли" path="role_ids">
+            </CustomFormItem>
+            <CustomFormItem label="Роли" path="role_ids">
               <NCheckboxGroup v-model:value="modalForm.role_ids">
                 <NSpace item-style="display: flex;">
                   <NCheckbox
@@ -422,24 +422,24 @@ const validateAddUser = {
                   />
                 </NSpace>
               </NCheckboxGroup>
-            </NFormItem>
-            <NFormItem label="Суперпользователь" path="is_superuser">
+            </CustomFormItem>
+            <CustomFormItem label="Суперпользователь" path="is_superuser">
               <NSwitch
                 v-model:value="modalForm.is_superuser"
                 size="small"
                 :checked-value="true"
                 :unchecked-value="false"
               ></NSwitch>
-            </NFormItem>
-            <NFormItem label="Отключен" path="is_active">
+            </CustomFormItem>
+            <CustomFormItem label="Отключен" path="is_active">
               <NSwitch
                 v-model:value="modalForm.is_active"
                 :checked-value="false"
                 :unchecked-value="true"
                 :default-value="true"
               />
-            </NFormItem>
-            <NFormItem label="Отдел" path="dept_id">
+            </CustomFormItem>
+            <CustomFormItem label="Отдел" path="dept_id">
               <NTreeSelect
                 v-model:value="modalForm.dept_id"
                 :options="deptOption"
@@ -449,8 +449,8 @@ const validateAddUser = {
                 clearable
                 default-expand-all
               ></NTreeSelect>
-            </NFormItem>
-          </NForm>
+            </CustomFormItem>
+          </CustomForm>
         </CrudModal>
       </CommonPage>
     </NLayoutContent>

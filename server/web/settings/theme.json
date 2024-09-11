@@ -6,11 +6,39 @@
     "visible": true,
     "height": 50
   },
-  "naiveThemeOverrides": {
+  "lightThemeOverrides": {
     "common": {
-      "primaryColor": "#F4511E",
-      "primaryColorHover": "#F4511E",
-      "primaryColorPressed": "#2B4C59FF",
+      "primaryColor": "#000000",
+      "primaryColorHover": "#A9A9A9",
+      "primaryColorPressed": "#E64A19",
+      "primaryColorSuppl": "#FF5722",
+
+      "infoColor": "#2196F3",
+      "infoColorHover": "#64B5F6",
+      "infoColorPressed": "#1976D2",
+      "infoColorSuppl": "#2196F3",
+
+      "successColor": "#4CAF50",
+      "successColorHover": "#81C784",
+      "successColorPressed": "#388E3C",
+      "successColorSuppl": "#4CAF50",
+
+      "warningColor": "#FFC107",
+      "warningColorHover": "#FFD54F",
+      "warningColorPressed": "#FFA000",
+      "warningColorSuppl": "#FFC107",
+
+      "errorColor": "#F44336",
+      "errorColorHover": "#E57373",
+      "errorColorPressed": "#D32F2F",
+      "errorColorSuppl": "#F44336"
+    }
+  },
+  "darkThemeOverrides": {
+    "common": {
+      "primaryColor": "#FFFFFF",
+      "primaryColorHover": "#A9A9A9",
+      "primaryColorPressed": "#BF360C",
       "primaryColorSuppl": "#F4511E",
 
       "infoColor": "#2080F0FF",
@@ -19,19 +47,19 @@
       "infoColorSuppl": "#4098FCFF",
 
       "successColor": "#18A058FF",
-      "successColorHover": "#F4511E",
+      "successColorHover": "#66BB6AFF",
       "successColorPressed": "#0C7A43FF",
-      "successColorSuppl": "#F4511E",
+      "successColorSuppl": "#18A058FF",
 
       "warningColor": "#F0A020FF",
       "warningColorHover": "#FCB040FF",
       "warningColorPressed": "#C97C10FF",
-      "warningColorSuppl": "#FCB040FF",
+      "warningColorSuppl": "#F0A020FF",
 
       "errorColor": "#D03050FF",
       "errorColorHover": "#DE576DFF",
       "errorColorPressed": "#AB1F3FFF",
-      "errorColorSuppl": "#DE576DFF"
+      "errorColorSuppl": "#D03050FF"
     }
   }
 }
