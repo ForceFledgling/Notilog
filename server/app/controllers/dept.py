@@ -9,13 +9,14 @@ from app.models.admin import Dept, DeptClosure
 from app.schemas.depts import DeptCreate, DeptUpdate
 from app.core.database import get_session  # Импортируйте функцию для получения сессии
 from app.log import logger
+from app.core.database import SessionLocal
 
 class DeptController(CRUDBase[Dept, DeptCreate, DeptUpdate]):
     def __init__(self, session: AsyncSession):
         super().__init__(model=Dept, session=session)
 
     async def get_dept_tree(self, name: str = None):
-        async with self.session() as session:
+        async with SessionLocal() as session:
             q = select(Dept).filter_by(is_deleted=False)
             if name:
                 q = q.filter(Dept.name.contains(name))

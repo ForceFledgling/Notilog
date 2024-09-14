@@ -18,12 +18,14 @@ async def list_role(
     page_size: int = Query(10, description="Количество элементов на странице"),
     role_name: str = Query("", description="Название роли для поиска"),
 ):
-    q = Q()
+    filters = {}
     if role_name:
-        q = Q(name__contains=role_name)
-    total, role_objs = await role_controller.list(page=page, page_size=page_size, search=q)
+        filters["name__contains"] = role_name
+    
+    total, role_objs = await role_controller.list(page=page, page_size=page_size, **filters)
     data = [await obj.to_dict() for obj in role_objs]
     return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
+
 
 
 @router.get("/get", summary="Просмотр роли")

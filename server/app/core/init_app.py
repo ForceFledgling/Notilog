@@ -104,7 +104,7 @@ async def init_menus():
                 children_menu = [
                     Menu(
                         menu_type=MenuType.MENU,
-                        name="Упр пользователями",
+                        name="Управление пользователями",
                         path="user",
                         order=1,
                         parent_id=parent_menu.id,
@@ -113,7 +113,77 @@ async def init_menus():
                         component="/system/user",
                         keepalive=False,
                     ),
-                    # другие меню...
+                    Menu(
+                        menu_type=MenuType.MENU,
+                        name="Управление ролями",
+                        path="role",
+                        order=2,
+                        parent_id=parent_menu.id,
+                        icon="carbon:user-role",
+                        is_hidden=False,
+                        component="/system/role",
+                        keepalive=False,
+                    ),
+                    Menu(
+                        menu_type=MenuType.MENU,
+                        name="Управление меню",
+                        path="menu",
+                        order=3,
+                        parent_id=parent_menu.id,
+                        icon="material-symbols:list-alt-outline",
+                        is_hidden=False,
+                        component="/system/menu",
+                        keepalive=False,
+                    ),
+                    Menu(
+                        menu_type=MenuType.MENU,
+                        name="Управление API",
+                        path="api",
+                        order=4,
+                        parent_id=parent_menu.id,
+                        icon="ant-design:api-outlined",
+                        is_hidden=False,
+                        component="/system/api",
+                        keepalive=False,
+                    ),
+                    Menu(
+                        menu_type=MenuType.MENU,
+                        name="Управление отделами",
+                        path="dept",
+                        order=5,
+                        parent_id=parent_menu.id,
+                        icon="mingcute:department-line",
+                        is_hidden=False,
+                        component="/system/dept",
+                        keepalive=False,
+                    ),
+                    Menu(
+                        menu_type=MenuType.MENU,
+                        name="Аудит журналов",
+                        path="auditlog",
+                        order=6,
+                        parent_id=parent_menu.id,
+                        icon="ph:clipboard-text-bold",
+                        is_hidden=False,
+                        component="/system/auditlog",
+                        keepalive=False,
+                    ),
                 ]
                 session.add_all(children_menu)
+
+                # Добавление верхнего уровня меню
+                top_menu = Menu(
+                    menu_type=MenuType.MENU,
+                    name="Верхнее меню",
+                    path="/top-menu",
+                    order=2,
+                    parent_id=0,
+                    icon="material-symbols:featured-play-list-outline",
+                    is_hidden=False,
+                    component="/top-menu",
+                    keepalive=False,
+                    redirect="",
+                )
+                session.add(top_menu)
+
                 await session.commit()

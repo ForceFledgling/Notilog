@@ -1,12 +1,35 @@
 from fastapi import APIRouter, Query
-from tortoise.expressions import Q
+
+from sqlalchemy.future import select
+from sqlalchemy import or_, and_
 
 from app.controllers.api import api_controller
 from app.schemas import Success, SuccessExtra
 from app.schemas.apis import *
+from app.core.database import SessionLocal
+from sqlalchemy.sql import func
 
 router = APIRouter()
 
+
+# @router.get("/list", summary="Просмотр списка API")
+# async def list_api(
+#     page: int = Query(1, description="Номер страницы"),
+#     page_size: int = Query(10, description="Количество на странице"),
+#     path: str = Query(None, description="Путь API"),
+#     summary: str = Query(None, description="Описание API"),
+#     tags: str = Query(None, description="Теги API"),
+# ):
+#     q = Q()
+#     if path:
+#         q &= Q(path__contains=path)
+#     if summary:
+#         q &= Q(summary__contains=summary)
+#     if tags:
+#         q &= Q(tags__contains=tags)
+#     total, api_objs = await api_controller.list(page=page, page_size=page_size, search=q, order=["tags", "id"])
+#     data = [await obj.to_dict() for obj in api_objs]
+#     return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
 
 @router.get("/list", summary="Просмотр списка API")
 async def list_api(
@@ -16,16 +39,28 @@ async def list_api(
     summary: str = Query(None, description="Описание API"),
     tags: str = Query(None, description="Теги API"),
 ):
-    q = Q()
-    if path:
-        q &= Q(path__contains=path)
-    if summary:
-        q &= Q(summary__contains=summary)
-    if tags:
-        q &= Q(tags__contains=tags)
-    total, api_objs = await api_controller.list(page=page, page_size=page_size, search=q, order=["tags", "id"])
-    data = [await obj.to_dict() for obj in api_objs]
-    return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
+    async with SessionLocal() as session:
+        query = select(api_controller.model)
+        
+        # Добавляем условия поиска
+        if path:
+            query = query.filter(api_controller.model.path.contains(path))
+        if summary:
+            query = query.filter(api_controller.model.summary.contains(summary))
+        if tags:
+            query = query.filter(api_controller.model.tags.contains(tags))
+        
+        # Выполняем запрос и получаем результат с пагинацией
+        result = await session.execute(query.order_by(api_controller.model.tags, api_controller.model.id).offset((page - 1) * page_size).limit(page_size))
+        api_objs = result.scalars().all()
+
+        # Подсчитываем общее количество элементов
+        count_query = select(func.count()).select_from(api_controller.model)
+        total_result = await session.execute(count_query)
+        total = total_result.scalar()
+
+        data = [await obj.to_dict() for obj in api_objs]
+        return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
 
 
 @router.get("/get", summary="Просмотр API")

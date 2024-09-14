@@ -24,7 +24,7 @@ class BaseModel(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    def to_dict(self, exclude_fields: list[str] | None = None):
+    async def to_dict(self, exclude_fields: list[str] | None = None):
         if exclude_fields is None:
             exclude_fields = []
 

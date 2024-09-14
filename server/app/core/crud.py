@@ -4,6 +4,10 @@ from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy.orm import as_declarative
+from sqlalchemy import func
+
+
+from app.core.database import SessionLocal
 
 Total = NewType("Total", int)
 BaseModelType = TypeVar("BaseModelType", bound=BaseModel)
@@ -19,7 +23,7 @@ class Base:
 class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
     def __init__(self, model: Type[BaseModelType], session: AsyncSession):
         self.model = model
-        self.session = session
+        self.session = SessionLocal
 
     async def get(self, id: int) -> BaseModelType:
         async with self.session() as session:
@@ -27,14 +31,22 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
             result = await session.execute(stmt)
             return result.scalars().first()
 
-    async def list(self, page: int, page_size: int, order: List[str] = []) -> Tuple[Total, List[BaseModelType]]:
+    async def list(self, page: int, page_size: int, order: List[str] = [], **filters) -> Tuple[int, List[BaseModelType]]:
         async with self.session() as session:
-            stmt = select(self.model)
-            total = await session.execute(select(self.model).order_by(*order).count())
-            total = total.scalar()
-            stmt = stmt.offset((page - 1) * page_size).limit(page_size).order_by(*order)
-            items = await session.execute(stmt)
-            return total, items.scalars().all()
+            # Применение фильтров
+            stmt = select(self.model).filter_by(**filters)
+            
+            # Получение общего количества записей
+            total_stmt = select(func.count()).select_from(stmt.subquery())
+            total_result = await session.execute(total_stmt)
+            total = total_result.scalar()
+
+            # Получение страниц с сортировкой
+            stmt = stmt.order_by(*order).offset((page - 1) * page_size).limit(page_size)
+            items_result = await session.execute(stmt)
+            items = items_result.scalars().all()
+
+            return total, items
 
     async def create(self, obj_in: CreateSchemaType) -> BaseModelType:
         async with self.session() as session:
