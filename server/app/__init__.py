@@ -1,8 +1,9 @@
 from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
-from tortoise import Tortoise
-
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.orm import sessionmaker
+from app.models import Base
 from app.core.exceptions import SettingNotFound
 from app.core.init_app import (
     init_menus,
@@ -11,22 +12,26 @@ from app.core.init_app import (
     register_exceptions,
     register_routers,
 )
+from app.settings.config import settings
 
-try:
-    from app.settings.config import settings
-except ImportError:
-    raise SettingNotFound("Can not import settings")
-
+# Создание асинхронного движка
+engine = create_async_engine(settings.DB_URL, echo=True)
+# Создание фабрики сессий
+async_session = sessionmaker(
+    bind=engine,
+    class_=AsyncSession,
+    expire_on_commit=False,
+)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await Tortoise.init(config=settings.TORTOISE_ORM)
-    await Tortoise.generate_schemas()
+    async with engine.begin() as conn:
+        # Создание таблиц в базе данных
+        await conn.run_sync(Base.metadata.create_all)
     await init_superuser()
     await init_menus()
     yield
-    await Tortoise.close_connections()
-
+    # Не требуется явного закрытия для SQLAlchemy engine
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -40,6 +45,5 @@ def create_app() -> FastAPI:
     register_exceptions(app)
     register_routers(app, prefix="/api")
     return app
-
 
 app = create_app()

@@ -1,92 +1,108 @@
-from tortoise import fields
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Table
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import JSON
 
-from app.schemas.menus import MenuType
+Base = declarative_base()
 
-from .base import BaseModel, TimestampMixin
-from .enums import MethodType
+class User(Base):
+    __tablename__ = "user"
 
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String(20), unique=True, index=True)
+    alias = Column(String(30), nullable=True, index=True)
+    email = Column(String(255), unique=True, index=True)
+    phone = Column(String(20), nullable=True, index=True)
+    password = Column(String(128), nullable=True)
+    is_active = Column(Boolean, default=True, index=True)
+    is_superuser = Column(Boolean, default=False, index=True)
+    last_login = Column(DateTime, nullable=True, index=True)
+    dept_id = Column(Integer, ForeignKey("dept.id"), nullable=True, index=True)
+    
+    roles = relationship("Role", secondary="user_role", back_populates="users")
 
-class User(BaseModel, TimestampMixin):
-    username = fields.CharField(max_length=20, unique=True, description="Имя пользователя", index=True)
-    alias = fields.CharField(max_length=30, null=True, description="Фамилия", index=True)
-    email = fields.CharField(max_length=255, unique=True, description="Электронная почта", index=True)
-    phone = fields.CharField(max_length=20, null=True, description="Телефон", index=True)
-    password = fields.CharField(max_length=128, null=True, description="Пароль")
-    is_active = fields.BooleanField(default=True, description="Активен", index=True)
-    is_superuser = fields.BooleanField(default=False, description="Суперпользователь", index=True)
-    last_login = fields.DatetimeField(null=True, description="Дата последнего входа", index=True)
-    roles = fields.ManyToManyField("models.Role", related_name="user_roles")
-    dept_id = fields.IntField(null=True, description="ID отдела", index=True)
+class Role(Base):
+    __tablename__ = "role"
 
-    class Meta:
-        table = "user"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(20), unique=True, index=True)
+    desc = Column(String(500), nullable=True)
+    
+    users = relationship("User", secondary="user_role", back_populates="roles")
+    # menus = relationship("Menu", secondary="role_menu", back_populates="roles")
+    # apis = relationship("Api", secondary="role_api", back_populates="roles")
 
-    class PydanticMeta:
-        # todo
-        # computed = ["full_name"]
-        ...
+class Api(Base):
+    __tablename__ = "api"
 
+    id = Column(Integer, primary_key=True, index=True)
+    path = Column(String(100), index=True)
+    method = Column(String(10), index=True)
+    summary = Column(String(500), index=True)
+    tags = Column(String(100), index=True)
 
-class Role(BaseModel, TimestampMixin):
-    name = fields.CharField(max_length=20, unique=True, description="Название роли", index=True)
-    desc = fields.CharField(max_length=500, null=True, blank=True, description="Описание роли")
-    menus = fields.ManyToManyField("models.Menu", related_name="role_menus")
-    apis = fields.ManyToManyField("models.Api", related_name="role_apis")
+class Menu(Base):
+    __tablename__ = "menu"
 
-    class Meta:
-        table = "role"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(20), index=True)
+    remark = Column(JSON, nullable=True)
+    menu_type = Column(String(50), nullable=True)
+    icon = Column(String(100), nullable=True)
+    path = Column(String(100), index=True)
+    order = Column(Integer, default=0, index=True)
+    parent_id = Column(Integer, default=0, index=True)
+    is_hidden = Column(Boolean, default=False)
+    component = Column(String(100))
+    keepalive = Column(Boolean, default=True)
+    redirect = Column(String(100), nullable=True)
 
+class Dept(Base):
+    __tablename__ = "dept"
 
-class Api(BaseModel, TimestampMixin):
-    path = fields.CharField(max_length=100, description="Путь API", index=True)
-    method = fields.CharEnumField(MethodType, description="Метод запроса", index=True)
-    summary = fields.CharField(max_length=500, description="Описание запроса", index=True)
-    tags = fields.CharField(max_length=100, description="Теги API", index=True)
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(20), unique=True, index=True)
+    desc = Column(String(500), nullable=True)
+    is_deleted = Column(Boolean, default=False, index=True)
+    order = Column(Integer, default=0, index=True)
+    parent_id = Column(Integer, default=0, index=True)
 
-    class Meta:
-        table = "api"
+class DeptClosure(Base):
+    __tablename__ = "dept_closure"
 
+    id = Column(Integer, primary_key=True, index=True)
+    ancestor = Column(Integer, index=True)
+    descendant = Column(Integer, index=True)
+    level = Column(Integer, default=0, index=True)
 
-class Menu(BaseModel, TimestampMixin):
-    name = fields.CharField(max_length=20, description="Название меню", index=True)
-    remark = fields.JSONField(null=True, description="Резервное поле", blank=True)
-    menu_type = fields.CharEnumField(MenuType, null=True, blank=True, description="Тип меню")
-    icon = fields.CharField(max_length=100, null=True, blank=True, description="Иконка меню")
-    path = fields.CharField(max_length=100, description="Путь меню", index=True)
-    order = fields.IntField(default=0, description="Порядок", index=True)
-    parent_id = fields.IntField(default=0, max_length=10, description="ID родительского меню", index=True)
-    is_hidden = fields.BooleanField(default=False, description="Скрыто")
-    component = fields.CharField(max_length=100, description="Компонент")
-    keepalive = fields.BooleanField(default=True, description="Сохранить")
-    redirect = fields.CharField(max_length=100, null=True, blank=True, description="Перенаправление")
+class AuditLog(Base):
+    __tablename__ = "audit_log"
 
-    class Meta:
-        table = "menu"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, index=True)
+    username = Column(String(64), default="", index=True)
+    module = Column(String(64), default="", index=True)
+    summary = Column(String(128), default="", index=True)
+    method = Column(String(10), default="", index=True)
+    path = Column(String(255), default="", index=True)
+    status = Column(Integer, default=-1, index=True)
+    response_time = Column(Integer, default=0, index=True)
 
+# Association tables for many-to-many relationships
+user_role = Table(
+    'user_role', Base.metadata,
+    Column('user_id', Integer, ForeignKey('user.id')),
+    Column('role_id', Integer, ForeignKey('role.id'))
+)
 
-class Dept(BaseModel, TimestampMixin):
-    name = fields.CharField(max_length=20, unique=True, description="Название отдела", index=True)
-    desc = fields.CharField(max_length=500, null=True, blank=True, description="Примечание")
-    is_deleted = fields.BooleanField(default=False, description="Метка мягкого удаления", index=True)
-    order = fields.IntField(default=0, description="Порядок", index=True)
-    parent_id = fields.IntField(default=0, max_length=10, description="ID родительского отдела", index=True)
+role_menu = Table(
+    'role_menu', Base.metadata,
+    Column('role_id', Integer, ForeignKey('role.id')),
+    Column('menu_id', Integer, ForeignKey('menu.id'))
+)
 
-    class Meta:
-        table = "dept"
-
-
-class DeptClosure(BaseModel, TimestampMixin):
-    ancestor = fields.IntField(description="Предок", index=True)
-    descendant = fields.IntField(description="Потомок", index=True)
-    level = fields.IntField(default=0, description="Уровень", index=True)
-
-
-class AuditLog(BaseModel, TimestampMixin):
-    user_id = fields.IntField(description="ID пользователя", index=True)
-    username = fields.CharField(max_length=64, default="", description="Имя пользователя", index=True)
-    module = fields.CharField(max_length=64, default="", description="Модуль функции", index=True)
-    summary = fields.CharField(max_length=128, default="", description="Описание запроса", index=True)
-    method = fields.CharField(max_length=10, default="", description="Метод запроса", index=True)
-    path = fields.CharField(max_length=255, default="", description="Путь запроса", index=True)
-    status = fields.IntField(default=-1, description="Код статуса", index=True)
-    response_time = fields.IntField(default=0, description="Время отклика (в мс)", index=True)
+role_api = Table(
+    'role_api', Base.metadata,
+    Column('role_id', Integer, ForeignKey('role.id')),
+    Column('api_id', Integer, ForeignKey('api.id'))
+)

@@ -1,2 +1,3 @@
-# Импорт новых моделей должен быть сделан здесь
 from .admin import *
+
+from .base import BaseModel as Base
