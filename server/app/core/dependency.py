@@ -2,27 +2,44 @@ from typing import Optional
 
 import jwt
 from fastapi import Depends, Header, HTTPException, Request
+from fastapi.responses import JSONResponse
+
+from sqlalchemy.future import select
 
 from app.core.ctx import CTX_USER_ID
 from app.models import Role, User
 from app.settings import settings
 
+from app.core.database import SessionLocal
+
 
 class AuthControl:
     @classmethod
-    async def is_authed(cls, token: str = Header(..., description="Проверка токена")) -> Optional["User"]:
+    async def is_authed(cls, token: str = Header(..., description="Проверка токена")) -> Optional[User]:
         try:
-            if token == "dev":
-                user = await User.filter().first()
-                user_id = user.id
-            else:
-                decode_data = jwt.decode(token, settings.SECRET_KEY, algorithms=settings.JWT_ALGORITHM)
-                user_id = decode_data.get("user_id")
-            user = await User.filter(id=user_id).first()
-            if not user:
-                raise HTTPException(status_code=401, detail="Ошибка аутентификации")
-            CTX_USER_ID.set(int(user_id))
-            return user
+            async with SessionLocal() as session:
+                if token == "dev":
+                    stmt = select(User)
+                    result = await session.execute(stmt)
+                    user = result.scalars().first()
+                    user_id = user.id if user else None
+                else:
+                    decode_data = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.JWT_ALGORITHM])
+                    user_id = decode_data.get("user_id")
+
+                if user_id is None:
+                    raise HTTPException(status_code=401, detail="Ошибка аутентификации")
+
+                stmt = select(User).where(User.id == user_id)
+                result = await session.execute(stmt)
+                user = result.scalars().first()
+                
+                if not user:
+                    raise HTTPException(status_code=401, detail="Ошибка аутентификации")
+
+                CTX_USER_ID.set(int(user_id))
+                return user
+
         except jwt.DecodeError:
             raise HTTPException(status_code=401, detail="Недействительный токен")
         except jwt.ExpiredSignatureError:

@@ -3,9 +3,12 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import JSON
 
-from app.core.database import Base
+from typing import List
 
-class User(Base):
+# from app.core.database import Base
+from app.models.base import BaseModel
+
+class User(BaseModel):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -21,7 +24,19 @@ class User(Base):
     
     roles = relationship("Role", secondary="user_role", back_populates="users")
 
-class Role(Base):
+    async def to_dict(self, exclude_fields: List[str] = None) -> dict:
+        if exclude_fields is None:
+            exclude_fields = []
+
+        return {
+            'email': self.email,
+            'username': self.username,
+            'is_active': self.is_active,
+            'is_superuser': self.is_superuser,
+        }
+    
+
+class Role(BaseModel):
     __tablename__ = "role"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -32,7 +47,7 @@ class Role(Base):
     # menus = relationship("Menu", secondary="role_menu", back_populates="roles")
     # apis = relationship("Api", secondary="role_api", back_populates="roles")
 
-class Api(Base):
+class Api(BaseModel):
     __tablename__ = "api"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -41,7 +56,7 @@ class Api(Base):
     summary = Column(String(500), index=True)
     tags = Column(String(100), index=True)
 
-class Menu(Base):
+class Menu(BaseModel):
     __tablename__ = "menu"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -57,7 +72,7 @@ class Menu(Base):
     keepalive = Column(Boolean, default=True)
     redirect = Column(String(100), nullable=True)
 
-class Dept(Base):
+class Dept(BaseModel):
     __tablename__ = "dept"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -67,7 +82,7 @@ class Dept(Base):
     order = Column(Integer, default=0, index=True)
     parent_id = Column(Integer, default=0, index=True)
 
-class DeptClosure(Base):
+class DeptClosure(BaseModel):
     __tablename__ = "dept_closure"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -75,7 +90,7 @@ class DeptClosure(Base):
     descendant = Column(Integer, index=True)
     level = Column(Integer, default=0, index=True)
 
-class AuditLog(Base):
+class AuditLog(BaseModel):
     __tablename__ = "audit_log"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -90,19 +105,19 @@ class AuditLog(Base):
 
 # Association tables for many-to-many relationships
 user_role = Table(
-    'user_role', Base.metadata,
+    'user_role', BaseModel.metadata,
     Column('user_id', Integer, ForeignKey('user.id')),
     Column('role_id', Integer, ForeignKey('role.id'))
 )
 
 role_menu = Table(
-    'role_menu', Base.metadata,
+    'role_menu', BaseModel.metadata,
     Column('role_id', Integer, ForeignKey('role.id')),
     Column('menu_id', Integer, ForeignKey('menu.id'))
 )
 
 role_api = Table(
-    'role_api', Base.metadata,
+    'role_api', BaseModel.metadata,
     Column('role_id', Integer, ForeignKey('role.id')),
     Column('api_id', Integer, ForeignKey('api.id'))
 )

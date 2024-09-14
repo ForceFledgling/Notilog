@@ -9,14 +9,13 @@ from app.settings import settings
 from sqlalchemy.ext.declarative import declarative_base
 
 
-Base = declarative_base()
+# Base = declarative_base()
+from app.core.database import Base
 
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, BigInteger, DateTime
 from sqlalchemy.sql import func
-
-Base = declarative_base()
 
 class BaseModel(Base):
     __abstract__ = True

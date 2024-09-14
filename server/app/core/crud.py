@@ -1,14 +1,12 @@
-# server/app/core/crud.py
-
 from typing import Any, Dict, Generic, List, NewType, Tuple, Type, TypeVar, Union
 
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.ext.declarative import as_declarative
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.future import select
+from sqlalchemy.orm import as_declarative
 
 Total = NewType("Total", int)
-BaseModelType = TypeVar("BaseModelType", bound="BaseModel")
+BaseModelType = TypeVar("BaseModelType", bound=BaseModel)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
 UpdateSchemaType = TypeVar("UpdateSchemaType", bound=BaseModel)
 
@@ -25,14 +23,18 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
 
     async def get(self, id: int) -> BaseModelType:
         async with self.session() as session:
-            return await session.execute(self.model.query().filter_by(id=id)).scalar_one()
+            stmt = select(self.model).filter_by(id=id)
+            result = await session.execute(stmt)
+            return result.scalars().first()
 
     async def list(self, page: int, page_size: int, order: List[str] = []) -> Tuple[Total, List[BaseModelType]]:
         async with self.session() as session:
-            query = self.model.query()
-            total = await query.count()
-            items = await query.offset((page - 1) * page_size).limit(page_size).order_by(*order).all()
-            return total, items
+            stmt = select(self.model)
+            total = await session.execute(select(self.model).order_by(*order).count())
+            total = total.scalar()
+            stmt = stmt.offset((page - 1) * page_size).limit(page_size).order_by(*order)
+            items = await session.execute(stmt)
+            return total, items.scalars().all()
 
     async def create(self, obj_in: CreateSchemaType) -> BaseModelType:
         async with self.session() as session:
@@ -43,7 +45,11 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
 
     async def update(self, id: int, obj_in: Union[UpdateSchemaType, Dict[str, Any]]) -> BaseModelType:
         async with self.session() as session:
-            obj = await session.execute(self.model.query().filter_by(id=id)).scalar_one()
+            stmt = select(self.model).filter_by(id=id)
+            result = await session.execute(stmt)
+            obj = result.scalars().first()
+            if obj is None:
+                raise ValueError("Object not found")
             for key, value in obj_in.items():
                 setattr(obj, key, value)
             session.add(obj)
@@ -52,6 +58,10 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
 
     async def remove(self, id: int) -> None:
         async with self.session() as session:
-            obj = await session.execute(self.model.query().filter_by(id=id)).scalar_one()
+            stmt = select(self.model).filter_by(id=id)
+            result = await session.execute(stmt)
+            obj = result.scalars().first()
+            if obj is None:
+                raise ValueError("Object not found")
             session.delete(obj)
             await session.commit()

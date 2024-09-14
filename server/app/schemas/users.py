@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import List, Optional
-
+from typing import Union, List
 from pydantic import BaseModel, EmailStr, Field
 
 
@@ -27,7 +27,7 @@ class UserCreate(BaseModel):
 
     # Метод для создания словаря без необязательных полей и поля "role_ids"
     def create_dict(self):
-        return self.model_dump(exclude_unset=True, exclude={"role_ids"})
+        return self.dict(exclude_unset=True, exclude={"role_ids"})
 
 
 class UserUpdate(BaseModel):

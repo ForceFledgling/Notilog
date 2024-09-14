@@ -8,7 +8,7 @@ from app.core.dependency import DependAuth
 from app.models.admin import Api, Menu, Role, User
 from app.schemas.base import Fail, Success
 from app.schemas.login import *
-from app.schemas.users import UpdatePassword
+from app.schemas.users import UpdatePassword, BaseUser
 from app.settings import settings
 from app.utils.jwt import create_access_token
 from app.utils.password import get_password_hash, verify_password
@@ -39,9 +39,11 @@ async def login_access_token(credentials: CredentialsSchema):
 async def get_userinfo():
     user_id = CTX_USER_ID.get()
     user_obj = await user_controller.get(id=user_id)
+    print('user_obj', user_obj)
     data = await user_obj.to_dict(exclude_fields=["password"])
     data["avatar"] = "https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_32.png"  # https://github.com/alohe/avatars
     return Success(data=data)
+
 
 @router.get("/usermenu", summary="Получить меню пользователя", dependencies=[DependAuth])
 async def get_user_menu():

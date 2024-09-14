@@ -44,9 +44,11 @@ class UserController(CRUDBase[User, UserCreate, UserUpdate]):
     async def authenticate(self, credentials: CredentialsSchema) -> Optional["User"]:
         async with self.session() as session:
             result = await session.execute(select(self.model).filter_by(username=credentials.username))
+            print('result', result)
             user = result.scalars().first()
+            print('user', user)
             if not user:
-                raise HTTPException(status_code=400, detail="Неверное имя пользователя")
+                raise HTTPException(status_code=400, detail="Неверные имя пользователя или пароль")
             verified = verify_password(credentials.password, user.password)
             if not verified:
                 raise HTTPException(status_code=400, detail="Неверный пароль!")
