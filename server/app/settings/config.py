@@ -1,6 +1,5 @@
 import os
 import typing
-
 from pydantic_settings import BaseSettings
 
 
@@ -10,13 +9,17 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "NotiLog CPanel"
     APP_DESCRIPTION: str = "Description"
 
-    CORS_ORIGINS: typing.List = ["*"]
+    CORS_ORIGINS: typing.List[str] = ["*"]
     CORS_ALLOW_CREDENTIALS: bool = True
-    CORS_ALLOW_METHODS: typing.List = ["*"]
-    CORS_ALLOW_HEADERS: typing.List = ["*"]
+    CORS_ALLOW_METHODS: typing.List[str] = ["*"]
+    CORS_ALLOW_HEADERS: typing.List[str] = ["*"]
 
     DEBUG: bool = True
-    DB_URL: str = "sqlite://db.sqlite3"
+    DB_URL: str = os.getenv("DB_URL", "sqlite://db.sqlite3")  # По умолчанию SQLite
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "")  # Указывается в .env
+    JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")  # По умолчанию HS256
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", 24 * 7))  # По умолчанию  7 дней
+
     DB_CONNECTIONS: dict = {
         "default": {
             "engine": "tortoise.backends.sqlite",
@@ -34,9 +37,7 @@ class Settings(BaseSettings):
     PROJECT_ROOT: str = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
     BASE_DIR: str = os.path.abspath(os.path.join(PROJECT_ROOT, os.pardir))
     LOGS_ROOT: str = os.path.join(BASE_DIR, "app/logs")
-    SECRET_KEY: str = "3488a63e1765035d386f05409663f55c83bfae3b3c61a932744b20ad14244dcf"  # openssl rand -hex 32
-    JWT_ALGORITHM: str = "HS256"
-    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 24 * 7  # 7 day
+
     TORTOISE_ORM: dict = {
         "connections": {
             "sqlite": {
@@ -51,9 +52,12 @@ class Settings(BaseSettings):
             },
         },
         "use_tz": False,
-        "timezone": "Asia/Shanghai",
+        "timezone": "Europe/Moscow",
     }
     DATETIME_FORMAT: str = "%Y-%m-%d %H:%M:%S"
+
+    class Config:
+        env_file = ".env"  # Указываем, что переменные загружаются из .env файла
 
 
 settings = Settings()
