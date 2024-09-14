@@ -88,6 +88,10 @@ def main():
     # Извлекаем блок highlights
     hero = parse_hero(index_content)
     print(hero)
+
+    screenshots = (
+        "![](https://github.com/ForceFledgling/notilog/tree/main/docs/assets/images/cpanel.jpg)"
+    )
     
     # # Извлекаем блок highlights
     highlights = (
@@ -98,7 +102,7 @@ def main():
     )
     print(highlights)
 
-    readme = hero + "\n\n" + highlights + (
+    readme = hero + "\n\n" + screenshots + highlights + (
         "## Сообщество\n\n"
         "Участие в сообществе NotiLog предоставляет вам прямой путь к установлению связей с другими единомышленниками. Узнайте больше о том, как вы можете участвовать в нашем сообществе, ознакомившись с нашим [руководством по сообществу](https://github.com/ForceFledgling/notilog/blob/main/docs/_guides/community.md).\n\n"
         "## Лицензия\n\n"
