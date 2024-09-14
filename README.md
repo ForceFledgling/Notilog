@@ -1,7 +1,7 @@
 # Добро пожаловать в NotiLog!
 Notilog — это масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
 
-## Основные возможности NotiLog
+![](https://github.com/ForceFledgling/notilog/tree/main/docs/assets/images/cpanel.jpg)## Основные возможности NotiLog
 
 <div style="display: flex;">
 
