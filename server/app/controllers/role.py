@@ -1,13 +1,15 @@
-from typing import List
+# server/app/controllers/role.py
 
+from typing import List
 from app.core.crud import CRUDBase
 from app.models.admin import Api, Menu, Role
 from app.schemas.roles import RoleCreate, RoleUpdate
-
+from sqlalchemy.ext.asyncio import AsyncSession
+from app.core.database import get_session
 
 class RoleController(CRUDBase[Role, RoleCreate, RoleUpdate]):
-    def __init__(self):
-        super().__init__(model=Role)
+    def __init__(self, session: AsyncSession):
+        super().__init__(model=Role, session=session)
 
     async def is_exist(self, name: str) -> bool:
         return await self.model.filter(name=name).exists()
@@ -23,5 +25,6 @@ class RoleController(CRUDBase[Role, RoleCreate, RoleUpdate]):
             api_obj = await Api.filter(path=item.get("path"), method=item.get("method")).first()
             await role.apis.add(api_obj)
 
-
-role_controller = RoleController()
+# Получение сессии
+session = get_session()  # Предположим, что у вас есть функция для получения сессии
+role_controller = RoleController(session=session)

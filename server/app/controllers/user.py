@@ -2,25 +2,31 @@ from datetime import datetime
 from typing import List, Optional
 
 from fastapi.exceptions import HTTPException
+from sqlalchemy.future import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.crud import CRUDBase
 from app.models.admin import User
 from app.schemas.login import CredentialsSchema
 from app.schemas.users import UserCreate, UserUpdate
 from app.utils.password import get_password_hash, verify_password
+from app.core.database import async_session
 
 from .role import role_controller
 
-
 class UserController(CRUDBase[User, UserCreate, UserUpdate]):
-    def __init__(self):
-        super().__init__(model=User)
+    def __init__(self, session: AsyncSession):
+        super().__init__(model=User, session=session)
 
     async def get_by_email(self, email: str) -> Optional[User]:
-        return await self.model.filter(email=email).first()
+        async with self.session() as session:
+            result = await session.execute(select(self.model).filter_by(email=email))
+            return result.scalars().first()
 
     async def get_by_username(self, username: str) -> Optional[User]:
-        return await self.model.filter(username=username).first()
+        async with self.session() as session:
+            result = await session.execute(select(self.model).filter_by(username=username))
+            return result.scalars().first()
 
     async def create_user(self, obj_in: UserCreate) -> User:
         obj_in.password = get_password_hash(password=obj_in.password)
@@ -28,33 +34,47 @@ class UserController(CRUDBase[User, UserCreate, UserUpdate]):
         return obj
 
     async def update_last_login(self, id: int) -> None:
-        user = await self.model.get(id=id)
-        user.last_login = datetime.now()
-        await user.save()
+        async with self.session() as session:
+            user = await session.get(self.model, id)
+            if user:
+                user.last_login = datetime.now()
+                session.add(user)
+                await session.commit()
 
     async def authenticate(self, credentials: CredentialsSchema) -> Optional["User"]:
-        user = await self.model.filter(username=credentials.username).first()
-        if not user:
-            raise HTTPException(status_code=400, detail="Неверное имя пользователя")
-        verified = verify_password(credentials.password, user.password)
-        if not verified:
-            raise HTTPException(status_code=400, detail="Неверный пароль!")
-        if not user.is_active:
-            raise HTTPException(status_code=400, detail="Пользователь отключен")
-        return user
+        async with self.session() as session:
+            result = await session.execute(select(self.model).filter_by(username=credentials.username))
+            user = result.scalars().first()
+            if not user:
+                raise HTTPException(status_code=400, detail="Неверное имя пользователя")
+            verified = verify_password(credentials.password, user.password)
+            if not verified:
+                raise HTTPException(status_code=400, detail="Неверный пароль!")
+            if not user.is_active:
+                raise HTTPException(status_code=400, detail="Пользователь отключен")
+            return user
 
     async def update_roles(self, user: User, role_ids: List[int]) -> None:
-        await user.roles.clear()
-        for role_id in role_ids:
-            role_obj = await role_controller.get(id=role_id)
-            await user.roles.add(role_obj)
+        async with self.session() as session:
+            user = await session.get(self.model, user.id)
+            if user:
+                await user.roles.clear()
+                for role_id in role_ids:
+                    role_obj = await role_controller.get(id=role_id)
+                    if role_obj:
+                        user.roles.append(role_obj)
+                session.add(user)
+                await session.commit()
 
     async def reset_password(self, user_id: int):
-        user_obj = await self.get(id=user_id)
-        if user_obj.is_superuser:
-            raise HTTPException(status_code=403, detail="Запрещено сбрасывать пароль суперпользователя")
-        user_obj.password = get_password_hash(password="123456")
-        await user_obj.save()
+        async with self.session() as session:
+            user_obj = await session.get(self.model, user_id)
+            if user_obj:
+                if user_obj.is_superuser:
+                    raise HTTPException(status_code=403, detail="Запрещено сбрасывать пароль суперпользователя")
+                user_obj.password = get_password_hash(password="123456")
+                session.add(user_obj)
+                await session.commit()
 
-
-user_controller = UserController()
+# Make sure to pass an AsyncSession instance to UserController
+user_controller = UserController(session=async_session)
