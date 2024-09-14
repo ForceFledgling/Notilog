@@ -36,7 +36,7 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
 
     async def create(self, obj_in: CreateSchemaType) -> BaseModelType:
         async with self.session() as session:
-            obj = self.model(**obj_in.dict())
+            obj = self.model(**obj_in.dict(exclude_unset=True))  # Используем exclude_unset=True
             session.add(obj)
             await session.commit()
             return obj

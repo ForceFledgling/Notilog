@@ -17,7 +17,7 @@ from app.settings.config import settings
 # Создание асинхронного движка
 engine = create_async_engine(settings.DB_URL, echo=True)
 # Создание фабрики сессий
-async_session = sessionmaker(
+SessionLocal = sessionmaker(
     bind=engine,
     class_=AsyncSession,
     expire_on_commit=False,

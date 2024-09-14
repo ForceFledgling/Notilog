@@ -1,5 +1,6 @@
 import re
 from datetime import datetime
+from typing import Optional
 
 from fastapi import FastAPI
 from fastapi.responses import Response
@@ -10,9 +11,9 @@ from starlette.types import ASGIApp, Receive, Scope, Send
 
 from app.core.dependency import AuthControl
 from app.models.admin import AuditLog, User
+from app.core.database import SessionLocal
 
 from .bgtask import BgTasks
-
 
 class SimpleBaseMiddleware:
     def __init__(self, app: ASGIApp) -> None:
@@ -35,14 +36,12 @@ class SimpleBaseMiddleware:
     async def after_request(self, request: Request):
         return None
 
-
 class BackGroundTaskMiddleware(SimpleBaseMiddleware):
     async def before_request(self, request):
         await BgTasks.init_bg_tasks_obj()
 
     async def after_request(self, request):
         await BgTasks.execute_tasks()
-
 
 class HttpAuditLogMiddleware(BaseHTTPMiddleware):
     def __init__(self, app, methods: list, exclude_paths: list):
@@ -84,7 +83,13 @@ class HttpAuditLogMiddleware(BaseHTTPMiddleware):
                     return
             data: dict = await self.get_request_log(request=request, response=response)
             data["response_time"] = process_time  # Время ответа
-            await AuditLog.create(**data)
+            
+            # Создание записи в журнале с использованием SQLAlchemy
+            async with SessionLocal() as session:
+                async with session.begin():
+                    audit_log = AuditLog(**data)
+                    session.add(audit_log)
+                    await session.commit()
 
     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
         start_time: datetime = datetime.now()

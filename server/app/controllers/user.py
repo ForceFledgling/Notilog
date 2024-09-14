@@ -10,7 +10,7 @@ from app.models.admin import User
 from app.schemas.login import CredentialsSchema
 from app.schemas.users import UserCreate, UserUpdate
 from app.utils.password import get_password_hash, verify_password
-from app.core.database import async_session
+from app.core.database import SessionLocal
 
 from .role import role_controller
 
@@ -77,4 +77,4 @@ class UserController(CRUDBase[User, UserCreate, UserUpdate]):
                 await session.commit()
 
 # Make sure to pass an AsyncSession instance to UserController
-user_controller = UserController(session=async_session)
+user_controller = UserController(session=SessionLocal)

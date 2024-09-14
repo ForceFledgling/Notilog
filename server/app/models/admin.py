@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import JSON
 
-Base = declarative_base()
+from app.core.database import Base
 
 class User(Base):
     __tablename__ = "user"
