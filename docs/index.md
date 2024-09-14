@@ -79,6 +79,8 @@ highlights:
 
 NotiLog — это масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
 
+![](https://github.com/ForceFledgling/notilog/tree/main/docs/assets/images/cpanel.jpg)
+
 <hr>
 {{ show_highlights(page.meta.highlights) }}
 <hr>

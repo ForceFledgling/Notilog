@@ -16,6 +16,9 @@ from app.core.database import Base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, BigInteger, DateTime
 from sqlalchemy.sql import func
+from app.core.database import SessionLocal
+from sqlalchemy import select, func
+from sqlalchemy.ext.asyncio import AsyncSession
 
 class BaseModel(Base):
     __abstract__ = True
@@ -23,6 +26,16 @@ class BaseModel(Base):
     id = Column(BigInteger, primary_key=True, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    @classmethod
+    async def get(cls, id: int):
+        async with SessionLocal() as s:
+            result = await s.execute(select(cls).filter_by(id=id))
+            return result.scalar_one_or_none()
+
+    @classmethod
+    def filter(cls, *args, **kwargs):
+        return select(cls).filter_by(**kwargs)  # Возвращаем запрос, а не его результат
 
     async def to_dict(self, exclude_fields: list[str] | None = None):
         if exclude_fields is None:

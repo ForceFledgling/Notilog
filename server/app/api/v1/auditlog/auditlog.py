@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Query
-from tortoise.expressions import Q
+from fastapi import APIRouter, Query, Depends
 from app.models.admin import AuditLog
-
 from app.schemas import SuccessExtra
-from app.schemas.apis import *
+from app.core.database import get_session, SessionLocal
 from app.core.dependency import DependPermisson
+
+from sqlalchemy import func, select, and_, or_, between
+from sqlalchemy.ext.asyncio import AsyncSession
+
 
 router = APIRouter()
 
@@ -18,22 +20,30 @@ async def get_audit_log_list(
     start_time: str = Query("", description="Начальное время"),
     end_time: str = Query("", description="Конечное время"),
 ):
-
-    q = Q()
-    if username:
-        q &= Q(username__icontains=username)
-    if module:
-        q &= Q(module__icontains=module)
-    if summary:
-        q &= Q(summary__icontains=summary)
-    if start_time and end_time:
-        q &= Q(created_at__range=[start_time, end_time])
-    elif start_time:
-        q &= Q(created_at__gte=start_time)
-    elif end_time:
-        q &= Q(created_at__lte=end_time)
+    async with AsyncSession() as session:
+        filters = []
+        if username:
+            filters.append(AuditLog.username.ilike(f'%{username}%'))
+        if module:
+            filters.append(AuditLog.module.ilike(f'%{module}%'))
+        if summary:
+            filters.append(AuditLog.summary.ilike(f'%{summary}%'))
+        if start_time and end_time:
+            filters.append(AuditLog.created_at.between(start_time, end_time))
+        elif start_time:
+            filters.append(AuditLog.created_at >= start_time)
+        elif end_time:
+            filters.append(AuditLog.created_at <= end_time)
         
-    audit_log_objs = await AuditLog.filter(q).offset((page - 1) * page_size).limit(page_size).order_by("-created_at")
-    total = await AuditLog.filter(q).count()
-    data = [await audit_log.to_dict() for audit_log in audit_log_objs]
-    return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
+        # Основной запрос для получения данных
+        stmt = select(AuditLog).where(and_(*filters)).offset((page - 1) * page_size).limit(page_size).order_by(AuditLog.created_at.desc())
+        result = await session.execute(stmt)
+        audit_log_objs = result.scalars().all()
+        
+        # Запрос для подсчета общего количества записей
+        count_stmt = select(func.count()).select_from(AuditLog).where(and_(*filters))
+        count_result = await session.execute(count_stmt)
+        total = count_result.scalar()
+
+        data = [await audit_log.to_dict() for audit_log in audit_log_objs]
+        return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
