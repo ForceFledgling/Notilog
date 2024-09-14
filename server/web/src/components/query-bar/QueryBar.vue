@@ -14,8 +14,10 @@
     <n-space wrap :size="[35, 15]">
       <slot />
       <div>
-        <n-button secondary type="primary" @click="emit('reset')">Сбросить</n-button>
-        <n-button ml-20 type="primary" @click="emit('search')">Поиск</n-button>
+        <!-- <n-button secondary type="primary" @click="emit('reset')">Сбросить</n-button> -->
+        <n-button secondary type="primary" @click="handleClick('reset')">Сбросить</n-button>
+        <n-button ml-20 type="primary" @click="handleClick('search')">Поиск</n-button>
+
       </div>
     </n-space>
   </div>
@@ -23,4 +25,9 @@
 
 <script setup>
 const emit = defineEmits(['search', 'reset'])
+
+function handleClick(action) {
+  emit(action)
+  document.activeElement.blur() // Сброс фокуса с активного элемента
+}
 </script>

@@ -12,6 +12,7 @@
       "primaryColorHover": "#A9A9A9",
       "primaryColorPressed": "#E64A19",
       "primaryColorSuppl": "#FF5722",
+      "primaryColorFocus": "#4CAF50",
 
       "infoColor": "#2196F3",
       "infoColorHover": "#64B5F6",
@@ -40,6 +41,7 @@
       "primaryColorHover": "#A9A9A9",
       "primaryColorPressed": "#BF360C",
       "primaryColorSuppl": "#F4511E",
+      "primaryColorFocus": "#4CAF50",
 
       "infoColor": "#2080F0FF",
       "infoColorHover": "#4098FCFF",
