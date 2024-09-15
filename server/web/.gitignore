@@ -26,3 +26,4 @@ stats.html
 *.sw?
 
 pnpm-lock.yaml
+.vercel
