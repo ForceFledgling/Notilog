@@ -20,9 +20,5 @@
       "dest": "/dist/$1"
     }
   ],
-  "hooks": {
-    "build": {
-      "command": "vite build"
-    }
-  }
+  "buildCommand": "npm run build"
 }
