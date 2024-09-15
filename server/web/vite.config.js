@@ -5,6 +5,22 @@ import { viteDefine } from './build/config'
 import { createVitePlugins } from './build/plugin'
 import { OUTPUT_DIR, PROXY_CONFIG } from './build/constant'
 
+// Логгирование переменных окружения
+function logEnv(viteEnv) {
+  console.log('Loaded environment variables:')
+  Object.keys(viteEnv).forEach(key => {
+    console.log(`${key}: ${viteEnv[key]}`)
+  })
+}
+
+// Middleware для логгирования запросов прокси
+function logProxyRequests(proxyOptions) {
+  return (req, res, next) => {
+    console.log(`[Proxy] ${req.method} ${req.url} -> ${proxyOptions.target}${req.url}`)
+    next()
+  }
+}
+
 export default defineConfig(({ command, mode }) => {
   const srcPath = getSrcPath()
   const rootPath = getRootPath()
@@ -13,6 +29,9 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd())
   const viteEnv = convertEnv(env)
   const { VITE_PORT, VITE_PUBLIC_PATH, VITE_USE_PROXY, VITE_BASE_API } = viteEnv
+
+  // Логгирование переменных окружения
+  logEnv(viteEnv)
 
   return {
     base: VITE_PUBLIC_PATH || '/',
@@ -30,7 +49,15 @@ export default defineConfig(({ command, mode }) => {
       open: true,
       proxy: VITE_USE_PROXY
         ? {
-            [VITE_BASE_API]: PROXY_CONFIG[VITE_BASE_API],
+            [VITE_BASE_API]: {
+              ...PROXY_CONFIG[VITE_BASE_API],
+              configure: (proxy, options) => {
+                // Логгирование запросов прокси
+                proxy.on('proxyReq', (proxyReq, req, res) => {
+                  console.log(`[Proxy] ${req.method} ${req.url} -> ${options.target}${req.url}`)
+                })
+              }
+            }
           }
         : undefined,
     },

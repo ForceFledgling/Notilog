@@ -21,6 +21,5 @@ export const PROXY_CONFIG = {
     // target: 'http://backend.notilog.ru:9999',
     target: 'http://195.2.81.46:9999',
     changeOrigin: true,
-    secure: false,  // разрешить использование http для проксируемого бэкенда
   },
 }
