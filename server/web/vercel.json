@@ -5,14 +5,14 @@
       "src": "server.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/**"]
+        "includeFiles": ["**"]
       }
     },
     {
       "src": "dist/**",
       "use": "@vercel/static",
       "config": {
-        "includeFiles": ["dist/**"]
+        "includeFiles": ["**"]
       }
     }
   ],
