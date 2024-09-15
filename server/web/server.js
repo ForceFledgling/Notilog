@@ -15,6 +15,12 @@ app.use('/api/v1', createProxyMiddleware({
 // Обслуживание статических файлов из директории dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
+app.get('/', (req, res) => {
+  console.log('Requested path:', req.path); // Добавьте это для отладки
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 // Обработка всех остальных запросов
 app.get('*', (req, res) => {
   console.log('Requested path:', req.path); // Добавьте это для отладки
