@@ -3,7 +3,6 @@ import { defineConfig, loadEnv } from 'vite'
 import { convertEnv, getSrcPath, getRootPath } from './build/utils'
 import { viteDefine } from './build/config'
 import { createVitePlugins } from './build/plugin'
-import { OUTPUT_DIR, PROXY_CONFIG } from './build/constant'
 
 export default defineConfig(({ command, mode }) => {
   const srcPath = getSrcPath()
@@ -28,15 +27,10 @@ export default defineConfig(({ command, mode }) => {
       host: '0.0.0.0',
       port: VITE_PORT,
       open: true,
-      proxy: VITE_USE_PROXY
-        ? {
-            [VITE_BASE_API]: PROXY_CONFIG[VITE_BASE_API],
-          }
-        : undefined,
     },
     build: {
       target: 'es2015',
-      outDir: OUTPUT_DIR || 'dist',
+      outDir: 'dist',
       reportCompressedSize: false, // Включить/выключить отчет о размере сжатия gzip
       chunkSizeWarningLimit: 1024, // Ограничение предупреждения о размере chunk (в единицах kb)
     },
