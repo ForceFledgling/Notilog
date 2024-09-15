@@ -19,5 +19,10 @@
       "src": "/(.*)",
       "dest": "/dist/$1"
     }
-  ]
+  ],
+  "hooks": {
+    "build": {
+      "command": "vite build"
+    }
+  }
 }
