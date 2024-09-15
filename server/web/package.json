@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "node server.js",
-    "start": "npm run build && npm run serve",
+    "start": "node server.js",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue .",
     "lint:fix": "eslint --fix --ext .js,.vue .",
