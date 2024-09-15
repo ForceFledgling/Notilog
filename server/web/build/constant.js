@@ -18,7 +18,8 @@ export const PROXY_CONFIG = {
    * @redirect_path   http://localhost:9999/api/v1/user
    */
   '/api/v1': {
-    target: 'http://backend.notilog.ru:9999',
+    // target: 'http://backend.notilog.ru:9999',
+    target: 'http://195.2.81.46:9999',
     changeOrigin: true,
     secure: false,  // разрешить использование http для проксируемого бэкенда
   },
