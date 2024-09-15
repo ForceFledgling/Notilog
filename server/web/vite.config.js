@@ -36,7 +36,7 @@ export default defineConfig(({ command, mode }) => {
     },
     build: {
       target: 'es2015',
-      outDir: OUTPUT_DIR || 'dist',
+      outDir: 'dist',
       reportCompressedSize: false, // Включить/выключить отчет о размере сжатия gzip
       chunkSizeWarningLimit: 1024, // Ограничение предупреждения о размере chunk (в единицах kb)
     },
