@@ -9,7 +9,7 @@ hide:
 hero:
     title: NotiLog
     subtitle: NotiLog — это масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
-    install_button: Демо-сайт
+    install_button: Демо доступ
     source_button: Исходный код
 
 highlights:

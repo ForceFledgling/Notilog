@@ -12,7 +12,7 @@ edit_uri: blob/main/_docs/
 
 extra:
   generator: false  # не отображать MkDocs copyright
-  version: "0.1"
+  version: "0.1a"
   alternate:
     - name: Русский
       link: /
