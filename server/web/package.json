@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "serve": "node server.js",
+    "start": "npm run build && npm run serve",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue .",
     "lint:fix": "eslint --fix --ext .js,.vue .",
@@ -21,6 +23,8 @@
     "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
+    "express": "^4.21.0",
+    "http-proxy-middleware": "^3.0.2",
     "lodash-es": "^4.17.21",
     "naive-ui": "^2.34.4",
     "pinia": "^2.1.6",
