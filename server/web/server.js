@@ -12,6 +12,14 @@ app.use('/api/v1', createProxyMiddleware({
   secure: false, // Разрешить использование http
 }));
 
+// Обслуживание статических файлов из директории dist
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Отдавать index.html для всех маршрутов, кроме API
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
