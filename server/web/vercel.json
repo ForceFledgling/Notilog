@@ -15,15 +15,15 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server.js"
+      "dest": "/server.js"
     },
     {
       "src": "/",
-      "dest": "dist/index.html"
+      "dest": "/dist/index.html"
     },
     {
       "src": "/(.+)",
-      "dest": "dist/$1"
+      "dest": "/dist/$1"
     }
   ]
 }
