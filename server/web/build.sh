@@ -1,1 +1,1 @@
-vite build
+npm run build
