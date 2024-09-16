@@ -12,21 +12,6 @@ app.use('/api/v1', createProxyMiddleware({
   secure: false, // Разрешить использование http
 }));
 
-// Обслуживание статических файлов из директории dist
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Обработка запросов к корневой странице
-app.get('/', (req, res) => {
-  console.log('Requested path:', req.path); // Отладка
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-// Обработка всех остальных запросов
-app.get('*', (req, res) => {
-  console.log('Requested path:', req.path); // Отладка
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
