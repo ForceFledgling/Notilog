@@ -24,18 +24,6 @@ class User(BaseModel):
     
     roles = relationship("Role", secondary="user_role", back_populates="users")
 
-    async def to_dict(self, exclude_fields: List[str] = None) -> dict:
-        if exclude_fields is None:
-            exclude_fields = []
-
-        return {
-            'email': self.email,
-            'username': self.username,
-            'is_active': self.is_active,
-            'is_superuser': self.is_superuser,
-        }
-    
-
 class Role(BaseModel):
     __tablename__ = "role"
 
@@ -44,8 +32,6 @@ class Role(BaseModel):
     desc = Column(String(500), nullable=True)
     
     users = relationship("User", secondary="user_role", back_populates="roles")
-    # menus = relationship("Menu", secondary="role_menu", back_populates="roles")
-    # apis = relationship("Api", secondary="role_api", back_populates="roles")
 
 class Api(BaseModel):
     __tablename__ = "api"

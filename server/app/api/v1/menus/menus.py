@@ -18,22 +18,6 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 
-# @router.get("/list", summary="Просмотр списка меню")
-# async def list_menu(
-#     page: int = Query(1, description="Номер страницы"),
-#     page_size: int = Query(10, description="Количество на странице"),
-# ):
-#     async def get_menu_with_children(menu_id: int):
-#         menu = await menu_controller.model.get(id=menu_id)
-#         menu_dict = await menu.to_dict()
-#         child_menus = await menu_controller.model.filter(parent_id=menu_id).order_by("order")
-#         menu_dict["children"] = [await get_menu_with_children(child.id) for child in child_menus]
-#         return menu_dict
-
-#     parent_menus = await menu_controller.model.filter(parent_id=0).order_by("order")
-#     res_menu = [await get_menu_with_children(menu.id) for menu in parent_menus]
-#     return SuccessExtra(data=res_menu, total=len(res_menu), page=page, page_size=page_size)
-
 @router.get("/list", summary="Просмотр списка меню")
 async def list_menu(
     page: int = Query(1, description="Номер страницы"),
