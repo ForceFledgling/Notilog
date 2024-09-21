@@ -5,7 +5,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "build.sh",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist"
@@ -24,5 +24,7 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ]
+  ],
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm run build"
 }
