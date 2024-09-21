@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "pnpm run build",
+    "build": "vite build",
     "start": "node server.js",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.vue .",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.6"
+    "vite": "^4.5.3"
   },
   "lint-staged": {
     "*.{js,vue}": [
