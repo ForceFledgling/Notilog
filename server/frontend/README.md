@@ -3,7 +3,7 @@
 Перейдите в каталог фронтенда
 
 ```
-cd web
+cd frontend
 ```
 
 Установите зависимости (рекомендуется использовать pnpm: https://pnpm.io/zh/installation)
