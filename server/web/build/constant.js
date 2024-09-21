@@ -19,7 +19,7 @@ export const PROXY_CONFIG = {
    */
   '/api/v1': {
     // target: 'http://backend.notilog.ru:9999',
-    target: 'http://195.2.81.46:9999',
+    target: 'http://localhost:9999',
     changeOrigin: true,
   },
 }
