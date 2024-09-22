@@ -4,7 +4,12 @@ from sqlalchemy.future import select
 from backend.modules.users.controllers import user_controller
 from backend.core.ctx import CTX_USER_ID
 from backend.core.dependency import DependAuth
-from backend.models.admin import Api, Menu, Role, User
+
+from backend.modules.roles.models import Role
+from backend.modules.users.models import User
+from backend.modules.menus.models import Menu
+from backend.modules.apis.models import Api
+
 from backend.modules.base.schemas import Fail, Success
 from backend.modules.login.schemas import CredentialsSchema
 from backend.modules.users.schemas import UpdatePassword, BaseUser

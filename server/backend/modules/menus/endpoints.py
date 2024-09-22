@@ -7,7 +7,7 @@ from backend.modules.base.schemas import Fail, Success, SuccessExtra
 from .schemas import *
 from sqlalchemy.orm import Session
 from sqlalchemy.future import select
-from backend.models.admin import Menu
+from backend.modules.menus.models import Menu
 from fastapi import Depends, Query
 
 from backend.core.database import get_session, SessionLocal

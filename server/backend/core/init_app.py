@@ -16,7 +16,7 @@ from backend.core.exceptions import (
     ResponseValidationError,
     ResponseValidationHandle,
 )
-from backend.models.admin import Menu
+from backend.modules.menus.models import Menu
 from backend.modules.menus.schemas import MenuType
 from backend.settings.config import settings
 
@@ -24,7 +24,7 @@ from .middlewares import BackGroundTaskMiddleware, HttpAuditLogMiddleware
 
 from sqlalchemy.future import select
 from backend.core.database import SessionLocal
-from backend.models import User
+from backend.modules.users.models import User
 
 def make_middlewares():
     middleware = [

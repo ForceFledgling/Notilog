@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
 from backend.core.crud import CRUDBase
-from backend.models.admin import Menu
+from backend.modules.menus.models import Menu
 from .schemas import MenuCreate, MenuUpdate
 from backend.core.database import get_session  # Импортируйте функцию для получения сессии
 

@@ -10,7 +10,8 @@ from starlette.requests import Request
 from starlette.types import ASGIApp, Receive, Scope, Send
 
 from backend.core.dependency import AuthControl
-from backend.models.admin import AuditLog, User
+from backend.modules.users.models import User
+from backend.modules.auditlog.models import AuditLog
 from backend.core.database import SessionLocal
 
 from .bgtask import BgTasks

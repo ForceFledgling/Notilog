@@ -6,7 +6,7 @@ from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from backend.core.crud import CRUDBase
-from backend.models.admin import User
+from .models import User
 from backend.modules.login.schemas import CredentialsSchema
 from .schemas import UserCreate, UserUpdate
 from backend.utils.password import get_password_hash, verify_password

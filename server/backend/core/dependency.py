@@ -1,21 +1,19 @@
+# backend/core/dependency.py
+
 from typing import Optional
 
 import jwt
 from fastapi import Depends, Header, HTTPException, Request
-from fastapi.responses import JSONResponse
-
-from sqlalchemy.future import select
 
 from backend.core.ctx import CTX_USER_ID
-from backend.models import Role, User
 from backend.settings import settings
-
 from backend.core.database import SessionLocal
 
 
 class AuthControl:
     @classmethod
-    async def is_authed(cls, token: str = Header(..., description="Проверка токена")) -> Optional[User]:
+    async def is_authed(cls, token: str = Header(..., description="Проверка токена")) -> Optional["User"]:
+        from backend.modules.users.models import User  # Перенос импорта внутрь функции
         try:
             async with SessionLocal() as session:
                 if token == "dev":
@@ -50,7 +48,8 @@ class AuthControl:
 
 class PermissionControl:
     @classmethod
-    async def has_permission(cls, request: Request, current_user: User = Depends(AuthControl.is_authed)) -> None:
+    async def has_permission(cls, request: Request, current_user: "User" = Depends(AuthControl.is_authed)) -> None:
+        from backend.models.admin import Role  # Перенос импорта внутрь функции
         if current_user.is_superuser:
             return
         method = request.method
@@ -60,8 +59,6 @@ class PermissionControl:
             raise HTTPException(status_code=403, detail="The user is not bound to a role")
         apis = [await role.apis for role in roles]
         permission_apis = list(set((api.method, api.path) for api in sum(apis, [])))
-        # path = "/api/v1/auth/userinfo"
-        # method = "GET"
         if (method, path) not in permission_apis:
             raise HTTPException(status_code=403, detail=f"Permission denied method:{method} path:{path}")
 

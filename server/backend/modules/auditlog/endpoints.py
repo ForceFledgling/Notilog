@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Query, Depends
-from backend.models.admin import AuditLog
+
+from backend.modules.auditlog.models import AuditLog
+
 from backend.modules.base.schemas import SuccessExtra
 from backend.core.database import get_session, SessionLocal
 from backend.core.dependency import DependPermisson
