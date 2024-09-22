@@ -5,16 +5,16 @@ from backend.modules.users.controllers import user_controller
 from backend.core.ctx import CTX_USER_ID
 from backend.core.dependency import DependAuth
 from backend.models.admin import Api, Menu, Role, User
-from backend.schemas.base import Fail, Success
-from backend.schemas.login import CredentialsSchema
-from backend.schemas.users import UpdatePassword, BaseUser
+from backend.modules.base.schemas import Fail, Success
+from backend.modules.login.schemas import CredentialsSchema
+from backend.modules.users.schemas import UpdatePassword, BaseUser
 from backend.settings import settings
 from backend.utils.jwt import create_access_token
 from backend.utils.password import get_password_hash, verify_password
 from sqlalchemy.ext.asyncio import AsyncSession
 from backend.core.database import SessionLocal
 
-from backend.schemas.login import JWTOut, JWTPayload
+from backend.modules.login.schemas import JWTOut, JWTPayload
 
 router = APIRouter()
 

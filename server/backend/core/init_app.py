@@ -17,7 +17,7 @@ from backend.core.exceptions import (
     ResponseValidationHandle,
 )
 from backend.models.admin import Menu
-from backend.schemas.menus import MenuType
+from backend.modules.menus.schemas import MenuType
 from backend.settings.config import settings
 
 from .middlewares import BackGroundTaskMiddleware, HttpAuditLogMiddleware

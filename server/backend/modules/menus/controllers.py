@@ -6,7 +6,7 @@ from sqlalchemy.future import select
 
 from backend.core.crud import CRUDBase
 from backend.models.admin import Menu
-from backend.schemas.menus import MenuCreate, MenuUpdate
+from .schemas import MenuCreate, MenuUpdate
 from backend.core.database import get_session  # Импортируйте функцию для получения сессии
 
 class MenuController(CRUDBase[Menu, MenuCreate, MenuUpdate]):

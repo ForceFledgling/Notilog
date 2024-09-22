@@ -4,8 +4,8 @@ from sqlalchemy.future import select
 from sqlalchemy import or_, and_
 from sqlalchemy.sql import func
 
-from backend.schemas import Success, SuccessExtra
-from backend.schemas.apis import *
+from backend.modules.base.schemas import Success, SuccessExtra
+from .schemas import *
 from backend.core.database import SessionLocal
 
 from .controllers import api_controller

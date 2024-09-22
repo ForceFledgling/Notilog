@@ -6,7 +6,7 @@ from sqlalchemy.orm import joinedload
 from sqlalchemy.exc import IntegrityError
 from backend.core.crud import CRUDBase
 from backend.models.admin import Dept, DeptClosure
-from backend.schemas.depts import DeptCreate, DeptUpdate
+from .schemas import DeptCreate, DeptUpdate
 from backend.core.database import get_session  # Импортируйте функцию для получения сессии
 from backend.log import logger
 from backend.core.database import SessionLocal

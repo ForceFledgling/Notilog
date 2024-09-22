@@ -2,8 +2,7 @@ import logging
 
 from fastapi import APIRouter, Query
 
-from backend.schemas.base import Fail, Success, SuccessExtra
-from backend.schemas.menus import *
+from backend.modules.base.schemas import Fail, Success, SuccessExtra
 from sqlalchemy.orm import Session
 from sqlalchemy.future import select
 from backend.models.admin import Menu

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 
-from backend.schemas import Success
-from backend.schemas.depts import *
+from backend.modules.base.schemas import Success
+from .schemas import *
 
 from .controllers import dept_controller
 

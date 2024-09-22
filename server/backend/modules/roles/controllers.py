@@ -3,7 +3,7 @@
 from typing import List
 from backend.core.crud import CRUDBase
 from backend.models.admin import Api, Menu, Role
-from backend.schemas.roles import RoleCreate, RoleUpdate
+from .schemas import RoleCreate, RoleUpdate
 from sqlalchemy.ext.asyncio import AsyncSession
 from backend.core.database import get_session
 

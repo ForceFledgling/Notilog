@@ -1,6 +1,6 @@
 import jwt
 
-from backend.schemas.login import JWTPayload
+from backend.modules.login.schemas import JWTPayload
 from backend.settings.config import settings
 
 

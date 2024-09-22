@@ -4,7 +4,7 @@ from backend.models.admin import Api
 from backend.log import logger
 from fastapi.routing import APIRoute
 from backend.core.crud import CRUDBase  # Импорт CRUDBase
-from backend.schemas.apis import ApiCreate, ApiUpdate  # Импорт ApiCreate и ApiUpdate
+from .schemas import ApiCreate, ApiUpdate  # Импорт ApiCreate и ApiUpdate
 from sqlalchemy.ext.asyncio import AsyncSession  # Импортируем AsyncSession
 from backend.core.database import get_session
 

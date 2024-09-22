@@ -5,8 +5,8 @@ from fastapi.exceptions import HTTPException
 from tortoise.expressions import Q
 
 from .controllers import role_controller
-from backend.schemas.base import Success, SuccessExtra
-from backend.schemas.roles import *
+from backend.modules.base.schemas import Success, SuccessExtra
+from .schemas import *
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
