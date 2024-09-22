@@ -2,14 +2,15 @@ from fastapi import APIRouter
 
 from backend.core.dependency import DependPermisson
 
-from .apis import apis_router
-from .base import base_router
-from .depts import depts_router
-from .menus import menus_router
-from .roles import roles_router
-from .users import users_router
-from .auditlog import auditlog_router
-from .events import events_router
+from backend.modules.apis import apis_router
+from backend.modules.base import base_router
+from backend.modules.depts import depts_router
+from backend.modules.menus import menus_router
+from backend.modules.roles import roles_router
+from backend.modules.users import users_router
+from backend.modules.auditlog import auditlog_router
+from backend.modules.events import events_router
+
 
 v1_router = APIRouter()
 

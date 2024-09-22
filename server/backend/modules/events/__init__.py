@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from .events import router
+from .endpoints import router
 
 events_router = APIRouter()
 events_router.include_router(router, tags=["Модуль событий"])

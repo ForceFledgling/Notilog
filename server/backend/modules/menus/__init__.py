@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from .menus import router
+from .endpoints import router
 
 menus_router = APIRouter()
 menus_router.include_router(router, tags=["Модуль меню"])
