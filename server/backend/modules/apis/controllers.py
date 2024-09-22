@@ -1,12 +1,14 @@
+from fastapi.routing import APIRoute
 from sqlalchemy.future import select
 from sqlalchemy import delete
-from backend.modules.apis.models import Api
-from backend.core.log import logger
-from fastapi.routing import APIRoute
-from backend.core.crud import CRUDBase  # Импорт CRUDBase
-from .schemas import ApiCreate, ApiUpdate  # Импорт ApiCreate и ApiUpdate
-from sqlalchemy.ext.asyncio import AsyncSession  # Импортируем AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from backend.core.crud import CRUDBase
 from backend.core.database import get_session
+from backend.core.log import logger
+
+from .models import Api
+from .schemas import ApiCreate, ApiUpdate
 
 
 class ApiController(CRUDBase[Api, ApiCreate, ApiUpdate]):
@@ -61,6 +63,6 @@ class ApiController(CRUDBase[Api, ApiCreate, ApiUpdate]):
 
             await session.commit()
 
-# Получение сессии
+
 session = get_session()
 api_controller = ApiController(session=session)

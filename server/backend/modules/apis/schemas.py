@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 
 from backend.core.enums import MethodType
 
+
 class BaseApi(BaseModel):
     path: str = Field(..., description="Путь API", example="/api/v1/user/list")
     summary: str = Field("", description="Описание API", example="Просмотр списка пользователей")
