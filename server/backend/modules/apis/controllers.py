@@ -1,7 +1,7 @@
 from sqlalchemy.future import select
 from sqlalchemy import delete
 from backend.modules.apis.models import Api
-from backend.log import logger
+from backend.core.log import logger
 from fastapi.routing import APIRoute
 from backend.core.crud import CRUDBase  # Импорт CRUDBase
 from .schemas import ApiCreate, ApiUpdate  # Импорт ApiCreate и ApiUpdate

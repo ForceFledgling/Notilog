@@ -9,6 +9,8 @@ from backend.core.ctx import CTX_USER_ID
 from backend.settings import settings
 from backend.core.database import SessionLocal
 
+from sqlalchemy.future import select
+
 
 class AuthControl:
     @classmethod
