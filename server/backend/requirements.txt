@@ -60,4 +60,4 @@ watchfiles==0.23.0
 websockets==13.0
 
 # sqlalchemy
-alembic-1.13.2
+alembic==1.13.2
