@@ -1,24 +1,13 @@
 import asyncio
 from datetime import datetime
-
-from tortoise import fields, models
+from sqlalchemy import select, func, Column, BigInteger, DateTime
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.sql import func
 
 from backend.settings import settings
+from backend.core.database import Base, SessionLocal
 
-
-from sqlalchemy.ext.declarative import declarative_base
-
-
-# Base = declarative_base()
-from backend.core.database import Base
-
-
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, BigInteger, DateTime
-from sqlalchemy.sql import func
-from backend.core.database import SessionLocal
-from sqlalchemy import select, func
-from sqlalchemy.ext.asyncio import AsyncSession
 
 class BaseModel(Base):
     __abstract__ = True
@@ -49,13 +38,3 @@ class BaseModel(Base):
                     value = value.strftime(settings.DATETIME_FORMAT)
                 d[column.name] = value
         return d
-
-
-
-class UUIDModel:
-    uuid = fields.UUIDField(unique=True, pk=False, index=True)
-
-
-class TimestampMixin:
-    created_at = fields.DatetimeField(auto_now_add=True, index=True)
-    updated_at = fields.DatetimeField(auto_now=True, index=True)

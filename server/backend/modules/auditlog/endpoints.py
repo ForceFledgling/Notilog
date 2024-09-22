@@ -1,16 +1,15 @@
-from fastapi import APIRouter, Query, Depends
-
-from backend.modules.auditlog.models import AuditLog
-
-from backend.modules.base.schemas import SuccessExtra
-from backend.core.database import get_session, SessionLocal
-from backend.core.dependency import DependPermisson
-
+from fastapi import APIRouter, Query
 from sqlalchemy import func, select, and_, or_, between
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from backend.core.dependency import DependPermisson
+from backend.modules.base.schemas import SuccessExtra
+
+from .models import AuditLog
+
 
 router = APIRouter()
+
 
 @router.get('/list', summary="Просмотр логов операций", dependencies=[DependPermisson])
 async def get_audit_log_list(

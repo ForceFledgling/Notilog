@@ -1,27 +1,29 @@
 from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, Depends
 from sqlalchemy.future import select
-from backend.modules.users.controllers import user_controller
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from backend.core.ctx import CTX_USER_ID
+from backend.core.database import SessionLocal
 from backend.core.dependency import DependAuth
-
-from backend.modules.roles.models import Role
-from backend.modules.users.models import User
-from backend.modules.menus.models import Menu
-from backend.modules.apis.models import Api
-
-from backend.modules.base.schemas import Fail, Success
-from backend.modules.login.schemas import CredentialsSchema
-from backend.modules.users.schemas import UpdatePassword, BaseUser
 from backend.settings import settings
 from backend.utils.jwt import create_access_token
 from backend.utils.password import get_password_hash, verify_password
-from sqlalchemy.ext.asyncio import AsyncSession
-from backend.core.database import SessionLocal
 
-from backend.modules.login.schemas import JWTOut, JWTPayload
+from backend.modules.apis.models import Api
+from backend.modules.menus.models import Menu
+from backend.modules.roles.models import Role
+from backend.modules.users.models import User
+
+from backend.modules.users.controllers import user_controller
+
+from backend.modules.base.schemas import Fail, Success
+from backend.modules.login.schemas import CredentialsSchema, JWTOut, JWTPayload
+from backend.modules.users.schemas import UpdatePassword, BaseUser
+
 
 router = APIRouter()
+
 
 @router.post("/access_token", summary="Получить токен")
 async def login_access_token(credentials: CredentialsSchema):
@@ -43,6 +45,7 @@ async def login_access_token(credentials: CredentialsSchema):
     )
     return Success(data=data.model_dump())
 
+
 @router.get("/userinfo", summary="Получить информацию о пользователе", dependencies=[DependAuth])
 async def get_userinfo():
     user_id = CTX_USER_ID.get()
@@ -54,6 +57,7 @@ async def get_userinfo():
         data = await user_obj.to_dict(exclude_fields=["password"])
         data["avatar"] = "https://cdn.jsdelivr.net/gh/alohe/avatars/png/memo_32.png"  # https://github.com/alohe/avatars
         return Success(data=data)
+
 
 @router.get("/usermenu", summary="Получить меню пользователя", dependencies=[DependAuth])
 async def get_user_menu():
@@ -84,6 +88,7 @@ async def get_user_menu():
             res.append(parent_menu_dict)
         return Success(data=res)
 
+
 @router.get("/userapi", summary="Получить API пользователя", dependencies=[DependAuth])
 async def get_user_api():
     user_id = CTX_USER_ID.get()
@@ -108,6 +113,7 @@ async def get_user_api():
             apis = list(set(apis))
 
         return Success(data=apis)
+
 
 @router.post("/update_password", summary="Изменить пароль", dependencies=[DependAuth])
 async def update_user_password(req_in: UpdatePassword):
