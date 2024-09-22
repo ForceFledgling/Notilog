@@ -2,7 +2,7 @@ import logging
 
 from fastapi import APIRouter, Query
 
-from backend.controllers.menu import menu_controller
+from .controllers import menu_controller
 from backend.schemas.base import Fail, Success, SuccessExtra
 from backend.schemas.menus import *
 from sqlalchemy.orm import Session

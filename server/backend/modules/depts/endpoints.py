@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Query
 
-from backend.controllers.dept import dept_controller
 from backend.schemas import Success
 from backend.schemas.depts import *
+
+from .controllers import dept_controller
+
 
 router = APIRouter()
 

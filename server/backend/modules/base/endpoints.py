@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, Depends
 from sqlalchemy.future import select
-from backend.controllers.user import user_controller
+from backend.modules.users.controllers import user_controller
 from backend.core.ctx import CTX_USER_ID
 from backend.core.dependency import DependAuth
 from backend.models.admin import Api, Menu, Role, User

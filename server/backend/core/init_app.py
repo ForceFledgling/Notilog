@@ -3,7 +3,7 @@ from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api import api_router
-from backend.controllers.user import UserCreate, user_controller
+from backend.modules.users.controllers import UserCreate, user_controller
 from backend.core.exceptions import (
     DoesNotExist,
     DoesNotExistHandle,

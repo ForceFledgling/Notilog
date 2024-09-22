@@ -3,8 +3,8 @@ import logging
 from fastapi import APIRouter, Body, Query
 from tortoise.expressions import Q
 
-from backend.controllers.dept import dept_controller
-from backend.controllers.user import user_controller
+from backend.modules.depts.controllers import dept_controller
+from backend.modules.users.controllers import user_controller
 from backend.schemas.base import Fail, Success, SuccessExtra
 from backend.schemas.users import *
 

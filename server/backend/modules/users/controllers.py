@@ -12,7 +12,8 @@ from backend.schemas.users import UserCreate, UserUpdate
 from backend.utils.password import get_password_hash, verify_password
 from backend.core.database import SessionLocal
 
-from .role import role_controller
+from backend.modules.roles.controllers import role_controller
+
 
 class UserController(CRUDBase[User, UserCreate, UserUpdate]):
     def __init__(self, session: AsyncSession):
