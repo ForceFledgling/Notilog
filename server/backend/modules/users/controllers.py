@@ -1,18 +1,17 @@
 from datetime import datetime
 from typing import List, Optional
-
 from fastapi.exceptions import HTTPException
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from backend.core.crud import CRUDBase
-from .models import User
-from backend.modules.login.schemas import CredentialsSchema
-from .schemas import UserCreate, UserUpdate
-from backend.utils.password import get_password_hash, verify_password
 from backend.core.database import SessionLocal
-
+from backend.modules.login.schemas import CredentialsSchema
 from backend.modules.roles.controllers import role_controller
+from backend.utils.password import get_password_hash, verify_password
+
+from .models import User
+from .schemas import UserCreate, UserUpdate
 
 
 class UserController(CRUDBase[User, UserCreate, UserUpdate]):
@@ -79,5 +78,5 @@ class UserController(CRUDBase[User, UserCreate, UserUpdate]):
                 session.add(user_obj)
                 await session.commit()
 
-# Make sure to pass an AsyncSession instance to UserController
+
 user_controller = UserController(session=SessionLocal)

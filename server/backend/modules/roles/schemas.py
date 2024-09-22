@@ -16,14 +16,14 @@ class BaseRole(BaseModel):
 
 
 class RoleCreate(BaseModel):
-    name: str = Field(example="Администратор")  # Название роли, пример "Администратор"
-    desc: str = Field("", example="Роль администратора")  # Описание роли, пример "Роль администратора"
+    name: str = Field(example="Администратор")
+    desc: str = Field("", example="Роль администратора")
 
 
 class RoleUpdate(BaseModel):
-    id: int = Field(example=1)  # Идентификатор роли, пример 1
-    name: str = Field(example="Администратор")  # Название роли, пример "Администратор"
-    desc: str = Field("", example="Роль администратора")  # Описание роли, пример "Роль администратора"
+    id: int = Field(example=1)
+    name: str = Field(example="Администратор")
+    desc: str = Field("", example="Роль администратора")
 
 
 class RoleUpdateMenusApis(BaseModel):

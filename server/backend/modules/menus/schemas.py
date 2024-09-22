@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 
 
 class MenuType(StrEnum):
-    CATALOG = "catalog"  # Каталог
-    MENU = "menu"  # Меню
+    CATALOG = "catalog"
+    MENU = "menu"
 
 
 class BaseMenu(BaseModel):

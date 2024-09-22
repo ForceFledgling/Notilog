@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Query
 
 from backend.modules.base.schemas import Success
-from .schemas import *
 
+from .schemas import *
 from .controllers import dept_controller
 
 

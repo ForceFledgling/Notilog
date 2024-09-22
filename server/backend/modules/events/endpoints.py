@@ -1,17 +1,11 @@
-import logging
-
-from fastapi import APIRouter, Query
-
-from backend.modules.base.schemas import Fail, Success, SuccessExtra
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Query, Depends
+from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from backend.modules.menus.models import Menu
-from fastapi import Depends, Query
+from sqlalchemy.orm import Session
 
 from backend.core.database import get_session, SessionLocal
-from sqlalchemy.ext.asyncio import AsyncSession
+from backend.modules.base.schemas import Fail, Success, SuccessExtra
 
-logger = logging.getLogger(__name__)
 
 router = APIRouter()
 

@@ -1,11 +1,7 @@
+from typing import List
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.dialects.postgresql import JSON
 
-from typing import List
-
-# from backend.core.database import Base
 from backend.modules.base.models import BaseModel
 
 

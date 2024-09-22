@@ -1,15 +1,15 @@
-# server/app/controllers/dept.py
-
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.future import select
 from sqlalchemy.orm import joinedload
-from sqlalchemy.exc import IntegrityError
+
 from backend.core.crud import CRUDBase
+from backend.core.database import get_session, SessionLocal
+from backend.core.log import logger
+
 from .models import Dept, DeptClosure
 from .schemas import DeptCreate, DeptUpdate
-from backend.core.database import get_session  # Импортируйте функцию для получения сессии
-from backend.core.log import logger
-from backend.core.database import SessionLocal
+
 
 class DeptController(CRUDBase[Dept, DeptCreate, DeptUpdate]):
     def __init__(self, session: AsyncSession):
@@ -115,6 +115,6 @@ class DeptController(CRUDBase[Dept, DeptCreate, DeptUpdate]):
                 )
                 await session.commit()
 
-# Получение сессии
-session = get_session()  # Предположим, что у вас есть функция для получения сессии
+
+session = get_session()
 dept_controller = DeptController(session=session)

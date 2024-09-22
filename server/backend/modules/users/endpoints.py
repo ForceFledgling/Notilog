@@ -1,14 +1,11 @@
-import logging
-
 from fastapi import APIRouter, Body, Query
-from tortoise.expressions import Q
 
-from backend.modules.depts.controllers import dept_controller
-from .controllers import user_controller
 from backend.modules.base.schemas import Fail, Success, SuccessExtra
+from backend.modules.depts.controllers import dept_controller
+
+from .controllers import user_controller
 from .schemas import *
 
-logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -36,7 +33,6 @@ async def list_user(
         item["dept"] = await (await dept_controller.get(id=dept_id)).to_dict() if dept_id else {}
 
     return SuccessExtra(data=data, total=total, page=page, page_size=page_size)
-
 
 
 @router.get("/get", summary="Просмотр пользователя")

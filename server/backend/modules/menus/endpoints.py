@@ -1,19 +1,15 @@
-import logging
-
-from fastapi import APIRouter, Query
-
-from .controllers import menu_controller
-from backend.modules.base.schemas import Fail, Success, SuccessExtra
-from .schemas import *
+from fastapi import APIRouter, Query, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy.future import select
-from backend.modules.menus.models import Menu
-from fastapi import Depends, Query
-
-from backend.core.database import get_session, SessionLocal
 from sqlalchemy.ext.asyncio import AsyncSession
 
-logger = logging.getLogger(__name__)
+from backend.core.database import SessionLocal
+from backend.modules.base.schemas import Fail, Success, SuccessExtra
+
+from .controllers import menu_controller
+from .models import Menu
+from .schemas import *
+
 
 router = APIRouter()
 
@@ -41,7 +37,6 @@ async def list_menu(
         parent_menus = parent_menus.scalars().all()
     res_menu = [await get_menu_with_children(menu.id) for menu in parent_menus]
     return SuccessExtra(data=res_menu, total=len(res_menu), page=page, page_size=page_size)
-
 
 
 @router.get("/get", summary="Просмотр меню")

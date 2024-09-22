@@ -1,14 +1,12 @@
-import logging
-
 from fastapi import APIRouter, Query
 from fastapi.exceptions import HTTPException
-from tortoise.expressions import Q
+
+from backend.modules.base.schemas import Success, SuccessExtra
 
 from .controllers import role_controller
-from backend.modules.base.schemas import Success, SuccessExtra
 from .schemas import *
 
-logger = logging.getLogger(__name__)
+
 router = APIRouter()
 
 
