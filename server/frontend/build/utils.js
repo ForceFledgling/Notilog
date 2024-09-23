@@ -43,9 +43,9 @@ function getConfFiles() {
   const result = reg.exec(script)
   if (result) {
     const mode = result[1]
-    return ['.env', 'build/config/.env.local', `build/config/.env.${mode}`]
+    return ['.env', '.env.local', `.env.${mode}`]
   }
-  return ['.env', 'build/config/.env.local', 'build/config/.env.production']
+  return ['.env', '.env.local', '.env.production']
 }
 
 export function getEnvConfig(match = 'VITE_', confFiles = getConfFiles()) {
