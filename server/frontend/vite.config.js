@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 
-import { convertEnv, getSrcPath, getRootPath } from './build/utils'
+import { convertEnv, getSrcPath, getRootPath, getEnvConfig } from './build/utils'
 import { viteDefine } from './build/config'
 import { createVitePlugins } from './build/plugin'
 import { OUTPUT_DIR, PROXY_CONFIG } from './build/constant'
@@ -10,9 +10,19 @@ export default defineConfig(({ command, mode }) => {
   const rootPath = getRootPath()
   const isBuild = command === 'build'
 
-  const env = loadEnv(mode, process.cwd())
-  const viteEnv = convertEnv(env)
-  const { VITE_PORT, VITE_PUBLIC_PATH, VITE_USE_PROXY, VITE_BASE_API } = viteEnv
+  // Загрузка переменных окружения
+  const envConfig = getEnvConfig('VITE_', mode);
+  const viteEnv = convertEnv(envConfig);
+  const { VITE_TITLE, VITE_PORT, VITE_PUBLIC_PATH, VITE_USE_PROXY, VITE_BASE_API } = viteEnv
+  
+  // Автоматическая обработка всех переменных окружения, начинающихся с VITE_
+  const envKeys = Object.entries(viteEnv).reduce((prev, [key, val]) => {
+    prev[`import.meta.env.${key}`] = JSON.stringify(val);
+    return prev;
+  }, {});
+
+  // Вывод всех подгруженных переменных окружения
+  console.log('Подгруженные переменные окружения:', viteEnv)
 
   return {
     base: VITE_PUBLIC_PATH || '/',
@@ -22,7 +32,10 @@ export default defineConfig(({ command, mode }) => {
         '@': srcPath,
       },
     },
-    define: viteDefine,
+    define: {
+      ...viteDefine, // сохраняем оригинальные определения
+      ...envKeys,    // автоматически добавляем все переменные окружения
+    },
     plugins: createVitePlugins(viteEnv, isBuild),
     server: {
       host: '0.0.0.0',
@@ -37,8 +50,8 @@ export default defineConfig(({ command, mode }) => {
     build: {
       target: 'es2015',
       outDir: 'dist',
-      reportCompressedSize: false, // Включить/выключить отчет о размере сжатия gzip
-      chunkSizeWarningLimit: 1024, // Ограничение предупреждения о размере chunk (в единицах kb)
+      reportCompressedSize: false,
+      chunkSizeWarningLimit: 1024,
     },
   }
 })

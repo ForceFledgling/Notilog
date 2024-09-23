@@ -15,5 +15,6 @@ export function createAxios(options = {}) {
 }
 
 export const request = createAxios({
+  // baseURL: '/api/v1',
   baseURL: import.meta.env.VITE_BASE_API,
 })
