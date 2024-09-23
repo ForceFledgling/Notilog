@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "install": "pnpm install",
     "build": "pnpm run build",
     "start": "node server.js",
     "lint": "eslint --ext .js,.vue .",
