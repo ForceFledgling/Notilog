@@ -104,6 +104,7 @@ nav:
       - Быстрый старт: _guides/quickstart.md
       - Установка: _guides/install.md
       - Развертывание: _guides/deploy.md
+      - Миграции: _guides/migration.md
       - Резервное копирование: _guides/backup.md
       - Обновление: _guides/update.md
       - Концепции:
