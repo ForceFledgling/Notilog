@@ -48,57 +48,23 @@ function getConfFiles() {
   return ['.env', '.env.local', '.env.production']
 }
 
-/**
- * Проверка существования файла конфигурации в нескольких директориях.
- */
-function getConfigFilePath(fileName) {
-  // Путь к корню проекта
-  const rootPath = path.resolve(process.cwd(), fileName)
-  // Путь к директории build/config
-  const buildPath = path.resolve('build/config', fileName)
-
-  // Проверяем сначала в корневой директории
-  if (fs.existsSync(rootPath)) {
-    return rootPath
-  }
-
-  // Если не найдено в корне, проверяем в build/config
-  if (fs.existsSync(buildPath)) {
-    return buildPath
-  }
-
-  // Если файл не найден ни в одной из директорий, возвращаем null
-  return null
-}
-
-/**
- * Загрузка и фильтрация переменных окружения
- */
 export function getEnvConfig(match = 'VITE_', confFiles = getConfFiles()) {
   let envConfig = {}
-
-  confFiles.forEach((fileName) => {
-    const filePath = getConfigFilePath(fileName)
-
-    if (filePath) {
-      try {
-        const env = dotenv.parse(fs.readFileSync(filePath))
+  confFiles.forEach((item) => {
+    try {
+      if (fs.existsSync(path.resolve(process.cwd(), item))) {
+        const env = dotenv.parse(fs.readFileSync(path.resolve(process.cwd(), item)))
         envConfig = { ...envConfig, ...env }
-        console.log(`Загружен файл конфигурации: ${filePath}`)
-      } catch (e) {
-        console.error(`Ошибка при разборе ${filePath}`, e)
       }
-    } else {
-      console.warn(`Файл конфигурации ${fileName} не найден в корневой директории и в build/config`)
+    } catch (e) {
+      console.error(`Ошибка при разборе ${item}`, e)
     }
   })
-
   const reg = new RegExp(`^(${match})`)
   Object.keys(envConfig).forEach((key) => {
     if (!reg.test(key)) {
       Reflect.deleteProperty(envConfig, key)
     }
   })
-
   return envConfig
 }
