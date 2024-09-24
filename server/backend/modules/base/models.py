@@ -25,6 +25,12 @@ class BaseModel(Base):
     @classmethod
     def filter(cls, *args, **kwargs):
         return select(cls).filter_by(**kwargs)  # Возвращаем запрос, а не его результат
+    
+    @classmethod
+    async def count_from_query(cls, query):
+        async with SessionLocal() as session:
+            result = await session.execute(select(func.count()).select_from(query))
+            return result.scalar()
 
     async def to_dict(self, exclude_fields: list[str] | None = None):
         if exclude_fields is None:

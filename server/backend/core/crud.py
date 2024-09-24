@@ -70,10 +70,20 @@ class CRUDBase(Generic[BaseModelType, CreateSchemaType, UpdateSchemaType]):
 
     async def remove(self, id: int) -> None:
         async with self.session() as session:
+            # Создание запроса для поиска объекта по ID
             stmt = select(self.model).filter_by(id=id)
             result = await session.execute(stmt)
+            
+            # Получение первого объекта из результата запроса
             obj = result.scalars().first()
+            
+            # Проверка, существует ли объект
             if obj is None:
                 raise ValueError("Object not found")
-            session.delete(obj)
+            
+            # Удаление объекта
+            await session.delete(obj)
+            
+            # Коммит изменений в базе данных
             await session.commit()
+

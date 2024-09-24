@@ -51,7 +51,7 @@ class AuthControl:
 class PermissionControl:
     @classmethod
     async def has_permission(cls, request: Request, current_user: "User" = Depends(AuthControl.is_authed)) -> None:
-        from backend.models.admin import Role  # Перенос импорта внутрь функции
+        from backend.modules.roles.models import Role
         if current_user.is_superuser:
             return
         method = request.method

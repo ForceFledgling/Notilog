@@ -67,7 +67,8 @@ async def update_menu(
 async def delete_menu(
     id: int = Query(..., description="ID меню"),
 ):
-    child_menu_count = await menu_controller.model.filter(parent_id=id).count()
+    query = menu_controller.model.filter(parent_id=id)
+    child_menu_count = await menu_controller.model.count_from_query(query)
     if child_menu_count > 0:
         return Fail(msg="Невозможно удалить меню с дочерними меню")
     await menu_controller.remove(id=id)

@@ -1,4 +1,3 @@
-<!-- CustomForm.vue -->
 <template>
   <n-form ref="formRef" :model="model" :rules="rules" v-bind="attrs">
     <slot />
@@ -53,6 +52,20 @@ onMounted(() => {
   calculateLabelStyles()
 })
 
-provide('labelWidth', labelWidth.value)
-provide('marginRight', marginRight.value)
+// Пробрасываем методы напрямую через ref
+function validate(callback) {
+  return formRef.value?.validate(callback)
+}
+
+function reset() {
+  return formRef.value?.reset()
+}
+
+function resetValidation() {
+  return formRef.value?.resetValidation()
+}
+
+provide('labelWidth', labelWidth)
+provide('marginRight', marginRight)
+
 </script>

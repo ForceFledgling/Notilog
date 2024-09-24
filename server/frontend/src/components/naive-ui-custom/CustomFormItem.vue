@@ -32,16 +32,16 @@ const props = defineProps({
 const attrs = useAttrs()
 
 // Получаем вычисленную ширину и отступ из `CustomForm`
-const labelWidth = inject('labelWidth', 'auto')
-const baseMarginRight = inject('marginRight', '10px')
+const labelWidth = inject('labelWidth', ref('auto'))  // Ожидаем ref для динамического обновления
+const baseMarginRight = inject('marginRight', ref('10px'))  // Ожидаем ref для динамического обновления
 
 // Проверяем, является ли поле обязательным
 const required = computed(() => props.rule.required)
 
 // Устанавливаем отступы для обязательных и необязательных полей
 const computedLabelStyle = computed(() => ({
-  width: labelWidth,
-  marginRight: required.value ? `calc(${baseMarginRight} - 4px)` : `calc(${baseMarginRight} + 4px)`, // Корректируем отступ для полей с и без символа "*"
+  width: labelWidth.value,
+  marginRight: required.value ? `calc(${baseMarginRight.value} - 4px)` : `calc(${baseMarginRight.value} + 4px)`, // Корректируем отступ для полей с и без символа "*"
 }))
 </script>
 
@@ -52,11 +52,11 @@ const computedLabelStyle = computed(() => ({
 }
 
 .required-asterisk {
-  color: red; /* Цвет звездочки, можно изменить по необходимости */
-  margin-left: 4px; /* Отступ между меткой и звездочкой */
+  color: red;
+  margin-left: 4px;
 }
 
 .not-required-asterisk {
-  margin-right: 8px; /* Отступ для меток без символа "*" на 4 пикселя больше */
+  margin-right: 8px;
 }
 </style>
