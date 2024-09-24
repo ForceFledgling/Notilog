@@ -12,13 +12,13 @@
     <meta name="author" content="Vladimir Penzin">
     
     
-    <link rel="canonical" href="https://www.notilog.ru/_guides/concepts/">
+    <link rel="canonical" href="https://www.notilog.ru/_guides/migration/">
     
     
-    <link rel="prev" href="../update/">
+    <link rel="prev" href="../deploy/">
     
     
-    <link rel="next" href="base/">
+    <link rel="next" href="../backup/">
     
     
     <link rel="icon" href="../../assets/images/logo.svg">
@@ -32,16 +32,16 @@
     <meta property="og:description" content="Масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.">
     
 
-    <meta property="og:image" content="https://www.notilog.ru/_guides/concepts/assets/images/preview.jpg">
+    <meta property="og:image" content="https://www.notilog.ru/_guides/migration/assets/images/preview.jpg">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:url" content="https://www.notilog.ru/_guides/concepts/">
+    <meta property="og:url" content="https://www.notilog.ru/_guides/migration/">
     <meta property="og:type" content="website">
 
     
       
-        <title>Обзор - NotiLog</title>
+        <title>Миграции - NotiLog</title>
       
     
     
@@ -96,6 +96,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -131,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Обзор
+              Миграции
             
           </span>
         </div>
@@ -710,10 +715,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../migration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Миграции
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -722,6 +745,42 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создать новую миграцию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Применение миграции
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -773,8 +832,6 @@
                 
   
   
-    
-  
   
   
     
@@ -784,11 +841,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
         
           
           <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
@@ -802,7 +859,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
             Концепции
@@ -813,17 +870,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -832,7 +882,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -845,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="base/" class="md-nav__link">
+      <a href="../concepts/base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -866,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/" class="md-nav__link">
+      <a href="../concepts/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -934,6 +983,32 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создать новую миграцию
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Применение миграции
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -947,7 +1022,7 @@
                   
 
   
-    <a href="https://github.com/ForceFledgling/notilog/blob/main/_docs/_guides/concepts/index.md" title="Редактировать страницу" class="md-content__button md-icon">
+    <a href="https://github.com/ForceFledgling/notilog/blob/main/_docs/_guides/migration.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -955,9 +1030,18 @@
   
 
 
-  <h1>Обзор</h1>
+  <h1>Миграции</h1>
 
-
+<h2 id="_1">Создать новую миграцию</h2>
+<p>Перейдите в директорию <code>server</code> и создайте новую миграцию, вместо <code>MESSAGE</code> укажите собственный комментарий:</p>
+<pre><code>notilog % cd server 
+server % alembic revision --autogenerate -m &quot;MESSAGE&quot;
+</code></pre>
+<h2 id="_2">Применение миграции</h2>
+<p>Эта команда применит все непроизведенные миграции и создаст таблицы:</p>
+<pre><code>server % alembic upgrade head
+</code></pre>
+<p>После успешного выполнения миграции таблица <code>event</code> будет создана в базе данных. Вы можете это проверить через SQL клиент или инструменты работы с базой данных</p>
 
 
 
@@ -993,7 +1077,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
         
           
-          <a href="../update/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Обновление">
+          <a href="../deploy/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Развертывание">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1003,20 +1087,20 @@
                 Назад
               </span>
               <div class="md-ellipsis">
-                Обновление
+                Развертывание
               </div>
             </div>
           </a>
         
         
           
-          <a href="base/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Основные концепции">
+          <a href="../backup/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Резервное копирование">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Вперед
               </span>
               <div class="md-ellipsis">
-                Основные концепции
+                Резервное копирование
               </div>
             </div>
             <div class="md-footer__button md-icon">
