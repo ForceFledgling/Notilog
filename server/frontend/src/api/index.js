@@ -38,4 +38,12 @@ export default {
   deleteDept: (params = {}) => request.delete('/dept/delete', { params }),
   // auditlog
   getAuditLogList: (params = {}) => request.get('/auditlog/list', { params }),
+  // events
+  getEventList: (params = {}) => request.get('/event/list', { params }),
+  getEventById: (params = {}) => request.get('/event/get', { params }),
+  createEvent: (data = {}) => request.post('/event/create', data),
+  updateEvent: (data = {}) => request.post('/event/update', data),
+  deleteEvent: (params = {}) => request.delete('/event/delete', { params }),
+  getEventLogs: (params = {}) => request.get('/event/logs', { params }),
+  refreshEvent: (data = {}) => request.post('/event/refresh', data),
 }

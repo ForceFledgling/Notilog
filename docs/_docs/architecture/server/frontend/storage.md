@@ -1,0 +1,1 @@
+server/frontend/src/store/modules/events/index.js

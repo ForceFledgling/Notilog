@@ -1,203 +1,144 @@
 <script setup>
-import { ref } from 'vue'
-import { NButton, NForm, NFormItem, NInput, NTabPane, NTabs, NImage } from 'naive-ui'
-import CustomForm from '@/components/naive-ui-custom/CustomForm.vue'
+import { ref, onMounted, h } from 'vue'
+import { NButton, NForm, NFormItem, NInput, NTabPane, NTabs, NDataTable, NPagination } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 import CommonPage from '@/components/page/CommonPage.vue'
-import { useUserStore } from '@/store'
+import { useEventStore } from '@/store'
 import api from '@/api'
-import { is } from '~/src/utils'
 
 const { t } = useI18n()
-const userStore = useUserStore()
+const eventStore = useEventStore()
 const isLoading = ref(false)
+const events = ref([])
+const totalEvents = ref(0)
+const page = ref(1)
+const pageSize = ref(10)
 
-// Форма информации о пользователе
-const infoFormRef = ref(null)
-const infoForm = ref({
-  avatar: userStore.avatar,
-  username: userStore.name,
-  email: userStore.email,
-})
-async function updateProfile() {
+async function loadEvents() {
+  console.log("Loading events...")
   isLoading.value = true
-  infoFormRef.value?.validate(async (err) => {
-    if (err) return
-    await api
-      .updateUser({ ...infoForm.value, id: userStore.userId })
-      .then(() => {
-        userStore.setUserInfo(infoForm.value)
-        isLoading.value = false
-        $message.success(t('common.text.update_success'))
-      })
-      .catch(() => {
-        isLoading.value = false
-      })
-  })
-}
-const infoFormRules = {
-  username: [
-    {
-      required: true,
-      message: t('views.profile.message_username_required'),
-      trigger: ['input', 'blur', 'change'],
-    },
-  ],
+  try {
+    const response = await api.getEventList({ page: page.value, pageSize: pageSize.value })
+    console.log("API Response:", response) // Посмотреть ответ от API
+    events.value = response.data // Изменено на response.data
+    totalEvents.value = response.total // Изменено на response.total
+  } catch (error) {
+    console.error(error)
+  } finally {
+    isLoading.value = false
+  }
 }
 
-// Форма изменения пароля
-const passwordFormRef = ref(null)
-const passwordForm = ref({
-  old_password: '',
-  new_password: '',
-  confirm_password: '',
+
+// Загрузка данных при монтировании компонента
+onMounted(() => {
+  loadEvents()
 })
 
-async function updatePassword() {
+// Удаление события
+async function deleteEvent(eventId) {
   isLoading.value = true
-  passwordFormRef.value?.validate(async (err) => {
-    if (!err) {
-      const data = { ...passwordForm.value, id: userStore.userId }
-      await api
-        .updatePassword(data)
-        .then((res) => {
-          $message.success(res.msg)
-          passwordForm.value = {
-            old_password: '',
-            new_password: '',
-            confirm_password: '',
-          }
-          isLoading.value = false
-        })
-        .catch(() => {
-          isLoading.value = false
-        })
-    }
-  })
+  try {
+    await api.deleteEvent({ id: eventId })
+    loadEvents()
+    // Здесь предполагается, что у вас есть доступ к $message
+    $message.success(t('common.text.delete_success'))
+  } catch (error) {
+    console.error(error)
+  } finally {
+    isLoading.value = false
+  }
 }
-const passwordFormRules = {
-  old_password: [
-    {
-      required: true,
-      message: t('views.profile.message_old_password_required'),
-      trigger: ['input', 'blur', 'change'],
+
+const columns = [
+  {
+    title: t('views.events.label_event_message'),
+    key: 'message', // Используйте правильный ключ, чтобы отобразить данные события
+  },
+  {
+    title: t('views.events.label_event_date'),
+    key: 'created_at', // Используйте правильный ключ для даты
+  },
+  {
+    title: t('views.events.label_actions'),
+    key: 'actions',
+    render(row) {
+      return h(
+        NButton,
+        {
+          type: 'error',
+          onClick: () => deleteEvent(row.id),
+        },
+        { default: () => t('common.buttons.delete') }
+      )
     },
-  ],
-  new_password: [
-    {
-      required: true,
-      message: t('views.profile.message_new_password_required'),
-      trigger: ['input', 'blur', 'change'],
-    },
-  ],
-  confirm_password: [
-    {
-      required: true,
-      message: t('views.profile.message_password_confirmation_required'),
-      trigger: ['input', 'blur'],
-    },
-    {
-      validator: validatePasswordStartWith,
-      message: t('views.profile.message_password_confirmation_diff'),
-      trigger: 'input',
-    },
-    {
-      validator: validatePasswordSame,
-      message: t('views.profile.message_password_confirmation_diff'),
-      trigger: ['blur', 'password-input'],
-    },
-  ],
-}
-function validatePasswordStartWith(rule, value) {
-  return (
-    !!passwordForm.value.new_password &&
-    passwordForm.value.new_password.startsWith(value) &&
-    passwordForm.value.new_password.length >= value.length
-  )
-}
-function validatePasswordSame(rule, value) {
-  return value === passwordForm.value.new_password
-}
+  },
+]
+
+
 </script>
 
 <template>
   <CommonPage :show-header="false">
     <NTabs type="line" animated>
-      <NTabPane name="website" :tab="$t('views.profile.label_modify_information')">
+      <NTabPane name="events-list" :tab="$t('views.events.label_events_list')">
+        <div class="m-30">
+          <NDataTable
+            :loading="isLoading"
+            :columns="columns"
+            :data="events"
+            :pagination="false"
+            class="mb-20"
+          />
+          <NPagination
+            v-model:page="page"
+            v-model:page-size="pageSize"
+            :page-count="Math.ceil(totalEvents / pageSize)"
+            show-size-picker
+            :page-sizes="[10, 50, 100]"
+            @update:page="loadEvents"
+            @update:page-size="loadEvents"
+          />
+        </div>
+      </NTabPane>
+      <NTabPane name="create-event" :tab="$t('views.events.label_create_event')">
         <div class="m-30 flex items-center">
           <NForm
-            ref="infoFormRef"
             label-placement="left"
             label-align="left"
             label-width="100"
-            :model="infoForm"
-            :rules="infoFormRules"
             class="w-400"
           >
-            <NFormItem :label="$t('views.profile.label_avatar')" path="avatar">
-              <NImage width="100" :src="infoForm.avatar"></NImage>
+            <NFormItem :label="$t('views.events.label_event_message')" path="event_name">
+              <NInput type="text" :placeholder="$t('views.events.placeholder_event_name')" />
             </NFormItem>
-            <NFormItem :label="$t('views.profile.label_username')" path="username">
+            <NFormItem :label="$t('views.events.label_event_date')" path="event_date">
               <NInput
-                v-model:value="infoForm.username"
-                type="text"
-                :placeholder="$t('views.profile.placeholder_username')"
+                type="date"
+                placeholder=""
               />
             </NFormItem>
-            <NFormItem :label="$t('views.profile.label_email')" path="email">
-              <NInput
-                v-model:value="infoForm.email"
-                type="text"
-                :placeholder="$t('views.profile.placeholder_email')"
-              />
-            </NFormItem>
-            <NButton type="primary" :loading="isLoading" @click="updateProfile">
-              {{ $t('common.buttons.update') }}
+            <NButton type="primary">
+              {{ $t('common.buttons.create') }}
             </NButton>
           </NForm>
         </div>
       </NTabPane>
-      <NTabPane name="contact" :tab="$t('views.profile.label_change_password')">
-        <NForm
-          ref="passwordFormRef"
-          label-placement="left"
-          label-align="left"
-          :model="passwordForm"
-          label-width="200"
-          :rules="passwordFormRules"
-          class="m-30 w-500"
-        >
-          <NFormItem :label="$t('views.profile.label_old_password')" path="old_password">
-            <NInput
-              v-model:value="passwordForm.old_password"
-              type="password"
-              show-password-on="mousedown"
-              :placeholder="$t('views.profile.placeholder_old_password')"
-            />
-          </NFormItem>
-          <NFormItem :label="$t('views.profile.label_new_password')" path="new_password">
-            <NInput
-              v-model:value="passwordForm.new_password"
-              :disabled="!passwordForm.old_password"
-              type="password"
-              show-password-on="mousedown"
-              :placeholder="$t('views.profile.placeholder_new_password')"
-            />
-          </NFormItem>
-          <NFormItem :label="$t('views.profile.label_confirm_password')" path="confirm_password">
-            <NInput
-              v-model:value="passwordForm.confirm_password"
-              :disabled="!passwordForm.new_password"
-              type="password"
-              show-password-on="mousedown"
-              :placeholder="$t('views.profile.placeholder_confirm_password')"
-            />
-          </NFormItem>
-          <NButton type="primary" :loading="isLoading" @click="updatePassword">
-            {{ $t('common.buttons.update') }}
-          </NButton>
-        </NForm>
-      </NTabPane>
     </NTabs>
   </CommonPage>
 </template>
+
+<style scoped>
+.m-30 {
+  margin: 30px;
+}
+.w-400 {
+  width: 400px;
+}
+.w-500 {
+  width: 500px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+</style>

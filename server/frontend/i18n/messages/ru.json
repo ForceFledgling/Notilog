@@ -46,6 +46,15 @@
       "message_password_confirmation_required": "Пожалуйста, подтвердите новый пароль",
       "message_password_confirmation_diff": "Пароли не совпадают"
     },
+    "events": {
+      "label_events_list": "Список событий",
+      "label_create_event": "Создать событие",
+      "label_event_message": "Сообщение",
+      "label_event_date": "Дата",
+      "placeholder_event_name": "Введите название события",
+      "placeholder_event_date": "Введите дату события",
+      "label_actions": "Действие"
+    },
     "errors": {
       "label_error": "Страница ошибки",
       "text_back_to_home": "Вернуться на главную"
@@ -56,7 +65,9 @@
       "update_success": "Изменения успешно сохранены"
     },
     "buttons": {
-      "update": "Обновить"
+      "update": "Обновить",
+      "create": "Создать",
+      "delete": "Удалить"
     }
   }
 }

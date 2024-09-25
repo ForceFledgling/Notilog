@@ -1,0 +1,1 @@
+server/frontend/src/views/events/index.vue

@@ -97,7 +97,14 @@ nav:
       - Требования: _docs/requirements.md
       - Архитектура:
           - Обзор: _docs/architecture/index.md
-          - Серверная часть: _docs/architecture/server.md
+          - Серверная часть:
+            - Обзор: _docs/architecture/server/index.md
+            - Фронтенд: 
+              - Обзор: _docs/architecture/server/frontend/index.md
+              - API: _docs/architecture/server/frontend/api.md
+              - Хранилише: _docs/architecture/server/frontend/storage.md
+              - Представления: _docs/architecture/server/frontend/views.md
+              - Мультиязычность: _docs/architecture/server/frontend/translate.md
           - Клиентская часть: _docs/architecture/client.md
   - Руководства:
       - Обзор: _guides/index.md
