@@ -41,7 +41,7 @@
 
     
       
-        <title>Обзор - NotiLog</title>
+        <title>Архитектура - NotiLog</title>
       
     
     
@@ -96,6 +96,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -131,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Обзор
+              Архитектура
             
           </span>
         </div>
@@ -439,16 +444,75 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Архитектура
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Обзор
+    Архитектура
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Введение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Технологический стек
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -500,7 +564,7 @@
             
   
   <span class="md-ellipsis">
-    Архитектура
+    Серверная часть
   </span>
   
 
@@ -510,7 +574,45 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            Архитектура
+            Серверная часть
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Фронтенд
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Фронтенд
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -521,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="server/frontend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,6 +632,98 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="server/frontend/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="server/frontend/storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Хранилише
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="server/frontend/views/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Представления
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="server/frontend/translate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Мультиязычность
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -559,7 +753,7 @@
             
   
   <span class="md-ellipsis">
-    Серверная часть
+    Бэкенд
   </span>
   
 
@@ -569,7 +763,7 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Серверная часть
+            Бэкенд
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -580,154 +774,11 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/server/" class="md-nav__link">
+      <a href="server/backend/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Обзор
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Фронтенд
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            Фронтенд
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/server/frontend/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Обзор
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/server/frontend/api/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    API
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/server/frontend/storage/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Хранилише
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/server/frontend/views/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Представления
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/server/frontend/translate/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Мультиязычность
   </span>
   
 
@@ -760,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/client/" class="md-nav__link">
+      <a href="client/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,14 +820,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1128,6 +1171,43 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Введение
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Основные компоненты
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Технологический стек
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1150,9 +1230,46 @@
   
 
 
-  <h1>Обзор</h1>
-
-
+<h1 id="_1">Архитектура серверной части</h1>
+<h2 id="_2">Введение</h2>
+<p>В этой части документации описывается архитектура серверной части приложения NotiLog. Серверная часть отвечает за обработку событий, управление базой данных и отправку уведомлений. Архитектура разработана для обеспечения масштабируемости, надежности и простоты в обслуживании.</p>
+<h2 id="_3">Основные компоненты</h2>
+<p><strong>Серверное приложение</strong></p>
+<p>Серверное приложение написано на Python с использованием фреймворка FastAPI. Оно обеспечивает основные API для взаимодействия с клиентами и обработки запросов. Основные функции включают:</p>
+<ul>
+<li>Создание и управление событиями.</li>
+<li>Обработка и хранение данных в базе данных.</li>
+<li>Запуск фоновых задач для обработки уведомлений.</li>
+</ul>
+<p><strong>База данных</strong></p>
+<p>Для хранения информации об событиях используется реляционная база данных. В проекте используется SQLAlchemy для ORM (Object-Relational Mapping). Основные операции включают:</p>
+<ul>
+<li>Создание и хранение записей о событиях.</li>
+<li>Выполнение запросов для извлечения и сортировки данных.</li>
+</ul>
+<p><strong>Фоновые задачи</strong></p>
+<p>Фоновые задачи используются для выполнения длительных операций асинхронно. Для этого используется Celery, что позволяет выполнять задачи в фоновом режиме без блокировки основного потока приложения. Примеры задач включают:</p>
+<ul>
+<li>Отправка уведомлений о новых событиях.</li>
+<li>Обработка данных и интеграция с внешними системами.</li>
+</ul>
+<p><strong>Маршрутизация и уведомления</strong></p>
+<p>Серверная часть поддерживает отправку уведомлений через различные каналы, такие как Kafka, Telegram и электронная почта. Это позволяет гибко настроить оповещения и интеграцию с различными системами. Основные функции маршрутизации уведомлений описаны в <code>server/notifications.py</code>.</p>
+<p><strong>Health Check</strong></p>
+<p>Серверное приложение включает функциональность проверки состояния процессов. Это обеспечивает раннее обнаружение проблем и их своевременное решение.</p>
+<blockquote>
+<p># TODO</p>
+</blockquote>
+<h2 id="_4">Технологический стек</h2>
+<ul>
+<li><strong>Python</strong> – язык программирования, используемый для написания серверной части.</li>
+<li><strong>FastAPI</strong> – фреймворк для создания API.</li>
+<li><strong>SQLAlchemy</strong> – ORM для работы с базой данных.</li>
+<li><strong>Celery</strong> – библиотека для управления фоновыми задачами.</li>
+<li><strong>Kafka</strong> – платформа для потоковой передачи данных.</li>
+<li><strong>Telegram API</strong> – для отправки сообщений через Telegram.</li>
+<li><strong>SMTP</strong> – для отправки электронных писем.</li>
+</ul>
 
 
 

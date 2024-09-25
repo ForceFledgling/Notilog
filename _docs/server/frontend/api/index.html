@@ -12,16 +12,16 @@
     <meta name="author" content="Vladimir Penzin">
     
     
-    <link rel="canonical" href="https://www.notilog.ru/_docs/architecture/server/frontend/translate/">
+    <link rel="canonical" href="https://www.notilog.ru/_docs/server/frontend/api/">
     
     
-    <link rel="prev" href="../views/">
+    <link rel="prev" href="../">
     
     
-    <link rel="next" href="../../../client/">
+    <link rel="next" href="../storage/">
     
     
-    <link rel="icon" href="../../../../../assets/images/logo.svg">
+    <link rel="icon" href="../../../../assets/images/logo.svg">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.2.5">
 
     <!-- Social meta -->
@@ -32,23 +32,23 @@
     <meta property="og:description" content="Масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.">
     
 
-    <meta property="og:image" content="https://www.notilog.ru/_docs/architecture/server/frontend/translate/assets/images/preview.jpg">
+    <meta property="og:image" content="https://www.notilog.ru/_docs/server/frontend/api/assets/images/preview.jpg">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:url" content="https://www.notilog.ru/_docs/architecture/server/frontend/translate/">
+    <meta property="og:url" content="https://www.notilog.ru/_docs/server/frontend/api/">
     <meta property="og:type" content="website">
 
     
       
-        <title>Мультиязычность - NotiLog</title>
+        <title>API - NotiLog</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.35f28582.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -67,11 +67,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../../../assets/styles/extra.css">
+      <link rel="stylesheet" href="../../../../assets/styles/extra.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -96,11 +96,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#indexjs-i18nmessages" class="md-skip">
-          Перейти к содержанию
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -117,9 +112,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
-    <a href="../../../../.." title="NotiLog" class="md-header__button md-logo" aria-label="NotiLog" data-md-component="logo">
+    <a href="../../../.." title="NotiLog" class="md-header__button md-logo" aria-label="NotiLog" data-md-component="logo">
       
-  <img src="../../../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -136,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Мультиязычность
+              API
             
           </span>
         </div>
@@ -268,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
     
@@ -289,7 +284,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../../" class="md-tabs__link">
+        <a href="../../../" class="md-tabs__link">
           
   
   Документация
@@ -307,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../_guides/" class="md-tabs__link">
+        <a href="../../../../_guides/" class="md-tabs__link">
           
   
   Руководства
@@ -346,9 +341,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="NotiLog" class="md-nav__button md-logo" aria-label="NotiLog" data-md-component="logo">
+    <a href="../../../.." title="NotiLog" class="md-nav__button md-logo" aria-label="NotiLog" data-md-component="logo">
       
-  <img src="../../../../../assets/images/logo.svg" alt="logo">
+  <img src="../../../../assets/images/logo.svg" alt="logo">
 
     </a>
     NotiLog
@@ -375,7 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -438,11 +433,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../" class="md-nav__link">
+      <a href="../../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Обзор
+    Архитектура
   </span>
   
 
@@ -459,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../requirements/" class="md-nav__link">
+      <a href="../../../requirements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +494,7 @@
             
   
   <span class="md-ellipsis">
-    Архитектура
+    Серверная часть
   </span>
   
 
@@ -509,67 +504,6 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            Архитектура
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Обзор
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Серверная часть
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_3_2">
-            <span class="md-nav__icon md-icon"></span>
             Серверная часть
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -578,27 +512,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Обзор
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -614,10 +527,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -628,8 +541,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_3_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_1">
             <span class="md-nav__icon md-icon"></span>
             Фронтенд
           </label>
@@ -660,10 +573,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -672,6 +592,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -723,28 +644,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Мультиязычность
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../translate/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -753,57 +656,73 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+              
+            
+          </ul>
+        </nav>
       
-        <li class="md-nav__item">
-  <a href="#indexjs-i18nmessages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Файл index.js в директории i18n/messages
-    </span>
-  </a>
+    </li>
   
-    <nav class="md-nav" aria-label="Файл index.js в директории i18n/messages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Описание
-    </span>
-  </a>
+
+              
+            
+              
+                
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример использования
-    </span>
-  </a>
   
-</li>
-        
-      </ul>
-    </nav>
   
-</li>
+  
+    
+    
+    
       
-    </ul>
-  
-</nav>
       
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Бэкенд
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Бэкенд
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Обзор
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -841,14 +760,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -906,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/" class="md-nav__link">
+      <a href="../../../../_guides/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -927,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/quickstart/" class="md-nav__link">
+      <a href="../../../../_guides/quickstart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -948,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/install/" class="md-nav__link">
+      <a href="../../../../_guides/install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -969,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/deploy/" class="md-nav__link">
+      <a href="../../../../_guides/deploy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -990,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/migration/" class="md-nav__link">
+      <a href="../../../../_guides/migration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1011,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/backup/" class="md-nav__link">
+      <a href="../../../../_guides/backup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1032,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/update/" class="md-nav__link">
+      <a href="../../../../_guides/update/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1091,7 +1002,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/concepts/" class="md-nav__link">
+      <a href="../../../../_guides/concepts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1112,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/concepts/base/" class="md-nav__link">
+      <a href="../../../../_guides/concepts/base/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1133,7 +1044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/concepts/examples/" class="md-nav__link">
+      <a href="../../../../_guides/concepts/examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1162,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../_guides/community/" class="md-nav__link">
+      <a href="../../../../_guides/community/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,47 +1112,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#indexjs-i18nmessages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Файл index.js в директории i18n/messages
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Файл index.js в директории i18n/messages">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Описание
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Пример использования
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1255,7 +1125,7 @@
                   
 
   
-    <a href="https://github.com/ForceFledgling/notilog/blob/main/_docs/_docs/architecture/server/frontend/translate.md" title="Редактировать страницу" class="md-content__button md-icon">
+    <a href="https://github.com/ForceFledgling/notilog/blob/main/_docs/_docs/server/frontend/api.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -1263,45 +1133,32 @@
   
 
 
-  <h1>Мультиязычность</h1>
+  <h1>API</h1>
 
-<h2 id="indexjs-i18nmessages">Файл <code>index.js</code> в директории i18n/messages</h2>
-<p>Этот файл отвечает за организацию и экспорт сообщений локализации для многократного использования в приложении. Он собирает переводы для различных языков из отдельных JSON-файлов и предоставляет их в одном объекте.</p>
-<pre><code>import * as en from './en.json'
-import * as ru from './ru.json'
+<p>Файл server/frontend/src/api/index.js представляет собой модуль для взаимодействия с API в твоем проекте на фронтенде. Этот файл экспортирует набор функций, которые используют утилиту request для отправки HTTP-запросов к бэкенд-серверу. Эти функции, как правило, используются для получения данных, отправки форм, обновления информации и выполнения других действий с API.</p>
+<pre><code>import { request } from '@/utils'
 
 export default {
-  en,
-  ru,
+  login: (data) =&gt; request.post('/base/access_token', data, { noNeedToken: true }),
+  getUserInfo: () =&gt; request.get('/base/userinfo'),
+  getUserMenu: () =&gt; request.get('/base/usermenu'),
+  getUserApi: () =&gt; request.get('/base/userapi'),
+
+  ...
+  ...
+
+  // events
+  getEventList: (params = {}) =&gt; request.get('/event/list', { params }),
+  getEventById: (params = {}) =&gt; request.get('/event/get', { params }),
+  createEvent: (data = {}) =&gt; request.post('/event/create', data),
+  updateEvent: (data = {}) =&gt; request.post('/event/update', data),
+  deleteEvent: (params = {}) =&gt; request.delete('/event/delete', { params }),
+  getEventLogs: (params = {}) =&gt; request.get('/event/logs', { params }),
+  refreshEvent: (data = {}) =&gt; request.post('/event/refresh', data),
+
+  ...
+  ...
 }
-</code></pre>
-<p>Добавляйте новые языки, создавая новые JSON-файлы в директории <code>i18n/messages</code>, а затем импортируйте их в этот файл.</p>
-<p>Обновляйте сообщения локализации при добавлении новых текстов в приложение.</p>
-<h3 id="_1">Описание</h3>
-<p><strong>Импорт переводов</strong>:</p>
-<ul>
-<li><code>**import * as en from './en.json'**</code>: Импортирует все сообщения локализации на английском языке из файла <code>en.json</code>.</li>
-<li><code>**import * as ru from './ru.json'**</code>: Импортирует все сообщения локализации на русском языке из файла <code>ru.json</code>.</li>
-</ul>
-<p><strong>Экспорт объекта</strong>:</p>
-<ul>
-<li>Экспортируется объект, который содержит переводы для различных языков. В данном случае он содержит ключи <code>en</code> и <code>ru</code>, которые соответствуют языкам:<ul>
-<li><code>en</code>: Объект с английскими переводами.</li>
-<li><code>ru</code>: Объект с русскими переводами.</li>
-</ul>
-</li>
-</ul>
-<h3 id="_2">Пример использования</h3>
-<p>В компоненте Vue можно использовать локализованные сообщения следующим образом:</p>
-<pre><code>import { useI18n } from 'vue-i18n'
-import messages from '@/i18n/messages'
-
-const { t } = useI18n({
-  locale: 'en', // или 'ru'
-  messages,
-})
-
-console.log(t('common.greeting')) // Выведет перевод на выбранном языке
 </code></pre>
 
 
@@ -1338,7 +1195,7 @@ console.log(t('common.greeting')) // Выведет перевод на выбр
       <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
         
           
-          <a href="../views/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Представления">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Назад: Обзор">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1348,20 +1205,20 @@ console.log(t('common.greeting')) // Выведет перевод на выбр
                 Назад
               </span>
               <div class="md-ellipsis">
-                Представления
+                Обзор
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../client/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Клиентская часть">
+          <a href="../storage/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Хранилише">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Вперед
               </span>
               <div class="md-ellipsis">
-                Клиентская часть
+                Хранилише
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1416,10 +1273,10 @@ console.log(t('common.greeting')) // Выведет перевод на выбр
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "../../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "0.1a"}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "0.1a"}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>
