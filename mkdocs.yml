@@ -93,19 +93,18 @@ plugins:
 nav:
   - Главная: index.md
   - Документация:
-      - Обзор: _docs/index.md
+      - Архитектура: _docs/index.md
       - Требования: _docs/requirements.md
-      - Архитектура:
-          - Обзор: _docs/architecture/index.md
-          - Серверная часть:
-            - Обзор: _docs/architecture/server/index.md
-            - Фронтенд: 
-              - Обзор: _docs/architecture/server/frontend/index.md
-              - API: _docs/architecture/server/frontend/api.md
-              - Хранилише: _docs/architecture/server/frontend/storage.md
-              - Представления: _docs/architecture/server/frontend/views.md
-              - Мультиязычность: _docs/architecture/server/frontend/translate.md
-          - Клиентская часть: _docs/architecture/client.md
+      - Серверная часть:
+        - Фронтенд: 
+          - Обзор: _docs/server/frontend/index.md
+          - API: _docs/server/frontend/api.md
+          - Хранилише: _docs/server/frontend/storage.md
+          - Представления: _docs/server/frontend/views.md
+          - Мультиязычность: _docs/server/frontend/translate.md
+        - Бэкенд: 
+            - Обзор: _docs/server/backend/index.md
+      - Клиентская часть: _docs/client/index.md
   - Руководства:
       - Обзор: _guides/index.md
       - Быстрый старт: _guides/quickstart.md
