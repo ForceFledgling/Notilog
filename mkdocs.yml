@@ -49,17 +49,17 @@ theme:
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
+      scheme: slate
       primary: yellow
       accent: cyan   
-      scheme: default
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     # Dark mode (default)
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+      scheme: default
       primary: yellow
-      accent: cyan      
+      accent: cyan
       toggle:
         icon: material/weather-night
         name: Switch to light mode
