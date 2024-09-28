@@ -93,13 +93,13 @@ plugins:
 nav:
   - Главная: index.md
   - Документация:
+      - Обзор: d/index.md
       - Описание системы: 
         - 1 Введение: d/req/intro.md
         - 2 Назначение и цели: d/req/goals.md
         - 3 Функциональные блоки: d/req/functional-blocks.md
         - 4 Характеристики системы: d/req/characteristics.md
         - 5 Документирование: d/req/docs.md
-      - Архитектура: d/index.md
       - Серверная часть:
         - Фронтенд: 
           - Обзор: d/server/frontend/index.md
@@ -111,15 +111,22 @@ nav:
             - Обзор: d/server/backend/index.md
       - Клиентская часть: d/client/index.md
   - Регламенты:
-      - Тест: 
-        - Тест: r/test/test.md
+      - Обзор: r/index.md
+      - Резервное копирование и восстановление: r/backup-recovery.md
+      - Плановое обслуживание системы: r/scheduled-maintenance.md
+      - Действия при сбоях системы: r/system-failure-procedures.md
+      - Эксплуатация системы : r/system-operation.md
   - Руководства:
       - Обзор: g/index.md
+      - Пользователю: 
+        - Введение: g/user/intro.md
+      - Администратору: 
+        - Введение: g/admin/intro.md
+      
       - Быстрый старт: g/quickstart.md
       - Установка: g/install.md
       - Развертывание: g/deploy.md
       - Миграции: g/migration.md
-      - Резервное копирование: g/backup.md
       - Обновление: g/update.md
       - Концепции:
           - Обзор: g/concepts/index.md
