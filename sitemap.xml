@@ -61,10 +61,6 @@
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/backup/</loc>
-         <lastmod>2024-09-28</lastmod>
-    </url>
-    <url>
          <loc>https://www.notilog.ru/g/community/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
@@ -89,6 +85,10 @@
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
+         <loc>https://www.notilog.ru/g/admin/intro/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
          <loc>https://www.notilog.ru/g/concepts/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
@@ -98,6 +98,30 @@
     </url>
     <url>
          <loc>https://www.notilog.ru/g/concepts/examples/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/g/user/intro/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/r/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/r/backup-recovery/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/r/scheduled-maintenance/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/r/system-failure-procedures/</loc>
+         <lastmod>2024-09-28</lastmod>
+    </url>
+    <url>
+         <loc>https://www.notilog.ru/r/system-operation/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
 </urlset>
