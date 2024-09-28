@@ -48,15 +48,15 @@ theme:
     - search.share                  # позволяет скопировать в буфер поисковый URL
   palette:
     # Light mode
-    - media: "(prefers-color-scheme: light)"
+    - media: "(light)"
       scheme: slate
       primary: yellow
       accent: cyan   
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
-    # Dark mode (default)
-    - media: "(prefers-color-scheme: dark)"
+    # Dark mode
+    - media: "(dark)"
       scheme: default
       primary: yellow
       accent: cyan
