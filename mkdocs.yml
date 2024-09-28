@@ -1,6 +1,6 @@
 # Site
 site_name: NotiLog
-site_description: Масштабируемая и открытая система управления журналами приложений, процессами, нотификацией и эскалацией инцидентов.
+site_description: Открытая cистема управления журналами приложений, мониторингом процессов, отправкой уведомлений и эскалацией инцидентов
 site_author: Vladimir Penzin
 site_url: https://www.notilog.ru/
 copyright: 2024, Vladimir Penzin
