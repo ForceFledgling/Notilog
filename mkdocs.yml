@@ -93,8 +93,11 @@ plugins:
 nav:
   - Главная: index.md
   - Документация:
+      - Требования к системе: 
+        - 1 Введение: _docs/requirements/1.md
+        - 2 Назначение и цели: _docs/requirements/2.md
+        - 3 Функциональные блоки: _docs/requirements/3.md
       - Архитектура: _docs/index.md
-      - Требования: _docs/requirements.md
       - Серверная часть:
         - Фронтенд: 
           - Обзор: _docs/server/frontend/index.md
