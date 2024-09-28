@@ -122,14 +122,8 @@ nav:
         - Введение: g/user/intro.md
       - Администратору: 
         - Введение: g/admin/intro.md
-      
-      - Быстрый старт: g/quickstart.md
-      - Установка: g/install.md
-      - Развертывание: g/deploy.md
-      - Миграции: g/migration.md
-      - Обновление: g/update.md
-      - Концепции:
-          - Обзор: g/concepts/index.md
-          - Основные концепции: g/concepts/base.md
-          - Примеры использования: g/concepts/examples.md
-      - Руководство по сообществу: g/community.md
+        - Быстрый старт: g/admin/quickstart.md
+        - Установка: g/admin/install.md
+        - Развертывание: g/admin/deploy.md
+        - Миграции: g/admin/migration.md
+      - Сообщество: g/community.md
