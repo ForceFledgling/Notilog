@@ -118,8 +118,15 @@ body[data-md-color-scheme="default"] .hero-container {
 }
 
 .notilog-highlights .text {
-    text-align: justify;
+    text-align: justify;                  /* Выравнивание текста по левому краю */
+    white-space: normal;               /* Позволяет переносить текст */
+    overflow-wrap: break-word;         /* Позволяет переносить длинные слова */
+    word-spacing: -0.5px;              /* Уменьшение расстояния между словами */
+    letter-spacing: 0.5px;             /* Увеличение расстояния между буквами (можно настроить) */
+    hyphens: auto;                     /* Включает автоматические дефисы для переноса слов */
 }
+
+
 
 .notilog-highlights .link {
     text-align: center;
