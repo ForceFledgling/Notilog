@@ -98,6 +98,7 @@ nav:
         - 2 Назначение и цели: d/req/goals.md
         - 3 Функциональные блоки: d/req/functional-blocks.md
         - 4 Характеристики системы: d/req/characteristics.md
+        - 5 Документирование: d/req/docs.md
       - Архитектура: d/index.md
       - Серверная часть:
         - Фронтенд: 
@@ -109,6 +110,9 @@ nav:
         - Бэкенд: 
             - Обзор: d/server/backend/index.md
       - Клиентская часть: d/client/index.md
+  - Регламенты:
+      - Тест: 
+        - Тест: r/test/test.md
   - Руководства:
       - Обзор: g/index.md
       - Быстрый старт: g/quickstart.md
