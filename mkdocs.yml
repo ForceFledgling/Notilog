@@ -8,7 +8,7 @@ copyright: 2024, Vladimir Penzin
 # Repo
 repo_url: https://github.com/ForceFledgling/notilog
 repo_name: github
-edit_uri: blob/main/_docs/
+edit_uri: blob/main/d/
 
 extra:
   generator: false  # не отображать MkDocs copyright
@@ -94,30 +94,30 @@ nav:
   - Главная: index.md
   - Документация:
       - Требования к системе: 
-        - 1 Введение: _docs/requirements/1.md
-        - 2 Назначение и цели: _docs/requirements/2.md
-        - 3 Функциональные блоки: _docs/requirements/3.md
-      - Архитектура: _docs/index.md
+        - 1 Введение: d/req/intro.md
+        - 2 Назначение и цели: d/req/goals.md
+        - 3 Функциональные блоки: d/req/functional-blocks.md
+      - Архитектура: d/index.md
       - Серверная часть:
         - Фронтенд: 
-          - Обзор: _docs/server/frontend/index.md
-          - API: _docs/server/frontend/api.md
-          - Хранилише: _docs/server/frontend/storage.md
-          - Представления: _docs/server/frontend/views.md
-          - Мультиязычность: _docs/server/frontend/translate.md
+          - Обзор: d/server/frontend/index.md
+          - API: d/server/frontend/api.md
+          - Хранилише: d/server/frontend/storage.md
+          - Представления: d/server/frontend/views.md
+          - Мультиязычность: d/server/frontend/translate.md
         - Бэкенд: 
-            - Обзор: _docs/server/backend/index.md
-      - Клиентская часть: _docs/client/index.md
+            - Обзор: d/server/backend/index.md
+      - Клиентская часть: d/client/index.md
   - Руководства:
-      - Обзор: _guides/index.md
-      - Быстрый старт: _guides/quickstart.md
-      - Установка: _guides/install.md
-      - Развертывание: _guides/deploy.md
-      - Миграции: _guides/migration.md
-      - Резервное копирование: _guides/backup.md
-      - Обновление: _guides/update.md
+      - Обзор: g/index.md
+      - Быстрый старт: g/quickstart.md
+      - Установка: g/install.md
+      - Развертывание: g/deploy.md
+      - Миграции: g/migration.md
+      - Резервное копирование: g/backup.md
+      - Обновление: g/update.md
       - Концепции:
-          - Обзор: _guides/concepts/index.md
-          - Основные концепции: _guides/concepts/base.md
-          - Примеры использования: _guides/concepts/examples.md
-      - Руководство по сообществу: _guides/community.md
+          - Обзор: g/concepts/index.md
+          - Основные концепции: g/concepts/base.md
+          - Примеры использования: g/concepts/examples.md
+      - Руководство по сообществу: g/community.md
