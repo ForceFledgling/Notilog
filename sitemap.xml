@@ -65,23 +65,11 @@
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/deploy/</loc>
+         <loc>https://www.notilog.ru/g/admin/deploy/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/install/</loc>
-         <lastmod>2024-09-28</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/g/migration/</loc>
-         <lastmod>2024-09-28</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/g/quickstart/</loc>
-         <lastmod>2024-09-28</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/g/update/</loc>
+         <loc>https://www.notilog.ru/g/admin/install/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
@@ -89,15 +77,11 @@
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/concepts/</loc>
+         <loc>https://www.notilog.ru/g/admin/migration/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/concepts/base/</loc>
-         <lastmod>2024-09-28</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/g/concepts/examples/</loc>
+         <loc>https://www.notilog.ru/g/admin/quickstart/</loc>
          <lastmod>2024-09-28</lastmod>
     </url>
     <url>
