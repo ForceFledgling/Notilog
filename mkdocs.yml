@@ -93,29 +93,19 @@ plugins:
 nav:
   - Главная: index.md
   - Документация:
-      - Обзор: d/index.md
-      - Описание системы: 
-        - 1 Введение: d/req/intro.md
-        - 2 Назначение и цели: d/req/goals.md
-        - 3 Функциональные блоки: d/req/functional-blocks.md
-        - 4 Характеристики системы: d/req/characteristics.md
-        - 5 Документирование: d/req/docs.md
-      - Серверная часть:
-        - Фронтенд: 
-          - Обзор: d/server/frontend/index.md
-          - API: d/server/frontend/api.md
-          - Хранилише: d/server/frontend/storage.md
-          - Представления: d/server/frontend/views.md
-          - Мультиязычность: d/server/frontend/translate.md
-        - Бэкенд: 
-            - Обзор: d/server/backend/index.md
-      - Клиентская часть: d/client/index.md
+      - Введение: d/intro.md
+      - Назначение и цели: d/goals.md
+      - Функциональные блоки: d/functional-blocks.md
+      - Характеристики системы: d/characteristics.md
+      - Документирование: d/docs.md
   - Регламенты:
       - Обзор: r/index.md
       - Резервное копирование и восстановление: r/backup-recovery.md
       - Плановое обслуживание системы: r/scheduled-maintenance.md
       - Действия при сбоях системы: r/system-failure-procedures.md
       - Эксплуатация системы : r/system-operation.md
+      - Решение проблем и оптимизация: r/troubleshooting-optimization.md
+      - Безопасность и лицензирование: r/security-licensing.md
   - Руководства:
       - Обзор: g/index.md
       - Пользователю: 
@@ -127,3 +117,16 @@ nav:
         - Развертывание: g/admin/deploy.md
         - Миграции: g/admin/migration.md
       - Сообщество: g/community.md
+  - Документация по API: http://backend.notilog.ru:9999/docs
+  - Технические ссылки:
+      - Обзор: t/index.md
+      - Серверная часть:
+        - Фронтенд: 
+          - Обзор: t/server/frontend/index.md
+          - API: t/server/frontend/api.md
+          - Хранилише: t/server/frontend/storage.md
+          - Представления: t/server/frontend/views.md
+          - Мультиязычность: t/server/frontend/translate.md
+        - Бэкенд: 
+            - Обзор: t/server/backend/index.md
+      - Клиентская часть: t/client/index.md
