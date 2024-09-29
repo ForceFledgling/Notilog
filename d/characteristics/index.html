@@ -12,13 +12,13 @@
     <meta name="author" content="Vladimir Penzin">
     
     
-    <link rel="canonical" href="https://www.notilog.ru/r/backup-recovery/">
+    <link rel="canonical" href="https://www.notilog.ru/d/characteristics/">
     
     
-    <link rel="prev" href="../">
+    <link rel="prev" href="../functional-blocks/">
     
     
-    <link rel="next" href="../scheduled-maintenance/">
+    <link rel="next" href="../docs/">
     
     
     <link rel="icon" href="../../assets/images/logo.svg">
@@ -32,16 +32,16 @@
     <meta property="og:description" content="Открытая cистема управления журналами приложений, мониторингом процессов, отправкой уведомлений и эскалацией инцидентов">
     
 
-    <meta property="og:image" content="https://www.notilog.ru/r/backup-recovery/assets/images/preview.jpg">
+    <meta property="og:image" content="https://www.notilog.ru/d/characteristics/assets/images/preview.jpg">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:url" content="https://www.notilog.ru/r/backup-recovery/">
+    <meta property="og:url" content="https://www.notilog.ru/d/characteristics/">
     <meta property="og:type" content="website">
 
     
       
-        <title>Резервное копирование и восстановление - NotiLog</title>
+        <title>Характеристики системы - NotiLog</title>
       
     
     
@@ -96,6 +96,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -131,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Резервное копирование и восстановление
+              Характеристики системы
             
           </span>
         </div>
@@ -278,11 +283,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../d/intro/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../intro/" class="md-tabs__link">
           
   
   Документация
@@ -296,13 +303,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../r/" class="md-tabs__link">
           
   
   Регламенты
@@ -440,23 +445,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -467,7 +477,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Документация
@@ -481,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../d/intro/" class="md-nav__link">
+      <a href="../intro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../d/goals/" class="md-nav__link">
+      <a href="../goals/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -523,7 +533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../d/functional-blocks/" class="md-nav__link">
+      <a href="../functional-blocks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,10 +551,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../d/characteristics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Характеристики системы
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -553,6 +581,105 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Архитектура системы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Операционная система
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Производительность и доступность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейс и взаимодействие с системой
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лицензирование системы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поддержка
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интеграция с внешними системами
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Безопасность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -565,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../d/docs/" class="md-nav__link">
+      <a href="../docs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -590,28 +717,23 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -622,7 +744,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Регламенты
@@ -636,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../r/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,17 +776,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../r/backup-recovery/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -673,7 +788,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -686,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scheduled-maintenance/" class="md-nav__link">
+      <a href="../../r/scheduled-maintenance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../system-failure-procedures/" class="md-nav__link">
+      <a href="../../r/system-failure-procedures/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../system-operation/" class="md-nav__link">
+      <a href="../../r/system-operation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -749,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting-optimization/" class="md-nav__link">
+      <a href="../../r/troubleshooting-optimization/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -770,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security-licensing/" class="md-nav__link">
+      <a href="../../r/security-licensing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1485,6 +1599,95 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Архитектура системы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Операционная система
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Производительность и доступность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейс и взаимодействие с системой
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лицензирование системы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поддержка
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интеграция с внешними системами
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Безопасность
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1498,7 +1701,7 @@
                   
 
   
-    <a href="https://github.com/ForceFledgling/notilog/blob/main/d/r/backup-recovery.md" title="Редактировать страницу" class="md-content__button md-icon">
+    <a href="https://github.com/ForceFledgling/notilog/blob/main/d/d/characteristics.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -1506,9 +1709,67 @@
   
 
 
-  <h1>Резервное копирование и восстановление</h1>
+  <h1>Характеристики системы</h1>
 
-
+<h2 id="_1">Архитектура системы</h2>
+<p>Система построена на модульной архитектуре, что позволяет легко адаптироваться к изменяющимся требованиям. Каждый компонент системы может быть независимым и легко заменяемым, что способствует улучшению обслуживания и обновления.</p>
+<ul>
+<li>Система построена на модульной архитектуре, позволяющей легко добавлять и удалять компоненты.</li>
+<li>Реализована поддержка распределенной архитектуры для масштабируемости и отказоустойчивости.</li>
+<li>Используется асинхронная обработка для повышения производительности.</li>
+</ul>
+<h2 id="_2">Операционная система</h2>
+<p>Система поддерживает широкий спектр операционных систем, обеспечивая гибкость для различных окружений. Это позволяет пользователям выбирать платформу, которая лучше всего подходит для их инфраструктуры.</p>
+<ul>
+<li>Протестированные операционные системы: Linux (Debian, CentOS) и Windows (Server, 11, 10).</li>
+<li>Для установки и настройки системы требуются права администратора.</li>
+</ul>
+<h2 id="_3">Производительность и доступность</h2>
+<p>Система разработана с акцентом на высокую производительность и доступность, что критично для современных приложений. Это позволяет пользователям получать доступ к необходимой информации без задержек.</p>
+<ul>
+<li>Время отклика системы не превышает 200 мс при обработке запросов.</li>
+<li>Доступность системы составляет не менее 99.9% в год.</li>
+<li>Обеспечена поддержка одновременной обработки не менее 1000 запросов.</li>
+</ul>
+<h2 id="_4">Интерфейс и взаимодействие с системой</h2>
+<p>Интерфейс системы создан с учетом потребностей пользователей, обеспечивая простоту и удобство использования. Взаимодействие с системой осуществляется через интуитивно понятные компоненты.</p>
+<ul>
+<li>Интерфейс пользователя интуитивно понятен и доступен на русском и английском языках.</li>
+<li>Реализован веб-интерфейс для мониторинга и управления.</li>
+<li>API предоставляет RESTful интерфейс для интеграции с другими системами.</li>
+</ul>
+<h2 id="_5">Лицензирование системы</h2>
+<p>Система доступна под лицензией, обеспечивающей свободу использования и модификации. Это позволяет пользователям вносить изменения и адаптировать систему под свои нужды.</p>
+<ul>
+<li>Система доступна по лицензии MIT, позволяющей модификацию и распространение.</li>
+<li>Обеспечена совместимость с лицензиями сторонних библиотек и компонентов.</li>
+</ul>
+<h2 id="_6">Поддержка</h2>
+<p>Поддержка пользователей организована на высоком уровне, что позволяет быстро решать возникающие проблемы. Доступ к документам и руководствам значительно облегчает процесс освоения системы.</p>
+<ul>
+<li>Доступ к документации, руководствам и FAQ обеспечен.</li>
+<li>Поддержка пользователей осуществляется через электронную почту и систему тикетов.</li>
+</ul>
+<h2 id="_7">Интеграция с внешними системами</h2>
+<p>Система поддерживает интеграцию с различными внешними сервисами, что позволяет расширять ее функциональность. Это делает систему более универсальной и эффективной в работе.</p>
+<ul>
+<li>Реализована интеграция с популярными системами мониторинга и управления (например, Kafka, Grafana).</li>
+<li>Данные отправляются и принимаются через API и вебхуки.</li>
+</ul>
+<h2 id="_8">Безопасность</h2>
+<p>Обеспечение безопасности системы является приоритетом, и все меры принимаются для защиты данных пользователей. Система включает в себя механизмы для предотвращения несанкционированного доступа.</p>
+<ul>
+<li>Обеспечена аутентификация и авторизация пользователей.</li>
+<li>Данные шифруются при передаче и хранении.</li>
+<li>Регулярные обновления безопасности и исправления уязвимостей.</li>
+</ul>
+<h2 id="api">API</h2>
+<p>API системы предлагает гибкие возможности для взаимодействия с другими приложениями. Документация по API упрощает интеграцию и расширяет функциональность системы.</p>
+<ul>
+<li>API документирован и соответствует стандартам OpenAPI.</li>
+<li>Поддержка аутентификации по токенам для доступа к API.</li>
+<li>Обеспечено версионирование API для обеспечения обратной совместимости.</li>
+</ul>
 
 
 
@@ -1544,7 +1805,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Назад: Обзор">
+          <a href="../functional-blocks/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Функциональные блоки">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1554,20 +1815,20 @@
                 Назад
               </span>
               <div class="md-ellipsis">
-                Обзор
+                Функциональные блоки
               </div>
             </div>
           </a>
         
         
           
-          <a href="../scheduled-maintenance/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Плановое обслуживание системы">
+          <a href="../docs/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Документирование">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Вперед
               </span>
               <div class="md-ellipsis">
-                Плановое обслуживание системы
+                Документирование
               </div>
             </div>
             <div class="md-footer__button md-icon">
