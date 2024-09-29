@@ -8,7 +8,7 @@ copyright: 2024, Vladimir Penzin
 # Repo
 repo_url: https://github.com/ForceFledgling/notilog
 repo_name: github
-edit_uri: blob/main/d/
+edit_uri: blob/main/docs/
 
 extra:
   generator: false  # не отображать MkDocs copyright
