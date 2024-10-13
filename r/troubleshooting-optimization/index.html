@@ -1508,7 +1508,13 @@
 
   <h1>Решение проблем и оптимизация</h1>
 
-
+<p>Если перед запуском билда забыли создать <code>.env</code> файл:</p>
+<div class="highlight"><pre><span></span><code>notilog % TAG=test ./scripts/build.sh 
+WARN[0000] The &quot;POSTGRES_USER&quot; variable is not set. Defaulting to a blank string. 
+WARN[0000] The &quot;POSTGRES_DB&quot; variable is not set. Defaulting to a blank string. 
+parsing docker-compose.yml: error while interpolating services.db.environment.[]: required variable POSTGRES_PASSWORD is missing a value: Variable not set
+notilog % 
+</code></pre></div>
 
 
 

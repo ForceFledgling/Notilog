@@ -96,11 +96,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Перейти к содержанию
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -989,17 +984,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Быстрый старт
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1009,32 +993,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Быстрый запуск сервера
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1529,23 +1487,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Быстрый запуск сервера
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1569,23 +1510,70 @@
 
   <h1>Быстрый старт</h1>
 
-<h2 id="_1">Быстрый запуск сервера</h2>
-<p>После клонирования репозитория, создаем виртуальное окружение, входим в него, устанавливаем зависимости и запускает приложение как модуль:</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/ForceFledgling/notilog.git
-cd notilog
-python -m venv venv
-source venv/bin/activate
-python -m pip install server/requirements.txt
-python -m server
+<p>Клонируем репозиторий:</p>
+<div class="highlight"><pre><span></span><code>% git clone https://github.com/ForceFledgling/notilog.git
 </code></pre></div>
-<p>После мы увидим успешный запуск:</p>
-<div class="highlight"><pre><span></span><code>INFO:     Will watch for changes in these directories: [&#39;/Users/vladimir/Desktop/Репозитории/notilog&#39;]
-INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [6480] using WatchFiles
-INFO:     Started server process [6482]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
+<p>Перемещаем .env-example в .end и меняем переменные.</p>
+<p>Запускаем билд (без traefik):</p>
+<div class="highlight"><pre><span></span><code>% cd notilog
+
+notilog % ./scripts/build.sh
 </code></pre></div>
+<p>Создаем сеть и проверяем:</p>
+<div class="highlight"><pre><span></span><code>notilog % docker network create traefik-public
+
+notilog % docker network ls
+NETWORK ID     NAME             DRIVER    SCOPE
+bde44b991ccb   traefik-public   bridge    local
+notilog %
+</code></pre></div>
+<p>Запускаем билд (запускается docker-compose.override.yml):</p>
+<div class="highlight"><pre><span></span><code>notilog % TAG=test ./scripts/build.sh      
+[+] Building 2.3s (40/40) FINISHED
+...
+...
+vladimir@MacBook-Pro-Vladimir-2 notilog %
+</code></pre></div>
+<p>Поднимаем контейнеры:</p>
+<div class="highlight"><pre><span></span><code>notilog % docker-compose up -d               
+[+] Running 38/14
+...
+...
+[+] Building 13.4s (40/40) FINISHED
+...
+...
+[+] Running 10/10
+ ✔ Network notilog_default          Created                                                                                                                                             
+ ✔ Network notilog_traefik-public   Created                                                                                                                                             
+ ✔ Volume &quot;notilog_app-db-data&quot;     Created                                                                                                                                             
+ ✔ Container notilog-db-1           Healthy                                                                                                                                             
+ ✔ Container notilog-mailcatcher-1  Started                                                                                                                                             
+ ✔ Container notilog-proxy-1        Started                                                                                                                                             
+ ✔ Container notilog-frontend-1     Started                                                                                                                                             
+ ✔ Container notilog-prestart-1     Exited                                                                                                                                              
+ ✔ Container notilog-adminer-1      Started                                                                                                                                             
+ ✔ Container notilog-backend-1      Started                                                                                                                                             
+notilog % 
+</code></pre></div>
+<p>Проверяем что все поднялось:</p>
+<div class="highlight"><pre><span></span><code>notilog % docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS                   PORTS                                            NAMES
+de38d1c444ba   backend:latest           &quot;fastapi run --reloa…&quot;   7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:8000-&gt;8000/tcp                           notilog-backend-1
+72d77cfd0134   adminer                  &quot;entrypoint.sh php -…&quot;   7 minutes ago   Up 7 minutes             0.0.0.0:8080-&gt;8080/tcp                           notilog-adminer-1
+f5c503a46ac6   postgres:12              &quot;docker-entrypoint.s…&quot;   7 minutes ago   Up 7 minutes (healthy)   0.0.0.0:5432-&gt;5432/tcp                           notilog-db-1
+5fb54f770944   frontend:latest          &quot;/docker-entrypoint.…&quot;   7 minutes ago   Up 7 minutes             0.0.0.0:5173-&gt;80/tcp                             notilog-frontend-1
+8ea0fec08d38   schickling/mailcatcher   &quot;sh -c &#39;mailcatcher …&quot;   7 minutes ago   Up 7 minutes             0.0.0.0:1025-&gt;1025/tcp, 0.0.0.0:1080-&gt;1080/tcp   notilog-mailcatcher-1
+e0e310260714   traefik:3.0              &quot;/entrypoint.sh --pr…&quot;   7 minutes ago   Up 7 minutes             0.0.0.0:80-&gt;80/tcp, 0.0.0.0:8090-&gt;8080/tcp       notilog-proxy-1
+notilog %
+</code></pre></div>
+<p>Проверяем доступность:</p>
+<ul>
+<li>Фронтенд: http://localhost:5173</li>
+<li>Бэкенд: http://localhost:8000/docs</li>
+<li>Traefik: http://localhost:8090, http://localhost:80</li>
+<li>Adminer: http://localhost:8080</li>
+<li>MailCatcher: http://localhost:1080</li>
+</ul>
 
 
 
