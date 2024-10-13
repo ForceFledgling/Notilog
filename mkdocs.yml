@@ -90,6 +90,13 @@ plugins:
             show_symbol_type_heading: true
             show_symbol_type_toc: true
 
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
 nav:
   - Главная: index.md
   - Документация:
