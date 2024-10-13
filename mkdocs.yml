@@ -4,6 +4,7 @@ site_description: Открытая cистема управления журна
 site_author: Vladimir Penzin
 site_url: https://www.notilog.ru/
 copyright: 2024, Vladimir Penzin
+docs_dir: .docs
 
 # Repo
 repo_url: https://github.com/ForceFledgling/notilog
@@ -35,7 +36,7 @@ theme:
   name: material
   favicon: assets/images/logo.svg
   logo: assets/images/logo.svg
-  custom_dir: docs/overrides
+  custom_dir: .docs/overrides
   language: ru
   features:
     - content.action.edit           # кнопка редактирования
