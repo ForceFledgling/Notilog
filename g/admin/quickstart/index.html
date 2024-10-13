@@ -1514,19 +1514,6 @@
 <div class="highlight"><pre><span></span><code>% git clone https://github.com/ForceFledgling/notilog.git
 </code></pre></div>
 <p>Перемещаем .env-example в .end и меняем переменные.</p>
-<p>Запускаем билд (без traefik):</p>
-<div class="highlight"><pre><span></span><code>% cd notilog
-
-notilog % ./scripts/build.sh
-</code></pre></div>
-<p>Создаем сеть и проверяем:</p>
-<div class="highlight"><pre><span></span><code>notilog % docker network create traefik-public
-
-notilog % docker network ls
-NETWORK ID     NAME             DRIVER    SCOPE
-bde44b991ccb   traefik-public   bridge    local
-notilog %
-</code></pre></div>
 <p>Запускаем билд (запускается docker-compose.override.yml):</p>
 <div class="highlight"><pre><span></span><code>notilog % TAG=test ./scripts/build.sh      
 [+] Building 2.3s (40/40) FINISHED
