@@ -45,7 +45,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1513,30 +1513,30 @@
   <h1>API</h1>
 
 <p>Файл server/frontend/src/api/index.js представляет собой модуль для взаимодействия с API в твоем проекте на фронтенде. Этот файл экспортирует набор функций, которые используют утилиту request для отправки HTTP-запросов к бэкенд-серверу. Эти функции, как правило, используются для получения данных, отправки форм, обновления информации и выполнения других действий с API.</p>
-<pre><code>import { request } from '@/utils'
+<div class="highlight"><pre><span></span><code>import { request } from &#39;@/utils&#39;
 
 export default {
-  login: (data) =&gt; request.post('/base/access_token', data, { noNeedToken: true }),
-  getUserInfo: () =&gt; request.get('/base/userinfo'),
-  getUserMenu: () =&gt; request.get('/base/usermenu'),
-  getUserApi: () =&gt; request.get('/base/userapi'),
+  login: (data) =&gt; request.post(&#39;/base/access_token&#39;, data, { noNeedToken: true }),
+  getUserInfo: () =&gt; request.get(&#39;/base/userinfo&#39;),
+  getUserMenu: () =&gt; request.get(&#39;/base/usermenu&#39;),
+  getUserApi: () =&gt; request.get(&#39;/base/userapi&#39;),
 
   ...
   ...
 
   // events
-  getEventList: (params = {}) =&gt; request.get('/event/list', { params }),
-  getEventById: (params = {}) =&gt; request.get('/event/get', { params }),
-  createEvent: (data = {}) =&gt; request.post('/event/create', data),
-  updateEvent: (data = {}) =&gt; request.post('/event/update', data),
-  deleteEvent: (params = {}) =&gt; request.delete('/event/delete', { params }),
-  getEventLogs: (params = {}) =&gt; request.get('/event/logs', { params }),
-  refreshEvent: (data = {}) =&gt; request.post('/event/refresh', data),
+  getEventList: (params = {}) =&gt; request.get(&#39;/event/list&#39;, { params }),
+  getEventById: (params = {}) =&gt; request.get(&#39;/event/get&#39;, { params }),
+  createEvent: (data = {}) =&gt; request.post(&#39;/event/create&#39;, data),
+  updateEvent: (data = {}) =&gt; request.post(&#39;/event/update&#39;, data),
+  deleteEvent: (params = {}) =&gt; request.delete(&#39;/event/delete&#39;, { params }),
+  getEventLogs: (params = {}) =&gt; request.get(&#39;/event/logs&#39;, { params }),
+  refreshEvent: (data = {}) =&gt; request.post(&#39;/event/refresh&#39;, data),
 
   ...
   ...
 }
-</code></pre>
+</code></pre></div>
 
 
 
@@ -1650,10 +1650,10 @@ export default {
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "v0.1-alpha"}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "v0.1-alpha"}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>

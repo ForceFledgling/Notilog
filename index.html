@@ -44,7 +44,7 @@
     
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -1666,6 +1666,12 @@
 
 <p>Современный ландшафт ИТ-инфраструктуры настолько разнообразен и динамичен, что управление логами и мониторинг процессов требуют более гибких и автоматизированных решений.</p>
 <hr>
+
+<blockquote>
+<p>"ELK — штука крутая, конечно же, и в серьезных продакшенах без нее никуда. Но иногда установка лог-агрегатора — это полный оверкил. Бывает, просто нужно глянуть на логи, которые не попадают в агрегатор... это не конкуренция для ELK или Graylog, а скорее альтернатива <code>Notepad</code> и <code>tail -F foo.log</code>."</p>
+<p>— Джейсон Стейтем</p>
+</blockquote>
+<hr>
 <section class='notilog-highlights-section'>
 <div class='notilog-highlights'>
 <div class='item'>
@@ -1711,10 +1717,6 @@
 <p>Другие преимущества и возможности NotiLog:</p>
 <ul>
 <li>
-<p><b>ServerLess-режим:</b>
-  позволяет мгновенно начать мониторинг без необходимости настройки собственной инфраструктуры. Вы можете использовать наш бесплатный сервер для временного хранения логов и автоматической отправки уведомлений по вашим настроенным каналам.</p>
-</li>
-<li>
 <p><b>Бесперебойность:</b>
   поддерживаются обновления в реальном времени, что позволяет системе продолжать работу без необходимости перезагрузки, минимизируя простои.</p>
 </li>
@@ -1725,6 +1727,10 @@
 <li>
 <p><b>Аналитика и дашборды:</b>
   интерактивные дашборды позволяют отслеживать ключевые метрики и анализировать производительность систем в реальном времени. Это помогает оперативно принимать взвешенные решения на основе актуальных данных.</p>
+</li>
+<li>
+<p><b>Бессерверный-режим:</b>
+  позволяет мгновенно начать мониторинг без необходимости настройки собственной инфраструктуры. Вы можете использовать наш бесплатный сервер для временного хранения логов и автоматической отправки уведомлений по вашим настроенным каналам.</p>
 </li>
 </ul>
 <h2 id="_1">Структура документации</h2>
@@ -1844,10 +1850,10 @@
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "v0.1-alpha"}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["content.action.edit", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.instant.progress", "navigation.top", "search.highlight", "search.share"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "v0.1-alpha"}</script>
     
     
-      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="assets/javascripts/bundle.525ec568.min.js"></script>
       
     
   </body>
