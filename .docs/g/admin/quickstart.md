@@ -6,25 +6,6 @@
 
 Перемещаем .env-example в .end и меняем переменные.
 
-Запускаем билд (без traefik):
-
-```
-% cd notilog
-
-notilog % ./scripts/build.sh
-```
-
-Создаем сеть и проверяем:
-
-```
-notilog % docker network create traefik-public
-
-notilog % docker network ls
-NETWORK ID     NAME             DRIVER    SCOPE
-bde44b991ccb   traefik-public   bridge    local
-notilog %
-```
-
 Запускаем билд (запускается docker-compose.override.yml):
 
 ```
