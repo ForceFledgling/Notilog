@@ -9,7 +9,7 @@
 Запускаем билд (запускается docker-compose.override.yml):
 
 ```
-notilog % TAG=test ./scripts/build.sh      
+notilog % TAG=test ./scripts/build.sh
 [+] Building 2.3s (40/40) FINISHED
 ...
 ...
@@ -19,7 +19,7 @@ vladimir@MacBook-Pro-Vladimir-2 notilog %
 Поднимаем контейнеры:
 
 ```
-notilog % docker-compose up -d               
+notilog % docker-compose up -d
 [+] Running 38/14
 ...
 ...
