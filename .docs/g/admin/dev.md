@@ -3,7 +3,7 @@
 Разворачиваем базу данных:
 
 ```
-docker-compose -f docker-compose.dev.yml up db
+backend % docker-compose -f docker-compose.dev.yml up db
 ```
 
 Установка зависимостей:
@@ -19,6 +19,19 @@ backend % hatch shell
 ```
 
 Появится приставка `(app)`, указывающая что вы находитесь в окружении.
+
+Выполняем играции:
+
+```
+backend % alembic upgrade head
+```
+
+Выполняем инициализацию:
+
+```
+backend % chmod +x scripts/*     
+backend % ./scripts/prestart.sh 
+```
 
 Запускаем бекенд
 
