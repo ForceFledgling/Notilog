@@ -5,12 +5,12 @@ from fastapi import APIRouter, HTTPException
 from sqlmodel import func, select
 
 from app.api.deps import CurrentUser, SessionDep
-from app.models import Event, EventBase, EventCreate, EventUpdate
+from app.models import Event, EventBase, EventCreate, EventUpdate, EventsPublic
 
 router = APIRouter()
 
 
-@router.get("/list", response_model=EventBase, summary="Просмотр списка событий")
+@router.get("/", response_model=EventsPublic) 
 def read_events(
     session: SessionDep, current_user: CurrentUser, skip: int = 0, limit: int = 100
 ) -> Any:
@@ -38,4 +38,17 @@ def read_events(
         )
         events = session.exec(statement).all()
 
-    return EventBase(data=events, count=count)
+    return EventsPublic(data=events, count=count)
+
+@router.post("/", response_model=EventCreate)
+def create_event(
+    *, session: SessionDep, current_user: CurrentUser, event_in: EventCreate
+) -> Any:
+    """
+    Create new event.
+    """
+    event = Event.model_validate(event_in, update={"owner_id": current_user.id})
+    session.add(event)
+    session.commit()
+    session.refresh(event)
+    return event

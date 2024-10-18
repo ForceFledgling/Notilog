@@ -136,7 +136,6 @@ class EventBase(SQLModel):
 # Database model, database table inferred from class name
 class Event(EventBase, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
-    host: str = Field(max_length=20)
     owner_id: uuid.UUID = Field(
         foreign_key="user.id", nullable=False, ondelete="CASCADE"
     )
@@ -147,3 +146,12 @@ class EventCreate(EventBase):
 
 class EventUpdate(EventBase):
     pass
+
+# Properties to return via API, id is always required
+class EventPublic(EventBase):
+    id: uuid.UUID
+    owner_id: uuid.UUID
+
+class EventsPublic(SQLModel):
+    data: list[EventPublic]
+    count: int
