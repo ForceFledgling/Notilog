@@ -120,9 +120,9 @@ nav:
         - Введение: g/user/intro.md
       - Администратору: 
         - Введение: g/admin/intro.md
-        - Быстрый старт: g/admin/quickstart.md
         - Установка: g/admin/install.md
-        - Развертывание: g/admin/deploy.md
+        - Развертывание: g/admin/deployment.md
+        - Разработка: g/admin/development.md
         - Миграции: g/admin/migration.md
       - Сообщество: g/community.md
   - Документация по API: http://backend.notilog.ru:9999/docs
