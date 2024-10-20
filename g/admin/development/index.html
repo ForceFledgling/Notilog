@@ -12,10 +12,10 @@
     <meta name="author" content="Vladimir Penzin">
     
     
-    <link rel="canonical" href="https://www.notilog.ru/g/admin/deploy/">
+    <link rel="canonical" href="https://www.notilog.ru/g/admin/development/">
     
     
-    <link rel="prev" href="../install/">
+    <link rel="prev" href="../deployment/">
     
     
     <link rel="next" href="../migration/">
@@ -32,16 +32,16 @@
     <meta property="og:description" content="Открытая cистема управления журналами приложений, мониторингом процессов, отправкой уведомлений и эскалацией инцидентов">
     
 
-    <meta property="og:image" content="https://www.notilog.ru/g/admin/deploy/assets/images/preview.jpg">
+    <meta property="og:image" content="https://www.notilog.ru/g/admin/development/assets/images/preview.jpg">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta property="og:url" content="https://www.notilog.ru/g/admin/deploy/">
+    <meta property="og:url" content="https://www.notilog.ru/g/admin/development/">
     <meta property="og:type" content="website">
 
     
       
-        <title>Развертывание - NotiLog</title>
+        <title>Разработка - NotiLog</title>
       
     
     
@@ -136,7 +136,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Развертывание
+              Разработка
             
           </span>
         </div>
@@ -982,11 +982,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../install/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Быстрый старт
+    Установка
   </span>
   
 
@@ -1003,11 +1003,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Установка
+    Развертывание
   </span>
   
 
@@ -1035,7 +1035,7 @@
           
   
   <span class="md-ellipsis">
-    Развертывание
+    Разработка
   </span>
   
 
@@ -1046,7 +1046,7 @@
         
   
   <span class="md-ellipsis">
-    Развертывание
+    Разработка
   </span>
   
 
@@ -1068,7 +1068,7 @@
         <li class="md-nav__item">
   <a href="#docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
-      Запуск через Docker Compose
+      Запуск локального стека с Docker Compose
     </span>
   </a>
   
@@ -1077,7 +1077,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Основные моменты
+      Локальная разработка
     </span>
   </a>
   
@@ -1547,7 +1547,7 @@
         <li class="md-nav__item">
   <a href="#docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
-      Запуск через Docker Compose
+      Запуск локального стека с Docker Compose
     </span>
   </a>
   
@@ -1556,7 +1556,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Основные моменты
+      Локальная разработка
     </span>
   </a>
   
@@ -1577,7 +1577,7 @@
                   
 
   
-    <a href="https://github.com/ForceFledgling/notilog/blob/main/docs/g/admin/deploy.md" title="Редактировать страницу" class="md-content__button md-icon">
+    <a href="https://github.com/ForceFledgling/notilog/blob/main/docs/g/admin/development.md" title="Редактировать страницу" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -1585,17 +1585,46 @@
   
 
 
-  <h1>Развертывание</h1>
+  <h1>Разработка</h1>
 
-<h2 id="docker-compose">Запуск через Docker Compose</h2>
-<p>Чтобы запустить приложение через Docker Compose, выполните команду:</p>
-<div class="highlight"><pre><span></span><code>docker-compose up --build
+<h2 id="docker-compose">Запуск локального стека с Docker Compose</h2>
+<p>Когда вы запускаете стек Docker Compose, по умолчанию используется <code>localhost</code>, с разными портами для каждого сервиса (бэкенд, фронтенд, adminer и т.д.).</p>
+<p>При деплое на продакшн (или staging), каждый сервис будет развернут на разных поддоменах, например, <code>api.example.com</code> для бэкенда и <code>dashboard.example.com</code> для фронтенда.</p>
+<div class="highlight"><pre><span></span><code>notilog % docker compose watch
 </code></pre></div>
-<p>Это развернет контейнеры для сервера, клиента, базы данных и Redis.</p>
-<h2 id="_1">Основные моменты</h2>
-<p><strong>Конфигурация</strong>: Настройки для клиента и сервера можно вынести в отдельные конфигурационные файлы (<code>config.py</code>) или использовать переменные окружения, которые можно передавать через <code>docker-compose.yml</code>.</p>
-<p><strong>Масштабируемость</strong>: Использование Docker Compose позволяет легко масштабировать приложение, добавляя дополнительные сервисы, например, для обработки очередей или горизонтального масштабирования серверной части.</p>
-<p><strong>Удобство разработки</strong>: Проект структурирован таким образом, чтобы его было удобно разрабатывать и поддерживать как в виде модулей, так и в контейнеризированной среде.</p>
+<p>Теперь вы можете открыть браузер и взаимодействовать с этими URL:</p>
+<ul>
+<li><strong>Frontend</strong>, собранный с помощью Docker, с маршрутами на основе пути: <a href="http://localhost:5173">http://localhost:5173</a></li>
+<li><strong>Backend</strong>, веб-API на основе JSON с OpenAPI: <a href="http://localhost:8000">http://localhost:8000</a></li>
+<li><strong>Автоматическая интерактивная документация с помощью Swagger UI</strong> (от OpenAPI бэкенда): <a href="http://localhost:8000/docs">http://localhost:8000/docs</a></li>
+<li><strong>Adminer</strong>, веб-интерфейс для управления базой данных: <a href="http://localhost:8080">http://localhost:8080</a></li>
+<li><strong>Traefik UI</strong>, чтобы увидеть, как прокси обрабатывает маршруты: <a href="http://localhost:8090">http://localhost:8090</a></li>
+</ul>
+<p>Примечание: первый запуск стека может занять некоторое время, так как бэкенд ожидает готовности базы данных и настраивает всё. Вы можете следить за логами для мониторинга.</p>
+<p>Чтобы проверить логи, выполните (в другой терминальной сессии):</p>
+<div class="highlight"><pre><span></span><code>docker compose logs
+</code></pre></div>
+<p>Чтобы посмотреть логи конкретного сервиса, добавьте его имя, например:</p>
+<div class="highlight"><pre><span></span><code>docker compose logs backend
+</code></pre></div>
+<h2 id="_1">Локальная разработка</h2>
+<p>Файлы Docker Compose настроены так, чтобы каждый сервис был доступен на отдельном порту на <code>localhost</code>.</p>
+<p>Для бэкенда и фронтенда используются те же порты, которые они бы использовали на локальных серверах разработки. Поэтому бэкенд доступен по адресу <a href="http://localhost:8000">http://localhost:8000</a>, а фронтенд — <a href="http://localhost:5173">http://localhost:5173</a>.</p>
+<p>Таким образом, вы можете остановить сервис Docker Compose и запустить его локальный сервер разработки — всё продолжит работать, потому что используются те же порты.</p>
+<p>Например, можно остановить фронтенд-сервис в Docker Compose:</p>
+<div class="highlight"><pre><span></span><code>docker compose stop frontend
+</code></pre></div>
+<p>А затем запустить локальный сервер разработки фронтенда:</p>
+<div class="highlight"><pre><span></span><code>cd frontend
+npm run dev
+</code></pre></div>
+<p>Или можно остановить бэкенд-сервис в Docker Compose:</p>
+<div class="highlight"><pre><span></span><code>docker compose stop backend
+</code></pre></div>
+<p>И затем запустить локальный сервер разработки для бэкенда:</p>
+<div class="highlight"><pre><span></span><code>cd backend
+fastapi dev app/main.py
+</code></pre></div>
 
 
 
@@ -1631,7 +1660,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Нижний колонтитул" >
         
           
-          <a href="../install/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Установка">
+          <a href="../deployment/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Развертывание">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
@@ -1641,7 +1670,7 @@
                 Назад
               </span>
               <div class="md-ellipsis">
-                Установка
+                Развертывание
               </div>
             </div>
           </a>

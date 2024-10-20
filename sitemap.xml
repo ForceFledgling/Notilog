@@ -2,122 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.notilog.ru/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/d/characteristics/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/d/docs/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/d/functional-blocks/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/d/goals/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/d/intro/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/community/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/admin/deploy/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <loc>https://www.notilog.ru/g/admin/deployment/</loc>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
-         <loc>https://www.notilog.ru/g/admin/dev/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <loc>https://www.notilog.ru/g/admin/development/</loc>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/admin/install/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/admin/intro/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/admin/migration/</loc>
-         <lastmod>2024-10-18</lastmod>
-    </url>
-    <url>
-         <loc>https://www.notilog.ru/g/admin/quickstart/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/g/user/intro/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/backup-recovery/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/scheduled-maintenance/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/security-licensing/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/system-failure-procedures/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/system-operation/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/r/troubleshooting-optimization/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/client/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/backend/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/frontend/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/frontend/api/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/frontend/storage/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/frontend/translate/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
     <url>
          <loc>https://www.notilog.ru/t/server/frontend/views/</loc>
-         <lastmod>2024-10-18</lastmod>
+         <lastmod>2024-10-20</lastmod>
     </url>
 </urlset>
