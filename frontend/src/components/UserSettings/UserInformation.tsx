@@ -77,7 +77,7 @@ const UserInformation = () => {
     <>
       <Container maxW="full">
         <Heading size="sm" py={4}>
-          User Information
+          Информация о пользователе
         </Heading>
         <Box
           w={{ sm: "full", md: "50%" }}
@@ -86,7 +86,7 @@ const UserInformation = () => {
         >
           <FormControl>
             <FormLabel color={color} htmlFor="name">
-              Full name
+              Полное имя
             </FormLabel>
             {editMode ? (
               <Input
@@ -110,7 +110,7 @@ const UserInformation = () => {
           </FormControl>
           <FormControl mt={4} isInvalid={!!errors.email}>
             <FormLabel color={color} htmlFor="email">
-              Email
+              Почта
             </FormLabel>
             {editMode ? (
               <Input

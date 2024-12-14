@@ -77,10 +77,10 @@ function RecoverPassword() {
       centerContent
     >
       <Heading size="xl" color="ui.main" textAlign="center" mb={2}>
-        Password Recovery
+        Восстановление пароля
       </Heading>
       <Text align="center">
-        A password recovery email will be sent to the registered account.
+        Для восстановления пароля будет отправлено сообщение на вашу почту.
       </Text>
       <FormControl isInvalid={!!errors.email}>
         <Input
@@ -89,7 +89,7 @@ function RecoverPassword() {
             required: "Email is required",
             pattern: emailPattern,
           })}
-          placeholder="Email"
+          placeholder="Почта"
           type="email"
         />
         {errors.email && (
@@ -97,7 +97,7 @@ function RecoverPassword() {
         )}
       </FormControl>
       <Button variant="primary" type="submit" isLoading={isSubmitting}>
-        Continue
+        Продолжить
       </Button>
     </Container>
   )

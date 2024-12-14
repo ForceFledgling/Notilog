@@ -127,15 +127,15 @@ function Login() {
           {error && <FormErrorMessage>{error}</FormErrorMessage>}
         </FormControl>
         <Link as={RouterLink} to="/recover-password" color="blue.500">
-          Forgot password?
+          Забыли пароль ?
         </Link>
         <Button variant="primary" type="submit" isLoading={isSubmitting}>
-          Log In
+          Вход
         </Button>
         <Text>
-          Don't have an account?{" "}
+          Нет аккаунта ?{" "}
           <Link as={RouterLink} to="/signup" color="blue.500">
-            Sign up
+            Регистрация
           </Link>
         </Text>
       </Container>

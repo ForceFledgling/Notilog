@@ -88,7 +88,7 @@ function SignUp() {
               id="full_name"
               minLength={3}
               {...register("full_name", { required: "Full Name is required" })}
-              placeholder="Full Name"
+              placeholder="Полное имя"
               type="text"
             />
             {errors.full_name && (
@@ -105,7 +105,7 @@ function SignUp() {
                 required: "Email is required",
                 pattern: emailPattern,
               })}
-              placeholder="Email"
+              placeholder="Почта"
               type="email"
             />
             {errors.email && (
@@ -119,7 +119,7 @@ function SignUp() {
             <Input
               id="password"
               {...register("password", passwordRules())}
-              placeholder="Password"
+              placeholder="Пароль"
               type="password"
             />
             {errors.password && (
@@ -137,7 +137,7 @@ function SignUp() {
             <Input
               id="confirm_password"
               {...register("confirm_password", confirmPasswordRules(getValues))}
-              placeholder="Repeat Password"
+              placeholder="Повторите пароль"
               type="password"
             />
             {errors.confirm_password && (
@@ -147,12 +147,12 @@ function SignUp() {
             )}
           </FormControl>
           <Button variant="primary" type="submit" isLoading={isSubmitting}>
-            Sign Up
+            Зарегистрироваться
           </Button>
           <Text>
-            Already have an account?{" "}
+            Уже есть акааунт ?{" "}
             <Link as={RouterLink} to="/login" color="blue.500">
-              Log In
+              Вход
             </Link>
           </Text>
         </Container>

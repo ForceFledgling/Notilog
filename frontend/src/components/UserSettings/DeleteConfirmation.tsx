@@ -65,25 +65,25 @@ const DeleteConfirmation = ({ isOpen, onClose }: DeleteProps) => {
       >
         <AlertDialogOverlay>
           <AlertDialogContent as="form" onSubmit={handleSubmit(onSubmit)}>
-            <AlertDialogHeader>Confirmation Required</AlertDialogHeader>
+            <AlertDialogHeader>Подтверждение запроса</AlertDialogHeader>
 
             <AlertDialogBody>
-              All your account data will be{" "}
-              <strong>permanently deleted.</strong> If you are sure, please
-              click <strong>"Confirm"</strong> to proceed. This action cannot be
-              undone.
+              Все данные вашего аккаунта{" "}
+              <strong>навсегда будут удалены.</strong> Если вы согласны, 
+              то нажмите <strong>"Подтвердить"</strong>.
+              Данное действие не возможно будет отменить.
             </AlertDialogBody>
 
             <AlertDialogFooter gap={3}>
               <Button variant="danger" type="submit" isLoading={isSubmitting}>
-                Confirm
+                Подтвердить
               </Button>
               <Button
                 ref={cancelRef}
                 onClick={onClose}
                 isDisabled={isSubmitting}
               >
-                Cancel
+                Отмена
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>
