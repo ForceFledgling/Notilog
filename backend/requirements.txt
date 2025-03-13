@@ -1,0 +1,25 @@
+# base-dependencies
+fastapi[standard]
+python-multipart
+email-validator
+passlib[bcrypt]
+tenacity
+pydantic>2.0
+emails
+jinja2
+alembic
+httpx
+psycopg[binary]
+sqlmodel
+bcrypt
+pydantic-settings
+sentry-sdk[fastapi]
+pyjwt
+
+# dev-dependencies
+pytest
+mypy
+ruff
+pre-commit
+types-passlib
+coverage
